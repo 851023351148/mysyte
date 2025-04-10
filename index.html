@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ric Solutions - Оборудование и софт для IT</title>
+    <!-- SEO мета-теги -->
+    <title>Ric Solutions - Поставщик ИТ оборудования и программного обеспечения</title>
+    <meta name="description" content="Ric Solutions — поставщик ИТ оборудования: серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса.">
+    <meta name="keywords" content="ИТ оборудование, серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие, программное обеспечение, Ric Solutions">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph для социальных сетей -->
+    <meta property="og:title" content="Ric Solutions - Поставщик ИТ оборудования">
+    <meta property="og:description" content="Надежные поставки ИТ оборудования и программного обеспечения для бизнеса любого масштаба.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url" content="https://ricsolutions.com">
+    <meta property="og:type" content="website">
+    <!-- Мультиязычность -->
+    <link rel="alternate" hreflang="ru" href="https://ricsolutions.com/ru">
+    <link rel="alternate" hreflang="en" href="https://ricsolutions.com/en">
+    <link rel="alternate" hreflang="x-default" href="https://ricsolutions.com/ru">
+    <!-- Подключаем Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
@@ -57,8 +72,6 @@
             padding: 15px;
             background-color: #2c3e50;
             color: white;
-            position: fixed;
-            bottom: 0;
             width: 100%;
             left: 0;
         }
@@ -79,6 +92,19 @@
             font-weight: bold;
             text-decoration: underline;
         }
+        /* Улучшение мобильной адаптивности */
+        @media (max-width: 768px) {
+            .product-item {
+                width: 100%;
+                max-width: 300px;
+            }
+            .footer {
+                position: static; /* Убираем фиксированное положение на мобильных */
+            }
+            .content {
+                padding-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -88,54 +114,77 @@
             <button class="lang-btn" data-lang="en">EN</button>
         </div>
         <div class="logo-container">
-            <img src="logo.png" alt="Ric Solutions Logo" class="logo">
+            <img src="logo.png" alt="Ric Solutions - Поставщик ИТ оборудования" class="logo">
         </div>
-        <p data-lang-ru="Ваш надёжный поставщик IT-оборудования и программного обеспечения" 
-           data-lang-en="Your reliable supplier of IT equipment and software"></p>
+        <p class="lang-text" data-lang-ru="Ваш надёжный поставщик ИТ-оборудования и программного обеспечения" 
+           data-lang-en="Your reliable supplier of IT equipment and software">
+            Ваш надёжный поставщик ИТ-оборудования и программного обеспечения
+        </p>
     </div>
     
     <div class="content">
-        <h2 data-lang-ru="О нас" data-lang-en="About Us"></h2>
-        <p data-lang-ru="Ric Solutions — компания, специализирующаяся на поставке высококачественного оборудования и программного обеспечения для IT-инфраструктуры. Мы предлагаем комплексные решения для бизнеса любого масштаба."
-           data-lang-en="Ric Solutions is a company specializing in supplying high-quality equipment and software for IT infrastructure. We offer comprehensive solutions for businesses of any scale."></p>
+        <h1 style="display: none;">Ric Solutions - ИТ оборудование для бизнеса</h1> <!-- Скрытый h1 для SEO -->
+        <h2 class="lang-text" data-lang-ru="О нас" data-lang-en="About Us">О нас</h2>
+        <p class="lang-text" data-lang-ru="Ric Solutions — компания, специализирующаяся на поставке высококачественного ИТ-оборудования и программного обеспечения для IT-инфраструктуры. Мы предлагаем серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса любого масштаба."
+           data-lang-en="Ric Solutions is a company specializing in supplying high-quality IT equipment and software for IT infrastructure. We offer servers, network equipment, data storage, computers, components, and licensed software for businesses of any scale.">
+            Ric Solutions — компания, специализирующаяся на поставке высококачественного ИТ-оборудования и программного обеспечения для IT-инфраструктуры. Мы предлагаем серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса любого масштаба.
+        </p>
         
-        <h2 data-lang-ru="Наши продукты" data-lang-en="Our Products"></h2>
+        <h2 class="lang-text" data-lang-ru="Наши продукты" data-lang-en="Our Products">Наши продукты</h2>
         <div class="products">
             <div class="product-item">
                 <i class="fas fa-server"></i>
-                <h3 data-lang-ru="Серверы" data-lang-en="Servers"></h3>
-                <p data-lang-ru="Мощные и надёжные серверные решения."
-                   data-lang-en="Powerful and reliable server solutions."></p>
+                <h3 class="lang-text" data-lang-ru="Серверы" data-lang-en="Servers">Серверы</h3>
+                <p class="lang-text" data-lang-ru="Мощные и надёжные серверные решения для бизнеса."
+                   data-lang-en="Powerful and reliable server solutions for businesses.">
+                    Мощные и надёжные серверные решения для бизнеса.
+                </p>
             </div>
             <div class="product-item">
                 <i class="fas fa-network-wired"></i>
-                <h3 data-lang-ru="Сетевое оборудование" data-lang-en="Network Equipment"></h3>
-                <p data-lang-ru="Коммутаторы, роутеры и точки доступа."
-                   data-lang-en="Switches, routers, and access points."></p>
+                <h3 class="lang-text" data-lang-ru="Сетевое оборудование" data-lang-en="Network Equipment">Сетевое оборудование</h3>
+                <p class="lang-text" data-lang-ru="Коммутаторы, роутеры и точки доступа для стабильной сети."
+                   data-lang-en="Switches, routers, and access points for a stable network.">
+                    Коммутаторы, роутеры и точки доступа для стабильной сети.
+                </p>
             </div>
             <div class="product-item">
                 <i class="fas fa-hdd"></i>
-                <h3 data-lang-ru="Хранилища данных" data-lang-en="Data Storage"></h3>
-                <p data-lang-ru="Современные системы хранения информации."
-                   data-lang-en="Modern data storage systems."></p>
+                <h3 class="lang-text" data-lang-ru="Хранилища данных" data-lang-en="Data Storage">Хранилища данных</h3>
+                <p class="lang-text" data-lang-ru="Современные системы хранения информации для больших данных."
+                   data-lang-en="Modern data storage systems for big data.">
+                    Современные системы хранения информации для больших данных.
+                </p>
             </div>
             <div class="product-item">
                 <i class="fas fa-code"></i>
-                <h3 data-lang-ru="Программное обеспечение" data-lang-en="Software"></h3>
-                <p data-lang-ru="Лицензионный софт для бизнеса и IT."
-                   data-lang-en="Licensed software for business and IT."></p>
+                <h3 class="lang-text" data-lang-ru="Программное обеспечение" data-lang-en="Software">Программное обеспечение</h3>
+                <p class="lang-text" data-lang-ru="Лицензионный софт для бизнеса и IT-инфраструктуры."
+                   data-lang-en="Licensed software for business and IT infrastructure.">
+                    Лицензионный софт для бизнеса и IT-инфраструктуры.
+                </p>
+            </div>
+            <div class="product-item">
+                <i class="fas fa-desktop"></i>
+                <h3 class="lang-text" data-lang-ru="Компьютеры и комплектующие" data-lang-en="Computers and Components">Компьютеры и комплектующие</h3>
+                <p class="lang-text" data-lang-ru="Рабочие станции, ноутбуки и комплектующие для ПК."
+                   data-lang-en="Workstations, laptops, and PC components.">
+                    Рабочие станции, ноутбуки и комплектующие для ПК.
+                </p>
             </div>
         </div>
     </div>
     
     <div class="footer">
-        <p data-lang-ru="© 2025 Ric Solutions. Все права защищены. | Email: vm@softrain.kz | Тел: +7 (707) 423-98-99"
-           data-lang-en="© 2025 Ric Solutions. All rights reserved. | Email: vm@softrain.kz | Tel: +7 (707) 423-98-99"></p>
+        <p class="lang-text" data-lang-ru="© 2025 Ric Solutions. Все права защищены. | Email: vm@softrain.kz | Тел: +7 (707) 423-98-99"
+           data-lang-en="© 2025 Ric Solutions. All rights reserved. | Email: vm@softrain.kz | Tel: +7 (707) 423-98-99">
+            © 2025 Ric Solutions. Все права защищены. | Email: vm@softrain.kz | Тел: +7 (707) 423-98-99
+        </p>
     </div>
 
     <script>
         const langButtons = document.querySelectorAll('.lang-btn');
-        const elements = document.querySelectorAll('[data-lang-ru]');
+        const elements = document.querySelectorAll('.lang-text');
 
         // Функция для переключения языка
         function switchLanguage(lang) {
@@ -150,6 +199,18 @@
             elements.forEach(element => {
                 element.textContent = element.getAttribute(`data-lang-${lang}`);
             });
+
+            // Обновляем заголовок страницы
+            document.title = lang === 'ru' 
+                ? 'Ric Solutions - Поставщик ИТ оборудования и программного обеспечения'
+                : 'Ric Solutions - Supplier of IT Equipment and Software';
+        }
+
+        // Функция для определения языка браузера
+        function getBrowserLanguage() {
+            const browserLang = navigator.language || navigator.languages[0];
+            const lang = browserLang.split('-')[0];
+            return ['ru', 'en'].includes(lang) ? lang : 'ru';
         }
 
         // Обработчик кликов по кнопкам
@@ -162,7 +223,8 @@
 
         // Инициализация языка при загрузке страницы
         window.addEventListener('DOMContentLoaded', () => {
-            switchLanguage('ru'); // Устанавливаем русский язык по умолчанию
+            const defaultLang = getBrowserLanguage();
+            switchLanguage(defaultLang);
         });
     </script>
 </body>
