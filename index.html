@@ -6,65 +6,342 @@
   <title>Ric Solutions - Поставщик ИТ оборудования и программного обеспечения</title>
   <meta name="description" content="Ric Solutions — поставщик ИТ оборудования: серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса.">
   <meta name="keywords" content="ИТ оборудование, серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие, программное обеспечение, Ric Solutions">
+  
+  <!-- CSP заголовок для безопасности -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://www.google.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com;">
+  
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
-    .header { text-align: center; padding: 30px; background-color: #2c3e50; color: white; position: relative;}
-    .logo-container { display: inline-block; background-color: white; padding: 10px; border-radius: 5px; margin-bottom: 10px;}
-    .logo { max-width: 300px; height: auto;}
-    .content { max-width: 900px; margin: 20px auto; padding-bottom: 60px;}
-    .products { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;}
-    .product-item { border: 1px solid #ddd; padding: 15px; width: 250px; text-align: center;}
-    .product-item i { font-size: 40px; color: #2c3e50; margin-bottom: 10px;}
-    .footer { text-align: center; padding: 15px; background-color: #2c3e50; color: white; width: 100%;}
+    * {
+      box-sizing: border-box;
+    }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      line-height: 1.6; 
+      background-color: #f8f9fa;
+    }
+    
+    .header { 
+      text-align: center; 
+      padding: 30px 20px; 
+      background: linear-gradient(135deg, #2c3e50, #34495e); 
+      color: white; 
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .logo-container { 
+      display: inline-block; 
+      background-color: white; 
+      padding: 15px; 
+      border-radius: 10px; 
+      margin-bottom: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .logo { 
+      max-width: 300px; 
+      height: auto;
+    }
+    
+    .content { 
+      max-width: 1200px; 
+      margin: 40px auto; 
+      padding: 0 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      padding: 40px;
+    }
+    
+    .products { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 30px; 
+      margin-top: 30px;
+    }
+    
+    .product-item { 
+      border: 1px solid #e9ecef; 
+      padding: 30px 20px; 
+      text-align: center;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .product-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      border-color: #2c3e50;
+    }
+    
+    .product-item i { 
+      font-size: 50px; 
+      color: #2c3e50; 
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+    
+    .product-item:hover i {
+      color: #e67e22;
+    }
+    
+    .footer { 
+      text-align: center; 
+      padding: 30px 20px; 
+      background: linear-gradient(135deg, #2c3e50, #34495e); 
+      color: white; 
+      margin-top: 40px;
+    }
     
     /* Переключение языка */
-    .language-switcher { position: absolute; top: 10px; right: 20px;}
-    .language-switcher button { background: none; border: none; color: white; font-size: 16px; cursor: pointer; padding: 5px 10px;}
-    .language-switcher button.active { font-weight: bold; text-decoration: underline;}
+    .language-switcher { 
+      position: absolute; 
+      top: 15px; 
+      right: 20px;
+    }
+    
+    .language-switcher button { 
+      background: rgba(255,255,255,0.2); 
+      border: 1px solid rgba(255,255,255,0.3); 
+      color: white; 
+      font-size: 14px; 
+      cursor: pointer; 
+      padding: 8px 12px;
+      margin: 0 2px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    .language-switcher button:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    
+    .language-switcher button.active { 
+      background: #e67e22;
+      border-color: #e67e22;
+      font-weight: bold;
+    }
 
     /* Кнопка входа */
-    .auth-btn { position: absolute; top: 15px; right: 120px;}
-    .auth-btn button { background: #e67e22; color: white; border: none; padding: 7px 14px; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background 0.3s;}
-    .auth-btn button:hover { background: #d35400;}
+    .auth-btn { 
+      position: absolute; 
+      top: 15px; 
+      right: 140px;
+    }
+    
+    .auth-btn button { 
+      background: #e67e22; 
+      color: white; 
+      border: none; 
+      padding: 10px 16px; 
+      border-radius: 6px; 
+      cursor: pointer; 
+      font-size: 14px; 
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .auth-btn button:hover { 
+      background: #d35400;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+    }
 
     /* Модальное окно */
-    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center;}
-    .modal-content { background: white; padding: 20px; border-radius: 8px; max-width: 320px; width: 90%; text-align: center; position: relative;}
-    .modal .close { position: absolute; right: 10px; top: 10px; font-size: 20px; cursor: pointer;}
-    .modal-content input { width: 90%; padding: 8px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px;}
-    .modal-content button { background: #27ae60; color: white; padding: 8px 14px; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s;}
-    .modal-content button:hover { background: #219150;}
+    .modal { 
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0; 
+      top: 0; 
+      width: 100%; 
+      height: 100%; 
+      background-color: rgba(0,0,0,0.6); 
+      justify-content: center; 
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+    
+    .modal.show {
+      display: flex;
+    }
+    
+    .modal-content { 
+      background: white; 
+      padding: 30px; 
+      border-radius: 15px; 
+      max-width: 400px; 
+      width: 90%; 
+      text-align: center; 
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: modalSlideIn 0.3s ease;
+    }
+    
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    .modal .close { 
+      position: absolute; 
+      right: 15px; 
+      top: 15px; 
+      font-size: 24px; 
+      cursor: pointer;
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    
+    .modal .close:hover {
+      color: #e74c3c;
+    }
+    
+    .modal-content input { 
+      width: 100%; 
+      padding: 12px 15px; 
+      margin: 10px 0; 
+      border: 2px solid #e9ecef; 
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+    
+    .modal-content input:focus {
+      outline: none;
+      border-color: #2c3e50;
+      box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+    }
+    
+    .modal-content button { 
+      background: #27ae60; 
+      color: white; 
+      padding: 12px 20px; 
+      border: none; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+    .modal-content button:hover { 
+      background: #219150;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+    }
+    
+    .modal-content button:disabled {
+      background: #bdc3c7;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid #e9ecef;
+    }
+    
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      cursor: pointer;
+      border: none;
+      background: #f8f9fa;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .tab-btn.active {
+      background: #2c3e50;
+      color: white;
+    }
+    
+    .tab { 
+      display: none; 
+    }
+    
+    .tab.active { 
+      display: block; 
+    }
+    
+    .error-message {
+      color: #e74c3c;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+    
+    .success-message {
+      color: #27ae60;
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+    }
 
     /* Мобильная адаптивность */
     @media (max-width: 768px) {
-      .product-item { width: 100%; max-width: 300px;}
-      .footer { position: static;}
-      .content { padding-bottom: 20px;}
-      .auth-btn { right: 20px; top: 60px; }
+      .header {
+        padding: 20px 10px;
+      }
+      
+      .content {
+        margin: 20px 10px;
+        padding: 20px;
+      }
+      
+      .products {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .auth-btn { 
+        right: 10px; 
+        top: 70px; 
+      }
+      
+      .language-switcher {
+        right: 10px;
+        top: 10px;
+      }
+      
+      .modal-content {
+        margin: 20px;
+        padding: 20px;
+      }
     }
-    .tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+    
+    @media (max-width: 480px) {
+      .auth-btn button {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+      
+      .language-switcher button {
+        padding: 6px 8px;
+        font-size: 12px;
+      }
     }
-    .tab-btn {
-    flex: 1;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
-    background: #eee;
-    transition: background 0.3s;
-    }
-    .tab-btn.active {
-    background: #2c3e50;
-    color: white;
-    font-weight: bold;
-    }
-    .tab { display: none; }
-    .tab.active { display: block; }
   </style>
 </head>
 
@@ -75,97 +352,99 @@
       <button class="lang-btn" data-lang="en">EN</button>
     </div>
 
-    <!-- 🔽 Кнопка входа -->
     <div class="auth-btn">
       <button id="openAuthModal">Войти / Регистрация</button>
     </div>
 
-    <!-- 🔽 Модалка -->
     <div id="authModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <div class="tabs">
-            <button class="tab-btn active" data-tab="register">Регистрация</button>
-            <button class="tab-btn" data-tab="login">Вход</button>
-          </div>
-      
-          <!-- 🔽 Формы будут переключаться -->
-          <div id="register-form" class="tab active">
-            <input type="email" id="reg-email" placeholder="Введите email">
-            <input type="password" id="reg-password" placeholder="Введите пароль">
-            <button id="registerBtn">Зарегистрироваться</button>
-          </div>
-      
-          <div id="login-form" class="tab">
-            <input type="email" id="login-email" placeholder="Email">
-            <input type="password" id="login-password" placeholder="Пароль">
-            <button id="loginBtn">Войти</button>
-          </div>
-      
-          <!-- 🔽 Общая капча -->
-          <div class="g-recaptcha" data-sitekey="6LfB4NUrAAAAAOJvLHVfweJhXPXlNNd0ZHPPoT9r"></div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="register">Регистрация</button>
+          <button class="tab-btn" data-tab="login">Вход</button>
+        </div>
+        
+        <div id="register-form" class="tab active">
+          <input type="email" id="reg-email" placeholder="Введите email" required>
+          <div class="error-message" id="reg-email-error"></div>
+          <input type="password" id="reg-password" placeholder="Введите пароль (мин. 6 символов)" required>
+          <div class="error-message" id="reg-password-error"></div>
+          <div class="g-recaptcha" data-sitekey="6LfB4NUrAAAAOJvLHVfweJhXPXlNNd0ZHPPoT9r"></div>
+          <button id="registerBtn">Зарегистрироваться</button>
+          <div class="success-message" id="reg-success"></div>
+        </div>
+        
+        <div id="login-form" class="tab">
+          <input type="email" id="login-email" placeholder="Email" required>
+          <div class="error-message" id="login-email-error"></div>
+          <input type="password" id="login-password" placeholder="Пароль" required>
+          <div class="error-message" id="login-password-error"></div>
+          <div class="g-recaptcha" data-sitekey="6LfB4NUrAAAAOJvLHVfweJhXPXlNNd0ZHPPoT9r"></div>
+          <button id="loginBtn">Войти</button>
+          <div class="success-message" id="login-success"></div>
         </div>
       </div>
+    </div>
 
     <div class="logo-container">
       <img src="logo.png" alt="Ric Solutions - Поставщик ИТ оборудования" class="logo">
     </div>
     <p class="lang-text" data-lang-ru="Ваш надёжный поставщик ИТ-оборудования и программного обеспечения" 
        data-lang-en="Your reliable supplier of IT equipment and software">
-       Ваш надёжный поставщик ИТ-оборудования и программного обеспечения
+      Ваш надёжный поставщик ИТ-оборудования и программного обеспечения
     </p>
   </div>
 
   <div class="content">
     <h2 class="lang-text" data-lang-ru="О нас" data-lang-en="About Us">О нас</h2>
-    <p class="lang-text" data-lang-ru="Ric Solutions — компания, специализирующаяся на поставке автоматизации безнес задач вашей компании" data-lang-en="Ric Solutions is a company specializing in delivering automation for your company's business tasks.">
-      Ric Solutions — компания, специализирующаяся на поставке автоматизации безнес задач вашей компании".
+    <p class="lang-text" data-lang-ru="Ric Solutions — компания, специализирующаяся на поставке автоматизации бизнес задач вашей компании" data-lang-en="Ric Solutions is a company specializing in delivering automation for your company's business tasks.">
+      Ric Solutions — компания, специализирующаяся на поставке автоматизации бизнес задач вашей компании.
     </p>
 
     <h2 class="lang-text" data-lang-ru="Наши продукты" data-lang-en="Our Products">Наши продукты</h2>
     <div class="products">
-        <div class="product-item">
-            <i class="fas fa-server"></i>
-            <h3 class="lang-text" data-lang-ru="Серверы" data-lang-en="Servers">Серверы</h3>
-            <p class="lang-text" data-lang-ru="Мощные и надёжные серверные решения для бизнеса."
-               data-lang-en="Powerful and reliable server solutions for businesses.">
-                Мощные и надёжные серверные решения для бизнеса.
-            </p>
-        </div>
-        <div class="product-item">
-            <i class="fas fa-network-wired"></i>
-            <h3 class="lang-text" data-lang-ru="Сетевое оборудование" data-lang-en="Network Equipment">Сетевое оборудование</h3>
-            <p class="lang-text" data-lang-ru="Коммутаторы, роутеры и точки доступа для стабильной сети."
-               data-lang-en="Switches, routers, and access points for a stable network.">
-                Коммутаторы, роутеры и точки доступа для стабильной сети.
-            </p>
-        </div>
-        <div class="product-item">
-            <i class="fas fa-hdd"></i>
-            <h3 class="lang-text" data-lang-ru="Хранилища данных" data-lang-en="Data Storage">Хранилища данных</h3>
-            <p class="lang-text" data-lang-ru="Современные системы хранения информации для больших данных."
-               data-lang-en="Modern data storage systems for big data.">
-                Современные системы хранения информации для больших данных.
-            </p>
-        </div>
-        <div class="product-item">
-            <i class="fas fa-code"></i>
-            <h3 class="lang-text" data-lang-ru="Программное обеспечение" data-lang-en="Software">Программное обеспечение</h3>
-            <p class="lang-text" data-lang-ru="Лицензионный софт для бизнеса и IT-инфраструктуры."
-               data-lang-en="Licensed software for business and IT infrastructure.">
-                Лицензионный софт для бизнеса и IT-инфраструктуры.
-            </p>
-        </div>
-        <div class="product-item">
-            <i class="fas fa-desktop"></i>
-            <h3 class="lang-text" data-lang-ru="Компьютеры и комплектующие" data-lang-en="Computers and Components">Компьютеры и комплектующие</h3>
-            <p class="lang-text" data-lang-ru="Рабочие станции, ноутбуки и комплектующие для ПК."
-               data-lang-en="Workstations, laptops, and PC components.">
-                Рабочие станции, ноутбуки и комплектующие для ПК.
-            </p>
-        </div>
+      <div class="product-item">
+        <i class="fas fa-server"></i>
+        <h3 class="lang-text" data-lang-ru="Серверы" data-lang-en="Servers">Серверы</h3>
+        <p class="lang-text" data-lang-ru="Мощные и надёжные серверные решения для бизнеса."
+           data-lang-en="Powerful and reliable server solutions for businesses.">
+          Мощные и надёжные серверные решения для бизнеса.
+        </p>
+      </div>
+      <div class="product-item">
+        <i class="fas fa-network-wired"></i>
+        <h3 class="lang-text" data-lang-ru="Сетевое оборудование" data-lang-en="Network Equipment">Сетевое оборудование</h3>
+        <p class="lang-text" data-lang-ru="Коммутаторы, роутеры и точки доступа для стабильной сети."
+           data-lang-en="Switches, routers, and access points for a stable network.">
+          Коммутаторы, роутеры и точки доступа для стабильной сети.
+        </p>
+      </div>
+      <div class="product-item">
+        <i class="fas fa-hdd"></i>
+        <h3 class="lang-text" data-lang-ru="Хранилища данных" data-lang-en="Data Storage">Хранилища данных</h3>
+        <p class="lang-text" data-lang-ru="Современные системы хранения информации для больших данных."
+           data-lang-en="Modern data storage systems for big data.">
+          Современные системы хранения информации для больших данных.
+        </p>
+      </div>
+      <div class="product-item">
+        <i class="fas fa-code"></i>
+        <h3 class="lang-text" data-lang-ru="Программное обеспечение" data-lang-en="Software">Программное обеспечение</h3>
+        <p class="lang-text" data-lang-ru="Лицензионный софт для бизнеса и IT-инфраструктуры."
+           data-lang-en="Licensed software for business and IT infrastructure.">
+          Лицензионный софт для бизнеса и IT-инфраструктуры.
+        </p>
+      </div>
+      <div class="product-item">
+        <i class="fas fa-desktop"></i>
+        <h3 class="lang-text" data-lang-ru="Компьютеры и комплектующие" data-lang-en="Computers and Components">Компьютеры и комплектующие</h3>
+        <p class="lang-text" data-lang-ru="Рабочие станции, ноутбуки и комплектующие для ПК."
+           data-lang-en="Workstations, laptops, and PC components.">
+          Рабочие станции, ноутбуки и комплектующие для ПК.
+        </p>
+      </div>
     </div>
-</div>
+  </div>
 
   <div class="footer">
     <p class="lang-text" data-lang-ru="© 2025 Ric Solutions. Все права защищены. | Email: vm@softrain.kz | Тел: +7 (707) 423-98-99"
@@ -174,38 +453,109 @@
     </p>
   </div>
 
-  <!-- 🔹 Скрипты -->
+  <!-- Скрипты -->
   <script>
+    // Переключение языков
     const langButtons = document.querySelectorAll('.lang-btn');
     const elements = document.querySelectorAll('.lang-text');
+    
     function switchLanguage(lang) {
       langButtons.forEach(btn => btn.classList.remove('active'));
       document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
       document.documentElement.lang = lang;
+      
       elements.forEach(element => {
         element.textContent = element.getAttribute(`data-lang-${lang}`);
       });
+      
       document.title = lang === 'ru' 
         ? 'Ric Solutions - Поставщик ИТ оборудования и программного обеспечения'
         : 'Ric Solutions - Supplier of IT Equipment and Software';
     }
+    
     function getBrowserLanguage() {
       const browserLang = navigator.language || navigator.languages[0];
       const lang = browserLang.split('-')[0];
       return ['ru', 'en'].includes(lang) ? lang : 'ru';
     }
+    
     langButtons.forEach(button => {
       button.addEventListener('click', () => {
         const lang = button.getAttribute('data-lang');
         switchLanguage(lang);
       });
     });
+    
+    // Модальное окно
+    const modal = document.getElementById('authModal');
+    const openBtn = document.getElementById('openAuthModal');
+    const closeBtn = document.querySelector('.close');
+    
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('show');
+    });
+    
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('show');
+      }
+    });
+    
+    // Переключение вкладок
+    const tabs = document.querySelectorAll(".tab-btn");
+    const tabBlocks = document.querySelectorAll(".tab");
+    
+    tabs.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabs.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        
+        const target = btn.dataset.tab;
+        tabBlocks.forEach(block => block.classList.remove("active"));
+        document.getElementById(`${target}-form`).classList.add("active");
+        
+        // Сброс капчи при переключении
+        if (typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset();
+        }
+      });
+    });
+    
+    // Валидация email
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+    
+    // Показ ошибок
+    function showError(elementId, message) {
+      const errorElement = document.getElementById(elementId);
+      errorElement.textContent = message;
+      errorElement.style.display = 'block';
+    }
+    
+    function hideError(elementId) {
+      const errorElement = document.getElementById(elementId);
+      errorElement.style.display = 'none';
+    }
+    
+    function showSuccess(elementId, message) {
+      const successElement = document.getElementById(elementId);
+      successElement.textContent = message;
+      successElement.style.display = 'block';
+    }
+    
+    // Инициализация при загрузке
     window.addEventListener('DOMContentLoaded', () => {
       switchLanguage(getBrowserLanguage());
     });
   </script>
 
-  <!-- 🔹 Firebase + модалка -->
+  <!-- Firebase + аутентификация -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
@@ -226,59 +576,153 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
-  
-    // 🔹 переключение вкладок
-    const tabs = document.querySelectorAll(".tab-btn");
-    const tabBlocks = document.querySelectorAll(".tab");
-    tabs.forEach(btn => {
-      btn.addEventListener("click", () => {
-        tabs.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        const target = btn.dataset.tab;
-        tabBlocks.forEach(block => block.classList.remove("active"));
-        document.getElementById(`${target}-form`).classList.add("active");
-      });
-    });
-  
-    // 🔹 регистрация
-    document.getElementById("registerBtn").onclick = async () => {
-      const response = grecaptcha.getResponse(); // проверка капчи
-      if (!response.length) {
-        alert("Подтвердите, что вы человек 😎");
+    
+    // Функция валидации
+    function validateForm(email, password, type) {
+      let isValid = true;
+      
+      // Очистка предыдущих ошибок
+      hideError(`${type}-email-error`);
+      hideError(`${type}-password-error`);
+      
+      if (!email || !validateEmail(email)) {
+        showError(`${type}-email-error`, 'Введите корректный email');
+        isValid = false;
+      }
+      
+      if (!password || password.length < 6) {
+        showError(`${type}-password-error`, 'Пароль должен содержать минимум 6 символов');
+        isValid = false;
+      }
+      
+      return isValid;
+    }
+    
+    // Регистрация
+    document.getElementById("registerBtn").addEventListener("click", async () => {
+      const email = document.getElementById("reg-email").value.trim();
+      const password = document.getElementById("reg-password").value;
+      const button = document.getElementById("registerBtn");
+      
+      // Валидация формы
+      if (!validateForm(email, password, 'reg')) {
         return;
       }
-  
-      const email = document.getElementById("reg-email").value;
-      const password = document.getElementById("reg-password").value;
-      try {
-        const userCred = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCred.user;
-        await setDoc(doc(db, "users", user.uid), { email: user.email, createdAt: new Date().toISOString() });
-        alert("Регистрация успешна ✅");
-      } catch (error) {
-        alert("Ошибка: " + error.message);
-      }
-      grecaptcha.reset(); // сброс капчи
-    };
-  
-    // 🔹 вход
-    document.getElementById("loginBtn").onclick = async () => {
+      
+      // Проверка капчи
       const response = grecaptcha.getResponse();
       if (!response.length) {
         alert("Подтвердите, что вы человек 😎");
         return;
       }
+      
+      // Блокировка кнопки
+      button.disabled = true;
+      button.textContent = 'Регистрация...';
+      
+      try {
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCred.user;
+        
+        // Сохранение в Firestore
+        await setDoc(doc(db, "users", user.uid), { 
+          email: user.email, 
+          createdAt: new Date().toISOString() 
+        });
+        
+        showSuccess('reg-success', 'Регистрация успешна! ✅');
+        
+        // Очистка формы
+        document.getElementById("reg-email").value = '';
+        document.getElementById("reg-password").value = '';
+        
+        setTimeout(() => {
+          document.getElementById('authModal').classList.remove('show');
+        }, 2000);
+        
+      } catch (error) {
+        let errorMessage = 'Произошла ошибка при регистрации';
+        
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            errorMessage = 'Этот email уже используется';
+            break;
+          case 'auth/weak-password':
+            errorMessage = 'Слишком слабый пароль';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Некорректный email';
+            break;
+        }
+        
+        alert(errorMessage);
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Зарегистрироваться';
+        grecaptcha.reset();
+      }
+    });
   
-      const email = document.getElementById("login-email").value;
+    // Вход
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      const email = document.getElementById("login-email").value.trim();
       const password = document.getElementById("login-password").value;
+      const button = document.getElementById("loginBtn");
+      
+      // Валидация формы
+      if (!validateForm(email, password, 'login')) {
+        return;
+      }
+      
+      // Проверка капчи
+      const response = grecaptcha.getResponse();
+      if (!response.length) {
+        alert("Подтвердите, что вы человек 😎");
+        return;
+      }
+      
+      // Блокировка кнопки
+      button.disabled = true;
+      button.textContent = 'Вход...';
+      
       try {
         const userCred = await signInWithEmailAndPassword(auth, email, password);
-        alert("Вход успешен ✅ Добро пожаловать, " + userCred.user.email);
+        
+        showSuccess('login-success', `Добро пожаловать, ${userCred.user.email}! ✅`);
+        
+        // Очистка формы
+        document.getElementById("login-email").value = '';
+        document.getElementById("login-password").value = '';
+        
+        setTimeout(() => {
+          document.getElementById('authModal').classList.remove('show');
+        }, 2000);
+        
       } catch (error) {
-        alert("Ошибка: " + error.message);
+        let errorMessage = 'Произошла ошибка при входе';
+        
+        switch (error.code) {
+          case 'auth/user-not-found':
+            errorMessage = 'Пользователь не найден';
+            break;
+          case 'auth/wrong-password':
+            errorMessage = 'Неверный пароль';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'Некорректный email';
+            break;
+          case 'auth/too-many-requests':
+            errorMessage = 'Слишком много попыток. Попробуйте позже';
+            break;
+        }
+        
+        alert(errorMessage);
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Войти';
+        grecaptcha.reset();
       }
-      grecaptcha.reset();
-    };
+    });
   </script>
 </body>
 </html>
