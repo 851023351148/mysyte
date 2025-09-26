@@ -116,6 +116,52 @@
 
   gtag('config', 'G-3EZNGDEN1M');
 </script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-auth.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore.js";
+
+  // 🔽 твой Firebase config (взял из скриншота)
+  const firebaseConfig = {
+    apiKey: "AIzaSyD8CfZJw0PPRZRjpRP7fxFDSP3g73swU",
+    authDomain: "digital-ac.firebaseapp.com",
+    projectId: "digital-ac",
+    storageBucket: "digital-ac.appspot.com",
+    messagingSenderId: "58717701581",
+    appId: "1:58717701581:web:e82d09a8df0fcae97bb084",
+    measurementId: "G-YJ79EBE7Y8"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // 🔽 логика регистрации
+  document.getElementById("registerBtn").onclick = async () => {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try {
+      const userCred = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCred.user;
+
+      // сохраняем пользователя в Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        email: user.email,
+        createdAt: new Date().toISOString()
+      });
+
+      // генерируем ссылку на Telegram-бота
+      document.getElementById("tg-link").innerHTML =
+        `<a href="https://t.me/MyAppBot?start=${user.uid}" target="_blank">Перейти в Telegram-бота</a>`;
+    } catch (error) {
+      alert("Ошибка: " + error.message);
+    }
+  };
+</script>
+
+
 <body>
     <div class="header">
         <div class="language-switcher">
