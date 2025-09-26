@@ -1,292 +1,181 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO мета-теги -->
-    <title>Ric Solutions - Поставщик ИТ оборудования и программного обеспечения</title>
-    <meta name="description" content="Ric Solutions — поставщик ИТ оборудования: серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса.">
-    <meta name="keywords" content="ИТ оборудование, серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие, программное обеспечение, Ric Solutions">
-    <meta name="robots" content="index, follow">
-    <!-- Open Graph для социальных сетей -->
-    <meta property="og:title" content="Ric Solutions - Поставщик ИТ оборудования">
-    <meta property="og:description" content="Надежные поставки ИТ оборудования и программного обеспечения для бизнеса любого масштаба.">
-    <meta property="og:image" content="logo.png">
-    <meta property="og:url" content="https://ricsolutions.com">
-    <meta property="og:type" content="website">
-    <!-- Мультиязычность -->
-    <link rel="alternate" hreflang="ru" href="https://ricsolutions.com/ru">
-    <link rel="alternate" hreflang="en" href="https://ricsolutions.com/en">
-    <link rel="alternate" hreflang="x-default" href="https://ricsolutions.com/ru">
-    <!-- Подключаем Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        .header {
-            text-align: center;
-            padding: 30px;
-            background-color: #2c3e50;
-            color: white;
-            position: relative;
-        }
-        .logo-container {
-            display: inline-block;
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .logo {
-            max-width: 300px;
-            height: auto;
-        }
-        .content {
-            max-width: 900px;
-            margin: 20px auto;
-            padding-bottom: 60px;
-        }
-        .products {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .product-item {
-            border: 1px solid #ddd;
-            padding: 15px;
-            width: 250px;
-            text-align: center;
-        }
-        .product-item i {
-            font-size: 40px;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        .footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #2c3e50;
-            color: white;
-            width: 100%;
-            left: 0;
-        }
-        .language-switcher {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-        }
-        .language-switcher button {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-        .language-switcher button.active {
-            font-weight: bold;
-            text-decoration: underline;
-        }
-        /* Улучшение мобильной адаптивности */
-        @media (max-width: 768px) {
-            .product-item {
-                width: 100%;
-                max-width: 300px;
-            }
-            .footer {
-                position: static; /* Убираем фиксированное положение на мобильных */
-            }
-            .content {
-                padding-bottom: 20px;
-            }
-        }
-    </style>
-</head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3EZNGDEN1M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ric Solutions - Поставщик ИТ оборудования и программного обеспечения</title>
+  <meta name="description" content="Ric Solutions — поставщик ИТ оборудования: серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса.">
+  <meta name="keywords" content="ИТ оборудование, серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие, программное обеспечение, Ric Solutions">
 
-  gtag('config', 'G-3EZNGDEN1M');
-</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-auth.js";
-  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore.js";
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+    .header { text-align: center; padding: 30px; background-color: #2c3e50; color: white; position: relative;}
+    .logo-container { display: inline-block; background-color: white; padding: 10px; border-radius: 5px; margin-bottom: 10px;}
+    .logo { max-width: 300px; height: auto;}
+    .content { max-width: 900px; margin: 20px auto; padding-bottom: 60px;}
+    .products { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;}
+    .product-item { border: 1px solid #ddd; padding: 15px; width: 250px; text-align: center;}
+    .product-item i { font-size: 40px; color: #2c3e50; margin-bottom: 10px;}
+    .footer { text-align: center; padding: 15px; background-color: #2c3e50; color: white; width: 100%;}
+    
+    /* Переключение языка */
+    .language-switcher { position: absolute; top: 10px; right: 20px;}
+    .language-switcher button { background: none; border: none; color: white; font-size: 16px; cursor: pointer; padding: 5px 10px;}
+    .language-switcher button.active { font-weight: bold; text-decoration: underline;}
 
-  // 🔽 твой Firebase config (взял из скриншота)
-  const firebaseConfig = {
-    apiKey: "AIzaSyD8CfZJw0PPRZRjpRP7fxFDSP3g73swU",
-    authDomain: "digital-ac.firebaseapp.com",
-    projectId: "digital-ac",
-    storageBucket: "digital-ac.appspot.com",
-    messagingSenderId: "58717701581",
-    appId: "1:58717701581:web:e82d09a8df0fcae97bb084",
-    measurementId: "G-YJ79EBE7Y8"
-  };
+    /* Кнопка входа */
+    .auth-btn { position: absolute; top: 15px; right: 120px;}
+    .auth-btn button { background: #e67e22; color: white; border: none; padding: 7px 14px; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background 0.3s;}
+    .auth-btn button:hover { background: #d35400;}
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+    /* Модальное окно */
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center;}
+    .modal-content { background: white; padding: 20px; border-radius: 8px; max-width: 320px; width: 90%; text-align: center; position: relative;}
+    .modal .close { position: absolute; right: 10px; top: 10px; font-size: 20px; cursor: pointer;}
+    .modal-content input { width: 90%; padding: 8px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px;}
+    .modal-content button { background: #27ae60; color: white; padding: 8px 14px; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s;}
+    .modal-content button:hover { background: #219150;}
 
-  // 🔽 логика регистрации
-  document.getElementById("registerBtn").onclick = async () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    try {
-      const userCred = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCred.user;
-
-      // сохраняем пользователя в Firestore
-      await setDoc(doc(db, "users", user.uid), {
-        email: user.email,
-        createdAt: new Date().toISOString()
-      });
-
-      // генерируем ссылку на Telegram-бота
-      document.getElementById("tg-link").innerHTML =
-        `<a href="https://t.me/MyAppBot?start=${user.uid}" target="_blank">Перейти в Telegram-бота</a>`;
-    } catch (error) {
-      alert("Ошибка: " + error.message);
+    /* Мобильная адаптивность */
+    @media (max-width: 768px) {
+      .product-item { width: 100%; max-width: 300px;}
+      .footer { position: static;}
+      .content { padding-bottom: 20px;}
+      .auth-btn { right: 20px; top: 60px; }
     }
-  };
-</script>
-
+  </style>
+</head>
 
 <body>
-    <div class="header">
-        <div class="language-switcher">
-            <button class="lang-btn active" data-lang="ru">RU</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-        </div>
-        <div class="logo-container">
-            <img src="logo.png" alt="Ric Solutions - Поставщик ИТ оборудования" class="logo">
-        </div>
-        <p class="lang-text" data-lang-ru="Ваш надёжный поставщик ИТ-оборудования и программного обеспечения" 
-           data-lang-en="Your reliable supplier of IT equipment and software">
-            Ваш надёжный поставщик ИТ-оборудования и программного обеспечения
-        </p>
+  <div class="header">
+    <div class="language-switcher">
+      <button class="lang-btn active" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
     </div>
-    
-    <div class="content">
-        <h1 style="display: none;">Ric Solutions - ИТ оборудование для бизнеса</h1> <!-- Скрытый h1 для SEO -->
-        <h2 class="lang-text" data-lang-ru="О нас" data-lang-en="About Us">О нас</h2>
-        <p class="lang-text" data-lang-ru="Ric Solutions — компания, специализирующаяся на поставке высококачественного ИТ-оборудования и программного обеспечения для IT-инфраструктуры. Мы предлагаем серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса любого масштаба."
-           data-lang-en="Ric Solutions is a company specializing in supplying high-quality IT equipment and software for IT infrastructure. We offer servers, network equipment, data storage, computers, components, and licensed software for businesses of any scale.">
-            Ric Solutions — компания, специализирующаяся на поставке высококачественного ИТ-оборудования и программного обеспечения для IT-инфраструктуры. Мы предлагаем серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса любого масштаба.
-        </p>
-        
-        <h2 class="lang-text" data-lang-ru="Наши продукты" data-lang-en="Our Products">Наши продукты</h2>
-        <div class="products">
-            <div class="product-item">
-                <i class="fas fa-server"></i>
-                <h3 class="lang-text" data-lang-ru="Серверы" data-lang-en="Servers">Серверы</h3>
-                <p class="lang-text" data-lang-ru="Мощные и надёжные серверные решения для бизнеса."
-                   data-lang-en="Powerful and reliable server solutions for businesses.">
-                    Мощные и надёжные серверные решения для бизнеса.
-                </p>
-            </div>
-            <div class="product-item">
-                <i class="fas fa-network-wired"></i>
-                <h3 class="lang-text" data-lang-ru="Сетевое оборудование" data-lang-en="Network Equipment">Сетевое оборудование</h3>
-                <p class="lang-text" data-lang-ru="Коммутаторы, роутеры и точки доступа для стабильной сети."
-                   data-lang-en="Switches, routers, and access points for a stable network.">
-                    Коммутаторы, роутеры и точки доступа для стабильной сети.
-                </p>
-            </div>
-            <div class="product-item">
-                <i class="fas fa-hdd"></i>
-                <h3 class="lang-text" data-lang-ru="Хранилища данных" data-lang-en="Data Storage">Хранилища данных</h3>
-                <p class="lang-text" data-lang-ru="Современные системы хранения информации для больших данных."
-                   data-lang-en="Modern data storage systems for big data.">
-                    Современные системы хранения информации для больших данных.
-                </p>
-            </div>
-            <div class="product-item">
-                <i class="fas fa-code"></i>
-                <h3 class="lang-text" data-lang-ru="Программное обеспечение" data-lang-en="Software">Программное обеспечение</h3>
-                <p class="lang-text" data-lang-ru="Лицензионный софт для бизнеса и IT-инфраструктуры."
-                   data-lang-en="Licensed software for business and IT infrastructure.">
-                    Лицензионный софт для бизнеса и IT-инфраструктуры.
-                </p>
-            </div>
-            <div class="product-item">
-                <i class="fas fa-desktop"></i>
-                <h3 class="lang-text" data-lang-ru="Компьютеры и комплектующие" data-lang-en="Computers and Components">Компьютеры и комплектующие</h3>
-                <p class="lang-text" data-lang-ru="Рабочие станции, ноутбуки и комплектующие для ПК."
-                   data-lang-en="Workstations, laptops, and PC components.">
-                    Рабочие станции, ноутбуки и комплектующие для ПК.
-                </p>
-            </div>
-        </div>
+
+    <!-- 🔽 Кнопка входа -->
+    <div class="auth-btn">
+      <button id="openAuthModal">Войти / Регистрация</button>
     </div>
-    <h2 class="lang-text" data-lang-ru="Регистрация" data-lang-en="Registration">Регистрация</h2>
-    <div id="register-form">
+
+    <!-- 🔽 Модалка -->
+    <div id="authModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Регистрация</h2>
         <input type="email" id="email" placeholder="Введите email">
         <input type="password" id="password" placeholder="Введите пароль">
         <button id="registerBtn">Зарегистрироваться</button>
-        <div id="tg-link"></div>
-    </div>
-    <div class="footer">
-        <p class="lang-text" data-lang-ru="© 2025 Ric Solutions. Все права защищены. | Email: vm@softrain.kz | Тел: +7 (707) 423-98-99"
-           data-lang-en="© 2025 Ric Solutions. All rights reserved. | Email: vm@softrain.kz | Tel: +7 (707) 423-98-99">
-            © 2025 Ric Solutions. Все права защищены. | Email: vm@softrain.kz | Тел: +7 (707) 423-98-99
-        </p>
+      </div>
     </div>
 
-    <script>
-        const langButtons = document.querySelectorAll('.lang-btn');
-        const elements = document.querySelectorAll('.lang-text');
+    <div class="logo-container">
+      <img src="logo.png" alt="Ric Solutions - Поставщик ИТ оборудования" class="logo">
+    </div>
+    <p class="lang-text" data-lang-ru="Ваш надёжный поставщик ИТ-оборудования и программного обеспечения" 
+       data-lang-en="Your reliable supplier of IT equipment and software">
+       Ваш надёжный поставщик ИТ-оборудования и программного обеспечения
+    </p>
+  </div>
 
-        // Функция для переключения языка
-        function switchLanguage(lang) {
-            // Переключаем активный класс
-            langButtons.forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+  <div class="content">
+    <h2 class="lang-text" data-lang-ru="О нас" data-lang-en="About Us">О нас</h2>
+    <p class="lang-text" data-lang-ru="Ric Solutions — компания, специализирующаяся на поставке..." data-lang-en="Ric Solutions is a company specializing in...">
+      Ric Solutions — компания, специализирующаяся на поставке высококачественного ИТ-оборудования и программного обеспечения для IT-инфраструктуры.
+    </p>
 
-            // Меняем язык документа
-            document.documentElement.lang = lang;
+    <h2 class="lang-text" data-lang-ru="Наши продукты" data-lang-en="Our Products">Наши продукты</h2>
+    <div class="products">
+      <!-- карточки продуктов как у тебя -->
+    </div>
+  </div>
 
-            // Обновляем текст
-            elements.forEach(element => {
-                element.textContent = element.getAttribute(`data-lang-${lang}`);
-            });
+  <div class="footer">
+    <p class="lang-text" data-lang-ru="© 2025 Ric Solutions. Все права защищены. | Email: vm@softrain.kz | Тел: +7 (707) 423-98-99"
+       data-lang-en="© 2025 Ric Solutions. All rights reserved. | Email: vm@softrain.kz | Tel: +7 (707) 423-98-99">
+      © 2025 Ric Solutions. Все права защищены. | Email: vm@softrain.kz | Тел: +7 (707) 423-98-99
+    </p>
+  </div>
 
-            // Обновляем заголовок страницы
-            document.title = lang === 'ru' 
-                ? 'Ric Solutions - Поставщик ИТ оборудования и программного обеспечения'
-                : 'Ric Solutions - Supplier of IT Equipment and Software';
-        }
+  <!-- 🔹 Скрипты -->
+  <script>
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const elements = document.querySelectorAll('.lang-text');
+    function switchLanguage(lang) {
+      langButtons.forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+      document.documentElement.lang = lang;
+      elements.forEach(element => {
+        element.textContent = element.getAttribute(`data-lang-${lang}`);
+      });
+      document.title = lang === 'ru' 
+        ? 'Ric Solutions - Поставщик ИТ оборудования и программного обеспечения'
+        : 'Ric Solutions - Supplier of IT Equipment and Software';
+    }
+    function getBrowserLanguage() {
+      const browserLang = navigator.language || navigator.languages[0];
+      const lang = browserLang.split('-')[0];
+      return ['ru', 'en'].includes(lang) ? lang : 'ru';
+    }
+    langButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const lang = button.getAttribute('data-lang');
+        switchLanguage(lang);
+      });
+    });
+    window.addEventListener('DOMContentLoaded', () => {
+      switchLanguage(getBrowserLanguage());
+    });
+  </script>
 
-        // Функция для определения языка браузера
-        function getBrowserLanguage() {
-            const browserLang = navigator.language || navigator.languages[0];
-            const lang = browserLang.split('-')[0];
-            return ['ru', 'en'].includes(lang) ? lang : 'ru';
-        }
+  <!-- 🔹 Firebase + модалка -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore.js";
 
-        // Обработчик кликов по кнопкам
-        langButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const lang = button.getAttribute('data-lang');
-                switchLanguage(lang);
-            });
+    const firebaseConfig = {
+      apiKey: "AIzaSyD8CfZJw0PPRZRjpRP7fxFDSP3g73swU",
+      authDomain: "digital-ac.firebaseapp.com",
+      projectId: "digital-ac",
+      storageBucket: "digital-ac.appspot.com",
+      messagingSenderId: "58717701581",
+      appId: "1:58717701581:web:e82d09a8df0fcae97bb084",
+      measurementId: "G-YJ79EBE7Y8"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Модалка логика
+    const modal = document.getElementById("authModal");
+    const openBtn = document.getElementById("openAuthModal");
+    const closeBtn = document.querySelector(".modal .close");
+
+    openBtn.onclick = () => { modal.style.display = "flex"; };
+    closeBtn.onclick = () => { modal.style.display = "none"; };
+    window.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
+
+    // Регистрация
+    document.getElementById("registerBtn").onclick = async () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      try {
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCred.user;
+        await setDoc(doc(db, "users", user.uid), {
+          email: user.email,
+          createdAt: new Date().toISOString()
         });
-
-        // Инициализация языка при загрузке страницы
-        window.addEventListener('DOMContentLoaded', () => {
-            const defaultLang = getBrowserLanguage();
-            switchLanguage(defaultLang);
-        });
-    </script>
+        alert("Регистрация успешна! ✅");
+        modal.style.display = "none";
+      } catch (error) {
+        alert("Ошибка: " + error.message);
+      }
+    };
+  </script>
 </body>
 </html>
