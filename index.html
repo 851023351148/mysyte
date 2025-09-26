@@ -6,7 +6,7 @@
   <title>Ric Solutions - Поставщик ИТ оборудования и программного обеспечения</title>
   <meta name="description" content="Ric Solutions — поставщик ИТ оборудования: серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса.">
   <meta name="keywords" content="ИТ оборудование, серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие, программное обеспечение, Ric Solutions">
-
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -45,6 +45,26 @@
       .content { padding-bottom: 20px;}
       .auth-btn { right: 20px; top: 60px; }
     }
+    .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    }
+    .tab-btn {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background: #eee;
+    transition: background 0.3s;
+    }
+    .tab-btn.active {
+    background: #2c3e50;
+    color: white;
+    font-weight: bold;
+    }
+    .tab { display: none; }
+    .tab.active { display: block; }
   </style>
 </head>
 
@@ -62,14 +82,30 @@
 
     <!-- 🔽 Модалка -->
     <div id="authModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Регистрация</h2>
-        <input type="email" id="email" placeholder="Введите email">
-        <input type="password" id="password" placeholder="Введите пароль">
-        <button id="registerBtn">Зарегистрироваться</button>
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="tabs">
+            <button class="tab-btn active" data-tab="register">Регистрация</button>
+            <button class="tab-btn" data-tab="login">Вход</button>
+          </div>
+      
+          <!-- 🔽 Формы будут переключаться -->
+          <div id="register-form" class="tab active">
+            <input type="email" id="reg-email" placeholder="Введите email">
+            <input type="password" id="reg-password" placeholder="Введите пароль">
+            <button id="registerBtn">Зарегистрироваться</button>
+          </div>
+      
+          <div id="login-form" class="tab">
+            <input type="email" id="login-email" placeholder="Email">
+            <input type="password" id="login-password" placeholder="Пароль">
+            <button id="loginBtn">Войти</button>
+          </div>
+      
+          <!-- 🔽 Общая капча -->
+          <div class="g-recaptcha" data-sitekey="6LfB4NUrAAAAAOJvLHVfweJhXPXlNNd0ZHPPoT9r"></div>
+        </div>
       </div>
-    </div>
 
     <div class="logo-container">
       <img src="logo.png" alt="Ric Solutions - Поставщик ИТ оборудования" class="logo">
@@ -171,49 +207,77 @@
 
   <!-- 🔹 Firebase + модалка -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-auth.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore.js";
-
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
+      from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc }
+      from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+  
     const firebaseConfig = {
-      apiKey: "AIzaSyD8CfZJw0PPRZRjpRP7fxFDSP3g73swU",
+      apiKey: "AIzaSyD8CfZJJwOPPR72RjpRP7fxFDSP3g73swU",
       authDomain: "digital-ac.firebaseapp.com",
       projectId: "digital-ac",
       storageBucket: "digital-ac.appspot.com",
       messagingSenderId: "58717701581",
-      appId: "1:58717701581:web:e82d09a8df0fcae97bb084",
+      appId: "1:58717701581:web:e820d9a8df0fcae97bb084",
       measurementId: "G-YJ79EBE7Y8"
     };
-
+  
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
-
-    // Модалка логика
-    const modal = document.getElementById("authModal");
-    const openBtn = document.getElementById("openAuthModal");
-    const closeBtn = document.querySelector(".modal .close");
-
-    openBtn.onclick = () => { modal.style.display = "flex"; };
-    closeBtn.onclick = () => { modal.style.display = "none"; };
-    window.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
-
-    // Регистрация
+  
+    // 🔹 переключение вкладок
+    const tabs = document.querySelectorAll(".tab-btn");
+    const tabBlocks = document.querySelectorAll(".tab");
+    tabs.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabs.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const target = btn.dataset.tab;
+        tabBlocks.forEach(block => block.classList.remove("active"));
+        document.getElementById(`${target}-form`).classList.add("active");
+      });
+    });
+  
+    // 🔹 регистрация
     document.getElementById("registerBtn").onclick = async () => {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+      const response = grecaptcha.getResponse(); // проверка капчи
+      if (!response.length) {
+        alert("Подтвердите, что вы человек 😎");
+        return;
+      }
+  
+      const email = document.getElementById("reg-email").value;
+      const password = document.getElementById("reg-password").value;
       try {
         const userCred = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCred.user;
-        await setDoc(doc(db, "users", user.uid), {
-          email: user.email,
-          createdAt: new Date().toISOString()
-        });
-        alert("Регистрация успешна! ✅");
-        modal.style.display = "none";
+        await setDoc(doc(db, "users", user.uid), { email: user.email, createdAt: new Date().toISOString() });
+        alert("Регистрация успешна ✅");
       } catch (error) {
         alert("Ошибка: " + error.message);
       }
+      grecaptcha.reset(); // сброс капчи
+    };
+  
+    // 🔹 вход
+    document.getElementById("loginBtn").onclick = async () => {
+      const response = grecaptcha.getResponse();
+      if (!response.length) {
+        alert("Подтвердите, что вы человек 😎");
+        return;
+      }
+  
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      try {
+        const userCred = await signInWithEmailAndPassword(auth, email, password);
+        alert("Вход успешен ✅ Добро пожаловать, " + userCred.user.email);
+      } catch (error) {
+        alert("Ошибка: " + error.message);
+      }
+      grecaptcha.reset();
     };
   </script>
 </body>
