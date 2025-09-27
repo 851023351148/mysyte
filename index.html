@@ -7,9 +7,6 @@
   <meta name="description" content="Ric Solutions — поставщик ИТ оборудования: серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие и лицензионное ПО для бизнеса.">
   <meta name="keywords" content="ИТ оборудование, серверы, сетевое оборудование, хранилища данных, компьютеры, комплектующие, программное обеспечение, Ric Solutions">
   
-  <!-- Убираем строгий CSP для GitHub Pages -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' https://www.gstatic.com https://www.google.com https://www.recaptcha.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://www.google.com https://www.recaptcha.net; frame-src https://www.google.com https://www.recaptcha.net;">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -298,6 +295,42 @@
       display: none;
     }
 
+    /* Кастомная капча */
+    .custom-captcha {
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+      background: #f8f9fa;
+    }
+    
+    .captcha-question {
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    
+    .captcha-input {
+      width: 80px !important;
+      text-align: center;
+      margin: 0 !important;
+    }
+    
+    .captcha-refresh {
+      background: #6c757d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+    
+    .captcha-refresh:hover {
+      background: #5a6268;
+    }
+
     /* Мобильная адаптивность */
     @media (max-width: 768px) {
       .header {
@@ -357,7 +390,7 @@
 
     <div id="authModal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close">×</span>
         <div class="tabs">
           <button class="tab-btn active" data-tab="register">Регистрация</button>
           <button class="tab-btn" data-tab="login">Вход</button>
@@ -368,7 +401,15 @@
           <div class="error-message" id="reg-email-error"></div>
           <input type="password" id="reg-password" placeholder="Введите пароль (мин. 6 символов)" required>
           <div class="error-message" id="reg-password-error"></div>
-          <div class="g-recaptcha" data-sitekey="6LfB4NUrAAAAAOJvLHVfweJhXPXlNNd0ZHPPoT9r"></div>
+          
+          <!-- Кастомная капча -->
+          <div class="custom-captcha">
+            <div class="captcha-question" id="reg-captcha-question">Сколько будет 2 + 3?</div>
+            <input type="number" id="reg-captcha-answer" class="captcha-input" placeholder="?" required>
+            <button type="button" class="captcha-refresh" data-type="reg">🔄</button>
+            <div class="error-message" id="reg-captcha-error"></div>
+          </div>
+          
           <button id="registerBtn">Зарегистрироваться</button>
           <div class="success-message" id="reg-success"></div>
         </div>
@@ -378,7 +419,15 @@
           <div class="error-message" id="login-email-error"></div>
           <input type="password" id="login-password" placeholder="Пароль" required>
           <div class="error-message" id="login-password-error"></div>
-          <div class="g-recaptcha" data-sitekey="6LfB4NUrAAAAAOJvLHVfweJhXPXlNNd0ZHPPoT9r"></div>
+          
+          <!-- Кастомная капча -->
+          <div class="custom-captcha">
+            <div class="captcha-question" id="login-captcha-question">Сколько будет 5 + 1?</div>
+            <input type="number" id="login-captcha-answer" class="captcha-input" placeholder="?" required>
+            <button type="button" class="captcha-refresh" data-type="login">🔄</button>
+            <div class="error-message" id="login-captcha-error"></div>
+          </div>
+          
           <button id="loginBtn">Войти</button>
           <div class="success-message" id="login-success"></div>
         </div>
@@ -452,26 +501,99 @@
     </p>
   </div>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
   <script>
-    // Глобальные переменные
-    let auth, db;
+    // Firebase конфигурация (замените на свою)
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    // Инициализация Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    
+    // Глобальные переменные для капчи
+    var captchaData = {
+      reg: { question: '', answer: 0 },
+      login: { question: '', answer: 0 }
+    };
+    
+    // Генерация капчи
+    function generateCaptcha(type) {
+      var operations = [
+        { op: '+', symbol: '+' },
+        { op: '-', symbol: '-' },
+        { op: '*', symbol: '×' }
+      ];
+      
+      var operation = operations[Math.floor(Math.random() * operations.length)];
+      var num1, num2, answer, question;
+      
+      if (operation.op === '+') {
+        num1 = Math.floor(Math.random() * 10) + 1;
+        num2 = Math.floor(Math.random() * 10) + 1;
+        answer = num1 + num2;
+        question = 'Сколько будет ' + num1 + ' + ' + num2 + '?';
+      } else if (operation.op === '-') {
+        num1 = Math.floor(Math.random() * 10) + 5;
+        num2 = Math.floor(Math.random() * num1) + 1;
+        answer = num1 - num2;
+        question = 'Сколько будет ' + num1 + ' - ' + num2 + '?';
+      } else {
+        num1 = Math.floor(Math.random() * 5) + 2;
+        num2 = Math.floor(Math.random() * 5) + 2;
+        answer = num1 * num2;
+        question = 'Сколько будет ' + num1 + ' × ' + num2 + '?';
+      }
+      
+      captchaData[type] = { question: question, answer: answer };
+      document.getElementById(type + '-captcha-question').textContent = question;
+      document.getElementById(type + '-captcha-answer').value = '';
+      hideError(type + '-captcha-error');
+    }
+    
+    // Проверка капчи
+    function validateCaptcha(type) {
+      var userAnswer = parseInt(document.getElementById(type + '-captcha-answer').value);
+      var correctAnswer = captchaData[type].answer;
+      
+      if (isNaN(userAnswer) || userAnswer !== correctAnswer) {
+        showError(type + '-captcha-error', 'Неверный ответ на вопрос');
+        return false;
+      }
+      
+      hideError(type + '-captcha-error');
+      return true;
+    }
     
     // Переключение языков
     function initLanguageSwitcher() {
-      const langButtons = document.querySelectorAll('.lang-btn');
-      const elements = document.querySelectorAll('.lang-text');
+      var langButtons = document.querySelectorAll('.lang-btn');
+      var elements = document.querySelectorAll('.lang-text');
       
       function switchLanguage(lang) {
-        langButtons.forEach(btn => btn.classList.remove('active'));
-        const activeBtn = document.querySelector('.lang-btn[data-lang="' + lang + '"]');
+        for (var i = 0; i < langButtons.length; i++) {
+          langButtons[i].classList.remove('active');
+        }
+        var activeBtn = document.querySelector('.lang-btn[data-lang="' + lang + '"]');
         if (activeBtn) activeBtn.classList.add('active');
         
         document.documentElement.lang = lang;
         
-        elements.forEach(element => {
-          const text = element.getAttribute('data-lang-' + lang);
-          if (text) element.textContent = text;
-        });
+        for (var i = 0; i < elements.length; i++) {
+          var text = elements[i].getAttribute('data-lang-' + lang);
+          if (text) elements[i].textContent = text;
+        }
         
         document.title = lang === 'ru' 
           ? 'Ric Solutions - Поставщик ИТ оборудования и программного обеспечения'
@@ -479,17 +601,17 @@
       }
       
       function getBrowserLanguage() {
-        const browserLang = navigator.language || navigator.languages[0];
-        const lang = browserLang.split('-')[0];
-        return ['ru', 'en'].includes(lang) ? lang : 'ru';
+        var browserLang = navigator.language || navigator.languages[0];
+        var lang = browserLang.split('-')[0];
+        return ['ru', 'en'].indexOf(lang) !== -1 ? lang : 'ru';
       }
       
-      langButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const lang = this.getAttribute('data-lang');
+      for (var i = 0; i < langButtons.length; i++) {
+        langButtons[i].addEventListener('click', function() {
+          var lang = this.getAttribute('data-lang');
           switchLanguage(lang);
         });
-      });
+      }
       
       // Инициализация языка
       switchLanguage(getBrowserLanguage());
@@ -497,9 +619,9 @@
     
     // Модальное окно
     function initModal() {
-      const modal = document.getElementById('authModal');
-      const openBtn = document.getElementById('openAuthModal');
-      const closeBtn = document.querySelector('.close');
+      var modal = document.getElementById('authModal');
+      var openBtn = document.getElementById('openAuthModal');
+      var closeBtn = document.querySelector('.close');
       
       if (openBtn) {
         openBtn.addEventListener('click', function() {
@@ -522,43 +644,52 @@
     
     // Переключение вкладок
     function initTabs() {
-      const tabs = document.querySelectorAll(".tab-btn");
-      const tabBlocks = document.querySelectorAll(".tab");
+      var tabs = document.querySelectorAll(".tab-btn");
+      var tabBlocks = document.querySelectorAll(".tab");
       
-      tabs.forEach(function(btn) {
-        btn.addEventListener("click", function() {
-          tabs.forEach(function(b) {
-            b.classList.remove("active");
-          });
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener("click", function() {
+          for (var j = 0; j < tabs.length; j++) {
+            tabs[j].classList.remove("active");
+          }
           this.classList.add("active");
           
-          const target = this.getAttribute('data-tab');
-          tabBlocks.forEach(function(block) {
-            block.classList.remove("active");
-          });
+          var target = this.getAttribute('data-tab');
+          for (var j = 0; j < tabBlocks.length; j++) {
+            tabBlocks[j].classList.remove("active");
+          }
           
-          const targetForm = document.getElementById(target + '-form');
+          var targetForm = document.getElementById(target + '-form');
           if (targetForm) {
             targetForm.classList.add("active");
           }
           
-          // Сброс капчи при переключении
-          if (typeof grecaptcha !== 'undefined') {
-            grecaptcha.reset();
-          }
+          // Генерация новой капчи при переключении
+          generateCaptcha(target);
         });
-      });
+      }
+    }
+    
+    // Обработчики кнопок обновления капчи
+    function initCaptchaRefresh() {
+      var refreshButtons = document.querySelectorAll('.captcha-refresh');
+      for (var i = 0; i < refreshButtons.length; i++) {
+        refreshButtons[i].addEventListener('click', function() {
+          var type = this.getAttribute('data-type');
+          generateCaptcha(type);
+        });
+      }
     }
     
     // Валидация email
     function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(email);
     }
     
     // Показ ошибок
     function showError(elementId, message) {
-      const errorElement = document.getElementById(elementId);
+      var errorElement = document.getElementById(elementId);
       if (errorElement) {
         errorElement.textContent = message;
         errorElement.style.display = 'block';
@@ -566,14 +697,14 @@
     }
     
     function hideError(elementId) {
-      const errorElement = document.getElementById(elementId);
+      var errorElement = document.getElementById(elementId);
       if (errorElement) {
         errorElement.style.display = 'none';
       }
     }
     
     function showSuccess(elementId, message) {
-      const successElement = document.getElementById(elementId);
+      var successElement = document.getElementById(elementId);
       if (successElement) {
         successElement.textContent = message;
         successElement.style.display = 'block';
@@ -582,7 +713,7 @@
     
     // Валидация формы
     function validateForm(email, password, type) {
-      let isValid = true;
+      var isValid = true;
       
       // Очистка предыдущих ошибок
       hideError(type + '-email-error');
@@ -601,271 +732,168 @@
       return isValid;
     }
     
-    // Инициализация Firebase
-    function initFirebase() {
-      // Проверяем доступность Firebase модулей
-      if (typeof firebase === 'undefined') {
-        console.log('Firebase не загружен, используем заглушки');
-        initMockAuth();
-        return;
-      }
-      
-      // Конфигурация Firebase
-      const firebaseConfig = {
-        apiKey: "AIzaSyD8CfZJJwOPPR72RjpRP7fxFDSP3g73swU",
-        authDomain: "digital-ac.firebaseapp.com",
-        projectId: "digital-ac",
-        storageBucket: "digital-ac.appspot.com",
-        messagingSenderId: "58717701581",
-        appId: "1:58717701581:web:e820d9a8df0fcae97bb084",
-        measurementId: "G-YJ79EBE7Y8"
-      };
-      
-      try {
-        firebase.initializeApp(firebaseConfig);
-        auth = firebase.auth();
-        db = firebase.firestore();
-        initRealAuth();
-      } catch (error) {
-        console.log('Ошибка инициализации Firebase:', error);
-        initMockAuth();
-      }
+    // Сохранение пользователя в Firestore
+    function saveUserToFirestore(user, additionalData) {
+      return db.collection('users').doc(user.uid).set({
+        email: user.email,
+        uid: user.uid,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        lastLogin: firebase.firestore.FieldValue.serverTimestamp(),
+        ...additionalData
+      });
     }
     
-    // Заглушка для аутентификации (для тестирования)
-    function initMockAuth() {
-      const registerBtn = document.getElementById("registerBtn");
-      const loginBtn = document.getElementById("loginBtn");
+    // Инициализация аутентификации
+    function initAuth() {
+      var registerBtn = document.getElementById("registerBtn");
+      var loginBtn = document.getElementById("loginBtn");
       
       if (registerBtn) {
         registerBtn.addEventListener("click", function() {
-          const email = document.getElementById("reg-email").value.trim();
-          const password = document.getElementById("reg-password").value;
+          var email = document.getElementById("reg-email").value.trim();
+          var password = document.getElementById("reg-password").value;
           
           if (!validateForm(email, password, 'reg')) {
             return;
           }
           
           // Проверка капчи
-          if (typeof grecaptcha !== 'undefined') {
-            const response = grecaptcha.getResponse();
-            if (!response.length) {
-              alert("Подтвердите, что вы человек 😎");
-              return;
-            }
+          if (!validateCaptcha('reg')) {
+            return;
           }
           
-          // Имитация регистрации
+          // Firebase регистрация
           this.disabled = true;
           this.textContent = 'Регистрация...';
           
-          setTimeout(() => {
-            showSuccess('reg-success', 'Регистрация успешна! ✅ (демо режим)');
-            document.getElementById("reg-email").value = '';
-            document.getElementById("reg-password").value = '';
-            
-            setTimeout(() => {
-              document.getElementById('authModal').classList.remove('show');
-            }, 2000);
-            
-            this.disabled = false;
-            this.textContent = 'Зарегистрироваться';
-            
-            if (typeof grecaptcha !== 'undefined') {
-              grecaptcha.reset();
-            }
-          }, 1000);
+          var self = this;
+          auth.createUserWithEmailAndPassword(email, password)
+            .then(function(userCredential) {
+              var user = userCredential.user;
+              
+              // Сохранение в Firestore
+              return saveUserToFirestore(user, {
+                registrationMethod: 'email',
+                source: 'website'
+              });
+            })
+            .then(function() {
+              showSuccess('reg-success', 'Регистрация успешна! ✅');
+              document.getElementById("reg-email").value = '';
+              document.getElementById("reg-password").value = '';
+              generateCaptcha('reg');
+              
+              setTimeout(function() {
+                document.getElementById('authModal').classList.remove('show');
+              }, 2000);
+            })
+            .catch(function(error) {
+              var errorMessage = 'Ошибка регистрации';
+              if (error.code === 'auth/email-already-in-use') {
+                errorMessage = 'Email уже используется';
+              } else if (error.code === 'auth/weak-password') {
+                errorMessage = 'Слишком простой пароль';
+              } else if (error.code === 'auth/invalid-email') {
+                errorMessage = 'Неверный формат email';
+              }
+              showError('reg-email-error', errorMessage);
+              console.error('Registration error:', error);
+            })
+            .finally(function() {
+              self.disabled = false;
+              self.textContent = 'Зарегистрироваться';
+            });
         });
       }
       
       if (loginBtn) {
         loginBtn.addEventListener("click", function() {
-          const email = document.getElementById("login-email").value.trim();
-          const password = document.getElementById("login-password").value;
+          var email = document.getElementById("login-email").value.trim();
+          var password = document.getElementById("login-password").value;
           
           if (!validateForm(email, password, 'login')) {
             return;
           }
           
           // Проверка капчи
-          if (typeof grecaptcha !== 'undefined') {
-            const response = grecaptcha.getResponse();
-            if (!response.length) {
-              alert("Подтвердите, что вы человек 😎");
-              return;
-            }
+          if (!validateCaptcha('login')) {
+            return;
           }
           
-          // Имитация входа
+          // Firebase вход
           this.disabled = true;
           this.textContent = 'Вход...';
           
-          setTimeout(() => {
-            showSuccess('login-success', 'Добро пожаловать, ' + email + '! ✅ (демо режим)');
-            document.getElementById("login-email").value = '';
-            document.getElementById("login-password").value = '';
-            
-            setTimeout(() => {
-              document.getElementById('authModal').classList.remove('show');
-            }, 2000);
-            
-            this.disabled = false;
-            this.textContent = 'Войти';
-            
-            if (typeof grecaptcha !== 'undefined') {
-              grecaptcha.reset();
-            }
-          }, 1000);
+          var self = this;
+          auth.signInWithEmailAndPassword(email, password)
+            .then(function(userCredential) {
+              var user = userCredential.user;
+              
+              // Обновление времени последнего входа
+              return db.collection('users').doc(user.uid).update({
+                lastLogin: firebase.firestore.FieldValue.serverTimestamp()
+              });
+            })
+            .then(function() {
+              showSuccess('login-success', 'Добро пожаловать! ✅');
+              document.getElementById("login-email").value = '';
+              document.getElementById("login-password").value = '';
+              generateCaptcha('login');
+              
+              setTimeout(function() {
+                document.getElementById('authModal').classList.remove('show');
+              }, 2000);
+            })
+            .catch(function(error) {
+              var errorMessage = 'Ошибка входа';
+              if (error.code === 'auth/user-not-found') {
+                errorMessage = 'Пользователь не найден';
+              } else if (error.code === 'auth/wrong-password') {
+                errorMessage = 'Неверный пароль';
+              } else if (error.code === 'auth/invalid-email') {
+                errorMessage = 'Неверный формат email';
+              }
+              showError('login-email-error', errorMessage);
+              console.error('Login error:', error);
+            })
+            .finally(function() {
+              self.disabled = false;
+              self.textContent = 'Войти';
+            });
         });
       }
     }
     
-    // Реальная аутентификация Firebase
-    function initRealAuth() {
-      const registerBtn = document.getElementById("registerBtn");
-      const loginBtn = document.getElementById("loginBtn");
-      
-      if (registerBtn) {
-        registerBtn.addEventListener("click", async function() {
-          const email = document.getElementById("reg-email").value.trim();
-          const password = document.getElementById("reg-password").value;
-          
-          if (!validateForm(email, password, 'reg')) {
-            return;
-          }
-          
-          // Проверка капчи
-          if (typeof grecaptcha !== 'undefined') {
-            const response = grecaptcha.getResponse();
-            if (!response.length) {
-              alert("Подтвердите, что вы человек 😎");
-              return;
-            }
-          }
-          
-          this.disabled = true;
-          this.textContent = 'Регистрация...';
-          
-          try {
-            const userCred = await auth.createUserWithEmailAndPassword(email, password);
-            const user = userCred.user;
-            
-            // Сохранение в Firestore
-            await db.collection("users").doc(user.uid).set({
-              email: user.email,
-              createdAt: new Date().toISOString()
-            });
-            
-            showSuccess('reg-success', 'Регистрация успешна! ✅');
-            
-            document.getElementById("reg-email").value = '';
-            document.getElementById("reg-password").value = '';
-            
-            setTimeout(() => {
-              document.getElementById('authModal').classList.remove('show');
-            }, 2000);
-            
-          } catch (error) {
-            let errorMessage = 'Произошла ошибка при регистрации';
-            
-            switch (error.code) {
-              case 'auth/email-already-in-use':
-                errorMessage = 'Этот email уже используется';
-                break;
-              case 'auth/weak-password':
-                errorMessage = 'Слишком слабый пароль';
-                break;
-              case 'auth/invalid-email':
-                errorMessage = 'Некорректный email';
-                break;
-            }
-            
-            alert(errorMessage);
-          } finally {
-            this.disabled = false;
-            this.textContent = 'Зарегистрироваться';
-            if (typeof grecaptcha !== 'undefined') {
-              grecaptcha.reset();
-            }
-          }
-        });
+    // Отслеживание состояния аутентификации
+    auth.onAuthStateChanged(function(user) {
+      var authBtn = document.getElementById('openAuthModal');
+      if (user) {
+        // Пользователь вошел
+        if (authBtn) {
+          authBtn.textContent = 'Профиль (' + user.email.split('@')[0] + ')';
+        }
+        console.log('User logged in:', user.email);
+      } else {
+        // Пользователь вышел
+        if (authBtn) {
+          authBtn.textContent = 'Войти / Регистрация';
+        }
+        console.log('User logged out');
       }
-      
-      if (loginBtn) {
-        loginBtn.addEventListener("click", async function() {
-          const email = document.getElementById("login-email").value.trim();
-          const password = document.getElementById("login-password").value;
-          
-          if (!validateForm(email, password, 'login')) {
-            return;
-          }
-          
-          // Проверка капчи
-          if (typeof grecaptcha !== 'undefined') {
-            const response = grecaptcha.getResponse();
-            if (!response.length) {
-              alert("Подтвердите, что вы человек 😎");
-              return;
-            }
-          }
-          
-          this.disabled = true;
-          this.textContent = 'Вход...';
-          
-          try {
-            const userCred = await auth.signInWithEmailAndPassword(email, password);
-            
-            showSuccess('login-success', 'Добро пожаловать, ' + userCred.user.email + '! ✅');
-            
-            document.getElementById("login-email").value = '';
-            document.getElementById("login-password").value = '';
-            
-            setTimeout(() => {
-              document.getElementById('authModal').classList.remove('show');
-            }, 2000);
-            
-          } catch (error) {
-            let errorMessage = 'Произошла ошибка при входе';
-            
-            switch (error.code) {
-              case 'auth/user-not-found':
-                errorMessage = 'Пользователь не найден';
-                break;
-              case 'auth/wrong-password':
-                errorMessage = 'Неверный пароль';
-                break;
-              case 'auth/invalid-email':
-                errorMessage = 'Некорректный email';
-                break;
-              case 'auth/too-many-requests':
-                errorMessage = 'Слишком много попыток. Попробуйте позже';
-                break;
-            }
-            
-            alert(errorMessage);
-          } finally {
-            this.disabled = false;
-            this.textContent = 'Войти';
-            if (typeof grecaptcha !== 'undefined') {
-              grecaptcha.reset();
-            }
-          }
-        });
-      }
-    }
+    });
     
     // Инициализация при загрузке страницы
     document.addEventListener('DOMContentLoaded', function() {
       initLanguageSwitcher();
       initModal();
       initTabs();
-      initFirebase();
+      initCaptchaRefresh();
+      initAuth();
+      
+      // Генерация начальных капч
+      generateCaptcha('reg');
+      generateCaptcha('login');
     });
   </script>
-
-  <!-- Firebase SDK (совместимость) -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 </body>
 </html>
