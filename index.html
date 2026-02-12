@@ -638,9 +638,178 @@
       line-height: 1.6;
     }
 
+    /* ===== CASES SECTION ===== */
+    .cases-section {
+      background: white;
+    }
+
+    .case-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+
+    .case-card-visual {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-card-visual::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -30%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    }
+
+    .case-card-visual .case-logo {
+      font-size: 36px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .case-card-visual .case-logo .gradient-text {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .case-card-stats {
+      display: flex;
+      gap: 24px;
+      position: relative;
+    }
+
+    .case-card-stat {
+      text-align: center;
+    }
+
+    .case-card-stat .num {
+      font-size: 28px;
+      font-weight: 800;
+      color: #93c5fd;
+      line-height: 1;
+    }
+
+    .case-card-stat .lbl {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .case-card-content {
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .case-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .case-card-content h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .case-card-content p {
+      font-size: 15px;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .case-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .case-card-tag {
+      background: white;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .case-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #3b82f6;
+      font-size: 14px;
+      font-weight: 600;
+      transition: gap 0.3s ease;
+    }
+
+    .case-card:hover .case-card-link {
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .case-card {
+        grid-template-columns: 1fr;
+      }
+
+      .case-card-visual {
+        padding: 32px 24px;
+      }
+
+      .case-card-content {
+        padding: 32px 24px;
+      }
+
+      .case-card-visual .case-logo {
+        font-size: 28px;
+      }
+    }
+
     /* ===== CTA SECTION ===== */
     .cta-section {
-      background: white;
+      background: #f8fafc;
       text-align: center;
     }
 
@@ -1078,6 +1247,7 @@
       <li><a href="#services" class="lang-text" data-lang-ru="Услуги" data-lang-en="Services">Услуги</a></li>
       <li><a href="#products" class="lang-text" data-lang-ru="Продукты" data-lang-en="Products">Продукты</a></li>
       <li><a href="#advantages" class="lang-text" data-lang-ru="Преимущества" data-lang-en="Advantages">Преимущества</a></li>
+      <li><a href="#cases" class="lang-text" data-lang-ru="Кейсы" data-lang-en="Cases">Кейсы</a></li>
       <li><a href="#contact" class="lang-text" data-lang-ru="Контакты" data-lang-en="Contacts">Контакты</a></li>
     </ul>
 
@@ -1417,6 +1587,68 @@
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Cases Section -->
+  <section class="section cases-section" id="cases">
+    <div class="section-container">
+      <div class="section-header" style="text-align:center;">
+        <div class="section-label">
+          <i class="fas fa-briefcase"></i>
+          <span class="lang-text" data-lang-ru="Наши кейсы" data-lang-en="Our Cases">Наши кейсы</span>
+        </div>
+        <h2 class="section-title lang-text" data-lang-ru="Реализованные проекты" data-lang-en="Completed Projects">Реализованные проекты</h2>
+        <p class="section-subtitle lang-text" style="margin:0 auto;"
+           data-lang-ru="Примеры наших проектов по бизнес-анализу и автоматизации"
+           data-lang-en="Examples of our business analysis and automation projects">
+          Примеры наших проектов по бизнес-анализу и автоматизации
+        </p>
+      </div>
+
+      <a href="geokurs-case.html" class="case-card">
+        <div class="case-card-visual">
+          <div class="case-logo">
+            <span class="gradient-text">Geokurs</span>
+          </div>
+          <div class="case-card-stats">
+            <div class="case-card-stat">
+              <div class="num">12</div>
+              <div class="lbl lang-text" data-lang-ru="процессов" data-lang-en="processes">процессов</div>
+            </div>
+            <div class="case-card-stat">
+              <div class="num">29+</div>
+              <div class="lbl">KPI</div>
+            </div>
+            <div class="case-card-stat">
+              <div class="num">70+</div>
+              <div class="lbl lang-text" data-lang-ru="задач" data-lang-en="tasks">задач</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card-content">
+          <div class="case-card-badge">
+            <i class="fas fa-chart-line"></i>
+            <span class="lang-text" data-lang-ru="Бизнес-анализ" data-lang-en="Business Analysis">Бизнес-анализ</span>
+          </div>
+          <h3 class="lang-text" data-lang-ru="Описание процессов и KPI для Geokurs" data-lang-en="Process Mapping & KPI for Geokurs">Описание процессов и KPI для Geokurs</h3>
+          <p class="lang-text"
+             data-lang-ru="Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования"
+             data-lang-en="Business process mapping, KPI matrix development, and automation roadmap for a geodetic equipment supplier">
+            Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования
+          </p>
+          <div class="case-card-tags">
+            <span class="case-card-tag">BPMN</span>
+            <span class="case-card-tag">KPI</span>
+            <span class="case-card-tag">Bitrix24</span>
+            <span class="case-card-tag">1C</span>
+          </div>
+          <div class="case-card-link">
+            <span class="lang-text" data-lang-ru="Подробнее" data-lang-en="Learn more">Подробнее</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
     </div>
   </section>
 

@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кейс Geokurs — Ric Solutions</title>
+  <meta name="description" content="Кейс: описание бизнес-процессов, разработка KPI-метрик и дорожной карты автоматизации для компании Geokurs — поставщик геодезического оборудования.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical & Hreflang -->
+  <link rel="canonical" href="https://softrain.kz/geokurs-case.html">
+  <link rel="alternate" hreflang="ru" href="https://softrain.kz/geokurs-case.html">
+  <link rel="alternate" hreflang="en" href="https://softrain.kz/geokurs-case.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://softrain.kz/geokurs-case.html">
+  <meta property="og:title" content="Кейс Geokurs — Бизнес-анализ и автоматизация">
+  <meta property="og:description" content="Описание бизнес-процессов, 29+ KPI-метрик и 70+ задач автоматизации для Geokurs.">
+  <meta property="og:image" content="https://softrain.kz/logo.png">
+  <meta property="og:site_name" content="Ric Solutions">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .navbar.scrolled {
+      background: rgba(15, 23, 42, 0.98);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-logo img {
+      height: 40px;
+      border-radius: 6px;
+    }
+
+    .nav-logo span {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-back {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-back:hover {
+      color: white;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .language-switcher {
+      display: flex;
+      gap: 4px;
+    }
+
+    .language-switcher button {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .language-switcher button:hover {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    .language-switcher button.active {
+      background: #3b82f6;
+      border-color: #3b82f6;
+      color: white;
+      font-weight: 600;
+    }
+
+    /* ===== CASE HERO ===== */
+    .case-hero {
+      padding: 140px 20px 80px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+    }
+
+    .case-hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #93c5fd;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .case-hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .case-hero h1 .gradient-text {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .case-hero-desc {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      max-width: 700px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .case-meta {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .case-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+    }
+
+    .case-meta-item i {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.2);
+      border-radius: 10px;
+      color: #93c5fd;
+      font-size: 16px;
+    }
+
+    .case-meta-item strong {
+      display: block;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .case-meta-item span {
+      font-size: 13px;
+    }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .stats-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 40px 20px;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .stat-box:last-child {
+      border-right: none;
+    }
+
+    .stat-box .number {
+      font-size: 40px;
+      font-weight: 800;
+      color: #3b82f6;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-box .label {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    .section {
+      padding: 80px 20px;
+    }
+
+    .section-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-header.center {
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #3b82f6;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -1.5px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: #64748b;
+      max-width: 650px;
+      line-height: 1.7;
+    }
+
+    .section-header.center .section-subtitle {
+      margin: 0 auto;
+    }
+
+    /* ===== ABOUT CLIENT ===== */
+    .about-client {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .about-tag {
+      background: #f1f5f9;
+      color: #475569;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    .about-info-card {
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .about-info-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 15px;
+      color: #475569;
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .info-list li i {
+      color: #3b82f6;
+      font-size: 16px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ===== SCOPE OF WORK ===== */
+    .scope-section {
+      background: #f8fafc;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .scope-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 36px 30px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scope-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--card-color, #3b82f6), var(--card-color-end, #2563eb));
+    }
+
+    .scope-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+
+    .scope-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .scope-icon.blue {
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+    }
+
+    .scope-icon.purple {
+      background: rgba(139, 92, 246, 0.1);
+      color: #8b5cf6;
+    }
+
+    .scope-icon.cyan {
+      background: rgba(6, 182, 212, 0.1);
+      color: #06b6d4;
+    }
+
+    .scope-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .scope-card p {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .scope-card .scope-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f1f5f9;
+      color: #3b82f6;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ===== KPI SECTION ===== */
+    .kpi-section {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+    }
+
+    .kpi-section .section-label {
+      color: #93c5fd;
+    }
+
+    .kpi-section .section-title {
+      color: white;
+    }
+
+    .kpi-section .section-subtitle {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .kpi-departments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .kpi-dept {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 32px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .kpi-dept:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-4px);
+    }
+
+    .kpi-dept-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-dept-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      background: rgba(59, 130, 246, 0.2);
+      color: #93c5fd;
+    }
+
+    .kpi-dept h3 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .kpi-dept h3 small {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .kpi-list {
+      list-style: none;
+    }
+
+    .kpi-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .kpi-list li:last-child {
+      border-bottom: none;
+    }
+
+    .kpi-list li i {
+      color: #22c55e;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    /* ===== AUTOMATION ROADMAP ===== */
+    .automation-section {
+      background: white;
+    }
+
+    .automation-blocks {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .automation-block {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .automation-block:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 8px 30px rgba(59, 130, 246, 0.08);
+    }
+
+    .automation-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .automation-block-header h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .automation-block-header h4 i {
+      color: #3b82f6;
+      font-size: 18px;
+    }
+
+    .automation-count {
+      background: #3b82f6;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .automation-items {
+      list-style: none;
+    }
+
+    .automation-items li {
+      padding: 6px 0;
+      font-size: 14px;
+      color: #475569;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .automation-items li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #3b82f6;
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: #f8fafc;
+      text-align: center;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 24px;
+      padding: 60px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+
+    .cta-box h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+      position: relative;
+      letter-spacing: -1px;
+    }
+
+    .cta-box p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .cta-contacts {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .cta-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .cta-contact-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .cta-contact-item i {
+      font-size: 20px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #0f172a;
+      color: rgba(255,255,255,0.5);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 14px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .scope-grid,
+      .kpi-departments {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .stats-bar-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-box:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat-box:nth-child(3),
+      .stat-box:nth-child(4) {
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .case-hero h1 {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0 20px;
+      }
+
+      .case-hero {
+        padding: 120px 20px 60px;
+      }
+
+      .case-hero h1 {
+        font-size: 30px;
+        letter-spacing: -1px;
+      }
+
+      .case-hero-desc {
+        font-size: 16px;
+      }
+
+      .case-meta {
+        gap: 20px;
+      }
+
+      .stats-bar-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-box .number {
+        font-size: 32px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .automation-blocks {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 40px 24px;
+      }
+
+      .cta-box h2 {
+        font-size: 24px;
+      }
+
+      .cta-contacts {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-back span {
+        display: none;
+      }
+
+      .case-hero h1 {
+        font-size: 26px;
+      }
+
+      .stats-bar-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-box {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .stat-box:last-child {
+        border-bottom: none;
+      }
+
+      .stat-box:nth-child(3),
+      .stat-box:nth-child(4) {
+        border-top: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Ric Solutions">
+      <span>Ric Solutions</span>
+    </a>
+
+    <div class="nav-right">
+      <a href="index.html" class="nav-back">
+        <i class="fas fa-arrow-left"></i>
+        <span class="lang-text" data-lang-ru="На главную" data-lang-en="Back to Home">На главную</span>
+      </a>
+      <div class="language-switcher">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Case Hero -->
+  <section class="case-hero">
+    <div class="case-hero-content">
+      <div class="case-badge">
+        <i class="fas fa-briefcase"></i>
+        <span class="lang-text" data-lang-ru="Кейс" data-lang-en="Case Study">Кейс</span>
+      </div>
+      <h1>
+        <span class="lang-text" data-lang-ru="Описание бизнес-процессов" data-lang-en="Business Process Mapping">Описание бизнес-процессов</span><br>
+        <span class="gradient-text">Geokurs</span>
+      </h1>
+      <p class="case-hero-desc lang-text"
+         data-lang-ru="Комплексный проект по описанию бизнес-процессов, разработке системы KPI-метрик и формированию дорожной карты автоматизации для компании Geokurs — поставщика геодезического оборудования"
+         data-lang-en="A comprehensive project on business process mapping, KPI metrics development, and automation roadmap for Geokurs — a geodetic equipment supplier">
+        Комплексный проект по описанию бизнес-процессов, разработке системы KPI-метрик и формированию дорожной карты автоматизации для компании Geokurs — поставщика геодезического оборудования
+      </p>
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <i class="fas fa-building"></i>
+          <div>
+            <strong class="lang-text" data-lang-ru="Клиент" data-lang-en="Client">Клиент</strong>
+            <span>Geokurs</span>
+          </div>
+        </div>
+        <div class="case-meta-item">
+          <i class="fas fa-industry"></i>
+          <div>
+            <strong class="lang-text" data-lang-ru="Отрасль" data-lang-en="Industry">Отрасль</strong>
+            <span class="lang-text" data-lang-ru="Геодезическое оборудование" data-lang-en="Geodetic Equipment">Геодезическое оборудование</span>
+          </div>
+        </div>
+        <div class="case-meta-item">
+          <i class="fas fa-calendar"></i>
+          <div>
+            <strong class="lang-text" data-lang-ru="Год" data-lang-en="Year">Год</strong>
+            <span>2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-box">
+        <div class="number">12</div>
+        <div class="label lang-text" data-lang-ru="Бизнес-процессов описано" data-lang-en="Business processes mapped">Бизнес-процессов описано</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">29+</div>
+        <div class="label lang-text" data-lang-ru="KPI-метрик разработано" data-lang-en="KPI metrics developed">KPI-метрик разработано</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">70+</div>
+        <div class="label lang-text" data-lang-ru="Задач автоматизации" data-lang-en="Automation tasks">Задач автоматизации</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">4</div>
+        <div class="label lang-text" data-lang-ru="Отдела охвачено" data-lang-en="Departments covered">Отдела охвачено</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Client -->
+  <section class="section about-client">
+    <div class="section-container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="section-header">
+            <div class="section-label">
+              <i class="fas fa-building"></i>
+              <span class="lang-text" data-lang-ru="О клиенте" data-lang-en="About the Client">О клиенте</span>
+            </div>
+            <h2 class="section-title lang-text" data-lang-ru="Компания Geokurs" data-lang-en="Geokurs Company">Компания Geokurs</h2>
+          </div>
+          <p class="lang-text"
+             data-lang-ru="Geokurs — казахстанская компания, специализирующаяся на поставке и сервисном обслуживании геодезического и измерительного оборудования. Компания работает с ведущими мировыми брендами и предоставляет полный цикл услуг: от продажи оборудования до технической поддержки и ремонта."
+             data-lang-en="Geokurs is a Kazakh company specializing in the supply and service of geodetic and surveying equipment. The company works with leading global brands and provides a full cycle of services: from equipment sales to technical support and repairs.">
+            Geokurs — казахстанская компания, специализирующаяся на поставке и сервисном обслуживании геодезического и измерительного оборудования. Компания работает с ведущими мировыми брендами и предоставляет полный цикл услуг: от продажи оборудования до технической поддержки и ремонта.
+          </p>
+          <p class="lang-text"
+             data-lang-ru="Перед началом проекта компания столкнулась с необходимостью систематизировать процессы, определить ключевые метрики эффективности и составить план цифровой трансформации."
+             data-lang-en="Before the project started, the company faced the need to systematize processes, define key performance metrics, and create a digital transformation plan.">
+            Перед началом проекта компания столкнулась с необходимостью систематизировать процессы, определить ключевые метрики эффективности и составить план цифровой трансформации.
+          </p>
+          <div class="about-tags">
+            <span class="about-tag lang-text" data-lang-ru="Геодезия" data-lang-en="Geodesy">Геодезия</span>
+            <span class="about-tag lang-text" data-lang-ru="Оборудование" data-lang-en="Equipment">Оборудование</span>
+            <span class="about-tag lang-text" data-lang-ru="Сервис" data-lang-en="Service">Сервис</span>
+            <span class="about-tag">B2B</span>
+            <span class="about-tag lang-text" data-lang-ru="Казахстан" data-lang-en="Kazakhstan">Казахстан</span>
+          </div>
+        </div>
+        <div class="about-info-card">
+          <h3 class="lang-text" data-lang-ru="Задачи проекта" data-lang-en="Project Objectives">Задачи проекта</h3>
+          <ul class="info-list">
+            <li>
+              <i class="fas fa-sitemap"></i>
+              <span class="lang-text" data-lang-ru="Описать и визуализировать все ключевые бизнес-процессы компании" data-lang-en="Map and visualize all key business processes">Описать и визуализировать все ключевые бизнес-процессы компании</span>
+            </li>
+            <li>
+              <i class="fas fa-chart-bar"></i>
+              <span class="lang-text" data-lang-ru="Разработать систему KPI-метрик для каждого отдела" data-lang-en="Develop a KPI metrics system for each department">Разработать систему KPI-метрик для каждого отдела</span>
+            </li>
+            <li>
+              <i class="fas fa-road"></i>
+              <span class="lang-text" data-lang-ru="Сформировать дорожную карту автоматизации и внедрения" data-lang-en="Create an automation and implementation roadmap">Сформировать дорожную карту автоматизации и внедрения</span>
+            </li>
+            <li>
+              <i class="fas fa-puzzle-piece"></i>
+              <span class="lang-text" data-lang-ru="Определить точки интеграции между системами" data-lang-en="Identify integration points between systems">Определить точки интеграции между системами</span>
+            </li>
+            <li>
+              <i class="fas fa-file-alt"></i>
+              <span class="lang-text" data-lang-ru="Подготовить регламенты работы для всех отделов" data-lang-en="Prepare work regulations for all departments">Подготовить регламенты работы для всех отделов</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scope of Work -->
+  <section class="section scope-section">
+    <div class="section-container">
+      <div class="section-header center">
+        <div class="section-label">
+          <i class="fas fa-tasks"></i>
+          <span class="lang-text" data-lang-ru="Что было сделано" data-lang-en="What was done">Что было сделано</span>
+        </div>
+        <h2 class="section-title lang-text" data-lang-ru="Объём работ" data-lang-en="Scope of Work">Объём работ</h2>
+        <p class="section-subtitle lang-text"
+           data-lang-ru="Проект включал три ключевых направления работы"
+           data-lang-en="The project included three key work areas">
+          Проект включал три ключевых направления работы
+        </p>
+      </div>
+
+      <div class="scope-grid">
+        <div class="scope-card" style="--card-color: #3b82f6; --card-color-end: #06b6d4;">
+          <div class="scope-icon blue">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <h3 class="lang-text" data-lang-ru="Бизнес-процессы" data-lang-en="Business Processes">Бизнес-процессы</h3>
+          <p class="lang-text"
+             data-lang-ru="Детальное описание и визуализация бизнес-процессов всех ключевых подразделений в нотации BPMN"
+             data-lang-en="Detailed mapping and visualization of business processes for all key departments in BPMN notation">
+            Детальное описание и визуализация бизнес-процессов всех ключевых подразделений в нотации BPMN
+          </p>
+          <div class="scope-count lang-text" data-lang-ru="12 процессов" data-lang-en="12 processes">
+            <i class="fas fa-diagram-project"></i> 12 процессов
+          </div>
+        </div>
+
+        <div class="scope-card" style="--card-color: #8b5cf6; --card-color-end: #a855f7;">
+          <div class="scope-icon purple">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3 class="lang-text" data-lang-ru="Матрица KPI" data-lang-en="KPI Matrix">Матрица KPI</h3>
+          <p class="lang-text"
+             data-lang-ru="Разработка системы ключевых показателей эффективности с целевыми значениями и формулами расчёта"
+             data-lang-en="Development of a key performance indicator system with target values and calculation formulas">
+            Разработка системы ключевых показателей эффективности с целевыми значениями и формулами расчёта
+          </p>
+          <div class="scope-count lang-text" data-lang-ru="29+ метрик" data-lang-en="29+ metrics">
+            <i class="fas fa-chart-line"></i> 29+ метрик
+          </div>
+        </div>
+
+        <div class="scope-card" style="--card-color: #06b6d4; --card-color-end: #22d3ee;">
+          <div class="scope-icon cyan">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="lang-text" data-lang-ru="Дорожная карта" data-lang-en="Roadmap">Дорожная карта</h3>
+          <p class="lang-text"
+             data-lang-ru="Формирование детального перечня задач по автоматизации и внедрению IT-систем по каждому блоку"
+             data-lang-en="Creating a detailed task list for automation and IT system implementation for each block">
+            Формирование детального перечня задач по автоматизации и внедрению IT-систем по каждому блоку
+          </p>
+          <div class="scope-count lang-text" data-lang-ru="70+ задач" data-lang-en="70+ tasks">
+            <i class="fas fa-list-check"></i> 70+ задач
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI Section -->
+  <section class="section kpi-section">
+    <div class="section-container">
+      <div class="section-header center">
+        <div class="section-label">
+          <i class="fas fa-chart-bar"></i>
+          <span class="lang-text" data-lang-ru="Система метрик" data-lang-en="Metrics System">Система метрик</span>
+        </div>
+        <h2 class="section-title lang-text" data-lang-ru="Разработанные KPI по отделам" data-lang-en="Developed KPIs by Department">Разработанные KPI по отделам</h2>
+        <p class="section-subtitle lang-text"
+           data-lang-ru="Каждая метрика включает формулу расчёта, целевые значения и частоту измерения"
+           data-lang-en="Each metric includes calculation formula, target values, and measurement frequency">
+          Каждая метрика включает формулу расчёта, целевые значения и частоту измерения
+        </p>
+      </div>
+
+      <div class="kpi-departments">
+        <!-- Warehouse -->
+        <div class="kpi-dept">
+          <div class="kpi-dept-header">
+            <div class="kpi-dept-icon">
+              <i class="fas fa-warehouse"></i>
+            </div>
+            <h3>
+              <span class="lang-text" data-lang-ru="Склад" data-lang-en="Warehouse">Склад</span>
+              <small>8 KPI (WH001–WH008)</small>
+            </h3>
+          </div>
+          <ul class="kpi-list">
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Доля просроченных сделок" data-lang-en="Delayed Deal Ratio">Доля просроченных сделок</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Время внутреннего перемещения" data-lang-en="Internal Movement Time">Время внутреннего перемещения</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Время комплектации заказа" data-lang-en="Order Picking Time">Время комплектации заказа</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Время обработки заказа" data-lang-en="Order Processing Time">Время обработки заказа</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Точность входящих поставок" data-lang-en="Inbound Delivery Accuracy">Точность входящих поставок</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Коэффициент возвратов" data-lang-en="Return Rate">Коэффициент возвратов</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Точность инвентаризации" data-lang-en="Inventory Accuracy">Точность инвентаризации</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Доля избыточных запасов" data-lang-en="Excess Inventory Rate">Доля избыточных запасов</span></li>
+          </ul>
+        </div>
+
+        <!-- Technical Support -->
+        <div class="kpi-dept">
+          <div class="kpi-dept-header">
+            <div class="kpi-dept-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>
+              <span class="lang-text" data-lang-ru="Тех. поддержка" data-lang-en="Tech Support">Тех. поддержка</span>
+              <small>11 KPI (TS001–TS011)</small>
+            </h3>
+          </div>
+          <ul class="kpi-list">
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Время обратного звонка" data-lang-en="Callback Time">Время обратного звонка</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Время первого ответа" data-lang-en="First Response Time">Время первого ответа</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Доля просроченных сделок" data-lang-en="Delayed Deal Ratio">Доля просроченных сделок</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Время решения обращений" data-lang-en="Resolution Time">Время решения обращений</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="CSAT — удовлетворённость" data-lang-en="CSAT — Customer Satisfaction">CSAT — удовлетворённость</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="NPS — лояльность клиентов" data-lang-en="NPS — Customer Loyalty">NPS — лояльность клиентов</span></li>
+          </ul>
+        </div>
+
+        <!-- Service Department -->
+        <div class="kpi-dept">
+          <div class="kpi-dept-header">
+            <div class="kpi-dept-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>
+              <span class="lang-text" data-lang-ru="Сервисный отдел" data-lang-en="Service Department">Сервисный отдел</span>
+              <small>9 KPI (SD001–SD009)</small>
+            </h3>
+          </div>
+          <ul class="kpi-list">
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Тикеты на инженера" data-lang-en="Tickets per Engineer">Тикеты на инженера</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Время диагностики" data-lang-en="Diagnostic Time">Время диагностики</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Коэффициент повторных обращений" data-lang-en="Reopen Rate">Коэффициент повторных обращений</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Время ожидания запчастей" data-lang-en="Parts Waiting Time">Время ожидания запчастей</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Доля бракованных запчастей" data-lang-en="Defective Parts Rate">Доля бракованных запчастей</span></li>
+            <li><i class="fas fa-circle"></i> <span class="lang-text" data-lang-ru="Выручка на клиента" data-lang-en="Revenue per Customer">Выручка на клиента</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Automation Roadmap -->
+  <section class="section automation-section">
+    <div class="section-container">
+      <div class="section-header center">
+        <div class="section-label">
+          <i class="fas fa-road"></i>
+          <span class="lang-text" data-lang-ru="Дорожная карта" data-lang-en="Roadmap">Дорожная карта</span>
+        </div>
+        <h2 class="section-title lang-text" data-lang-ru="Перечень работ по автоматизации" data-lang-en="Automation Work Plan">Перечень работ по автоматизации</h2>
+        <p class="section-subtitle lang-text"
+           data-lang-ru="Структурированный перечень из 70+ задач по блокам внедрения"
+           data-lang-en="A structured list of 70+ tasks organized by implementation blocks">
+          Структурированный перечень из 70+ задач по блокам внедрения
+        </p>
+      </div>
+
+      <div class="automation-blocks">
+        <div class="automation-block">
+          <div class="automation-block-header">
+            <h4><i class="fas fa-shield-halved"></i> <span class="lang-text" data-lang-ru="Безопасность (Vault)" data-lang-en="Security (Vault)">Безопасность (Vault)</span></h4>
+            <span class="automation-count lang-text" data-lang-ru="Блок 1" data-lang-en="Block 1">Блок 1</span>
+          </div>
+          <ul class="automation-items">
+            <li class="lang-text" data-lang-ru="Централизованное хранение паролей" data-lang-en="Centralized password storage">Централизованное хранение паролей</li>
+            <li class="lang-text" data-lang-ru="Управление доступами сотрудников" data-lang-en="Employee access management">Управление доступами сотрудников</li>
+            <li class="lang-text" data-lang-ru="Аудит и журналирование" data-lang-en="Audit and logging">Аудит и журналирование</li>
+          </ul>
+        </div>
+
+        <div class="automation-block">
+          <div class="automation-block-header">
+            <h4><i class="fas fa-user"></i> <span class="lang-text" data-lang-ru="Личный кабинет" data-lang-en="Personal Cabinet">Личный кабинет</span></h4>
+            <span class="automation-count lang-text" data-lang-ru="Блок 2" data-lang-en="Block 2">Блок 2</span>
+          </div>
+          <ul class="automation-items">
+            <li class="lang-text" data-lang-ru="UX/UI дизайн кабинета клиента" data-lang-en="Customer portal UX/UI design">UX/UI дизайн кабинета клиента</li>
+            <li class="lang-text" data-lang-ru="Отслеживание заказов и ремонтов" data-lang-en="Order and repair tracking">Отслеживание заказов и ремонтов</li>
+            <li class="lang-text" data-lang-ru="Интеграция с несколькими сайтами" data-lang-en="Multi-site integration">Интеграция с несколькими сайтами</li>
+          </ul>
+        </div>
+
+        <div class="automation-block">
+          <div class="automation-block-header">
+            <h4><i class="fas fa-database"></i> <span class="lang-text" data-lang-ru="1C (ERP)" data-lang-en="1C (ERP)">1C (ERP)</span></h4>
+            <span class="automation-count lang-text" data-lang-ru="Блок 3" data-lang-en="Block 3">Блок 3</span>
+          </div>
+          <ul class="automation-items">
+            <li class="lang-text" data-lang-ru="Настройка учётных модулей" data-lang-en="Accounting module configuration">Настройка учётных модулей</li>
+            <li class="lang-text" data-lang-ru="Складской учёт и штрихкодирование" data-lang-en="Warehouse accounting and barcoding">Складской учёт и штрихкодирование</li>
+            <li class="lang-text" data-lang-ru="Финансовая отчётность" data-lang-en="Financial reporting">Финансовая отчётность</li>
+          </ul>
+        </div>
+
+        <div class="automation-block">
+          <div class="automation-block-header">
+            <h4><i class="fas fa-users"></i> <span class="lang-text" data-lang-ru="CRM Bitrix24" data-lang-en="CRM Bitrix24">CRM Bitrix24</span></h4>
+            <span class="automation-count lang-text" data-lang-ru="Блок 4" data-lang-en="Block 4">Блок 4</span>
+          </div>
+          <ul class="automation-items">
+            <li class="lang-text" data-lang-ru="Воронки продаж и лидогенерация" data-lang-en="Sales funnels and lead generation">Воронки продаж и лидогенерация</li>
+            <li class="lang-text" data-lang-ru="Процессы тех. поддержки" data-lang-en="Technical support processes">Процессы тех. поддержки</li>
+            <li class="lang-text" data-lang-ru="Сервисный отдел — тикет-система" data-lang-en="Service department — ticket system">Сервисный отдел — тикет-система</li>
+          </ul>
+        </div>
+
+        <div class="automation-block">
+          <div class="automation-block-header">
+            <h4><i class="fas fa-boxes-stacked"></i> <span class="lang-text" data-lang-ru="Склад" data-lang-en="Warehouse">Склад</span></h4>
+            <span class="automation-count lang-text" data-lang-ru="Блок 5" data-lang-en="Block 5">Блок 5</span>
+          </div>
+          <ul class="automation-items">
+            <li class="lang-text" data-lang-ru="Система резервирования товаров" data-lang-en="Product reservation system">Система резервирования товаров</li>
+            <li class="lang-text" data-lang-ru="Штрихкодирование и инвентаризация" data-lang-en="Barcoding and inventory">Штрихкодирование и инвентаризация</li>
+            <li class="lang-text" data-lang-ru="Автоматизация приёмки и отгрузки" data-lang-en="Receiving and shipping automation">Автоматизация приёмки и отгрузки</li>
+          </ul>
+        </div>
+
+        <div class="automation-block">
+          <div class="automation-block-header">
+            <h4><i class="fas fa-link"></i> <span class="lang-text" data-lang-ru="Интеграции" data-lang-en="Integrations">Интеграции</span></h4>
+            <span class="automation-count lang-text" data-lang-ru="Блок 6" data-lang-en="Block 6">Блок 6</span>
+          </div>
+          <ul class="automation-items">
+            <li class="lang-text" data-lang-ru="Bitrix24 ↔ 1C синхронизация" data-lang-en="Bitrix24 ↔ 1C synchronization">Bitrix24 ↔ 1C синхронизация</li>
+            <li class="lang-text" data-lang-ru="Vault ↔ системы компании" data-lang-en="Vault ↔ company systems">Vault ↔ системы компании</li>
+            <li class="lang-text" data-lang-ru="Личный кабинет ↔ CRM и сайты" data-lang-en="Personal cabinet ↔ CRM and websites">Личный кабинет ↔ CRM и сайты</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Map Section -->
+  <section class="section scope-section">
+    <div class="section-container">
+      <div class="section-header center">
+        <div class="section-label">
+          <i class="fas fa-sitemap"></i>
+          <span class="lang-text" data-lang-ru="Карта процессов" data-lang-en="Process Map">Карта процессов</span>
+        </div>
+        <h2 class="section-title lang-text" data-lang-ru="Описанные бизнес-процессы" data-lang-en="Mapped Business Processes">Описанные бизнес-процессы</h2>
+        <p class="section-subtitle lang-text"
+           data-lang-ru="12 детализированных диаграмм бизнес-процессов по всем ключевым направлениям"
+           data-lang-en="12 detailed business process diagrams for all key areas">
+          12 детализированных диаграмм бизнес-процессов по всем ключевым направлениям
+        </p>
+      </div>
+
+      <div class="scope-grid">
+        <div class="scope-card" style="--card-color: #3b82f6; --card-color-end: #06b6d4;">
+          <div class="scope-icon blue">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3 class="lang-text" data-lang-ru="Общая схема" data-lang-en="General Overview">Общая схема</h3>
+          <p class="lang-text"
+             data-lang-ru="Верхнеуровневая карта всех процессов компании и их взаимосвязей между подразделениями"
+             data-lang-en="High-level map of all company processes and their cross-department relationships">
+            Верхнеуровневая карта всех процессов компании и их взаимосвязей между подразделениями
+          </p>
+        </div>
+
+        <div class="scope-card" style="--card-color: #8b5cf6; --card-color-end: #a855f7;">
+          <div class="scope-icon purple">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <h3 class="lang-text" data-lang-ru="Отдел продаж" data-lang-en="Sales Department">Отдел продаж</h3>
+          <p class="lang-text"
+             data-lang-ru="Воронка продаж, обработка лидов, работа с клиентами и коммерческие предложения"
+             data-lang-en="Sales funnel, lead processing, client management and commercial proposals">
+            Воронка продаж, обработка лидов, работа с клиентами и коммерческие предложения
+          </p>
+        </div>
+
+        <div class="scope-card" style="--card-color: #06b6d4; --card-color-end: #22d3ee;">
+          <div class="scope-icon cyan">
+            <i class="fas fa-warehouse"></i>
+          </div>
+          <h3 class="lang-text" data-lang-ru="Склад" data-lang-en="Warehouse">Склад</h3>
+          <p class="lang-text"
+             data-lang-ru="Приёмка, хранение, комплектация, отгрузка, инвентаризация и внутренние перемещения"
+             data-lang-en="Receiving, storage, picking, shipping, inventory and internal movements">
+            Приёмка, хранение, комплектация, отгрузка, инвентаризация и внутренние перемещения
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section" id="contact">
+    <div class="section-container">
+      <div class="cta-box">
+        <h2 class="lang-text" data-lang-ru="Нужен подобный проект?" data-lang-en="Need a similar project?">Нужен подобный проект?</h2>
+        <p class="lang-text"
+           data-lang-ru="Мы поможем описать процессы, разработать KPI и составить план автоматизации для вашей компании"
+           data-lang-en="We'll help map your processes, develop KPIs, and create an automation plan for your company">
+          Мы поможем описать процессы, разработать KPI и составить план автоматизации для вашей компании
+        </p>
+        <div class="cta-contacts">
+          <a href="mailto:vm@softrain.kz" class="cta-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>vm@softrain.kz</span>
+          </a>
+          <a href="tel:+77074239899" class="cta-contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+7 (707) 423-98-99</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p class="lang-text" data-lang-ru="&copy; 2025 Ric Solutions. Все права защищены."
+       data-lang-en="&copy; 2025 Ric Solutions. All rights reserved.">
+      &copy; 2025 Ric Solutions. Все права защищены.
+    </p>
+  </div>
+
+  <script>
+    // Language switching
+    function initLanguageSwitcher() {
+      var langButtons = document.querySelectorAll('.lang-btn');
+      var elements = document.querySelectorAll('.lang-text');
+
+      function switchLanguage(lang) {
+        for (var i = 0; i < langButtons.length; i++) {
+          langButtons[i].classList.remove('active');
+        }
+        var activeBtn = document.querySelector('.lang-btn[data-lang="' + lang + '"]');
+        if (activeBtn) activeBtn.classList.add('active');
+
+        document.documentElement.lang = lang;
+
+        for (var i = 0; i < elements.length; i++) {
+          var text = elements[i].getAttribute('data-lang-' + lang);
+          if (text) {
+            if (elements[i].innerHTML.includes('&copy;') || text.includes('&copy;')) {
+              elements[i].innerHTML = text;
+            } else {
+              elements[i].textContent = text;
+            }
+          }
+        }
+
+        document.title = lang === 'ru'
+          ? 'Кейс Geokurs — Ric Solutions'
+          : 'Geokurs Case Study — Ric Solutions';
+
+        try { localStorage.setItem('lang', lang); } catch(e) {}
+      }
+
+      function getLanguage() {
+        try {
+          var saved = localStorage.getItem('lang');
+          if (saved) return saved;
+        } catch(e) {}
+        var browserLang = navigator.language || navigator.languages[0];
+        var lang = browserLang.split('-')[0];
+        return ['ru', 'en'].indexOf(lang) !== -1 ? lang : 'ru';
+      }
+
+      for (var i = 0; i < langButtons.length; i++) {
+        langButtons[i].addEventListener('click', function() {
+          var lang = this.getAttribute('data-lang');
+          switchLanguage(lang);
+        });
+      }
+
+      switchLanguage(getLanguage());
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      var navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Init
+    document.addEventListener('DOMContentLoaded', function() {
+      initLanguageSwitcher();
+    });
+  </script>
+</body>
+</html>
