@@ -422,7 +422,7 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 24px;
     }
 
     .service-card {
@@ -486,6 +486,21 @@
     .service-icon.cyan {
       background: rgba(6, 182, 212, 0.1);
       color: #06b6d4;
+    }
+
+    .service-icon.orange {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+    }
+
+    .service-icon.green {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+
+    .service-icon.rose {
+      background: rgba(244, 63, 94, 0.1);
+      color: #f43f5e;
     }
 
     .service-card h3 {
@@ -574,6 +589,57 @@
       color: #64748b;
       line-height: 1.6;
     }
+
+    /* ===== TECH STACK ===== */
+    .tech-section {
+      background: white;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .tech-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .tech-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+      transition: all 0.3s ease;
+    }
+
+    .tech-item:hover {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .tech-item i {
+      font-size: 20px;
+      width: 28px;
+      text-align: center;
+    }
+
+    .tech-item .tech-1c { color: #f7d100; }
+    .tech-item .tech-oracle { color: #f80000; }
+    .tech-item .tech-bitrix { color: #00aeef; }
+    .tech-item .tech-zabbix { color: #d40000; }
+    .tech-item .tech-ms { color: #00a4ef; }
+    .tech-item .tech-yandex { color: #fc3f1d; }
+    .tech-item .tech-proxmox { color: #e57000; }
+    .tech-item .tech-node { color: #339933; }
+    .tech-item .tech-linux { color: #fcc624; }
+    .tech-item .tech-vmware { color: #696566; }
 
     /* ===== WHY CHOOSE US ===== */
     .advantages-section {
@@ -1085,8 +1151,8 @@
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .services-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
 
       .advantages-grid {
@@ -1103,6 +1169,10 @@
     }
 
     @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
       .navbar {
         padding: 0 20px;
       }
@@ -1464,6 +1534,99 @@
             </li>
           </ul>
         </div>
+
+        <!-- 1C & ERP -->
+        <div class="service-card" style="--card-color: #f59e0b; --card-color-end: #f97316;">
+          <div class="service-icon orange">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="lang-text" data-lang-ru="1C & ERP системы" data-lang-en="1C & ERP Systems">1C & ERP системы</h3>
+          <p class="lang-text"
+             data-lang-ru="Внедрение, настройка и сопровождение решений 1C и Oracle для управления предприятием"
+             data-lang-en="Implementation, configuration and support of 1C and Oracle enterprise management solutions">
+            Внедрение, настройка и сопровождение решений 1C и Oracle для управления предприятием
+          </p>
+          <ul class="service-features">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="1С: Бухгалтерия, ЗУП, ERP, Розница" data-lang-en="1C: Accounting, HR, ERP, Retail">1С: Бухгалтерия, ЗУП, ERP, Розница</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Oracle Hyperion & Planning Cloud" data-lang-en="Oracle Hyperion & Planning Cloud">Oracle Hyperion & Planning Cloud</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Бюджетирование и BI-аналитика" data-lang-en="Budgeting and BI analytics">Бюджетирование и BI-аналитика</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Электронный документооборот" data-lang-en="Electronic document management">Электронный документооборот</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- IT Infrastructure -->
+        <div class="service-card" style="--card-color: #10b981; --card-color-end: #34d399;">
+          <div class="service-icon green">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3 class="lang-text" data-lang-ru="IT-инфраструктура" data-lang-en="IT Infrastructure">IT-инфраструктура</h3>
+          <p class="lang-text"
+             data-lang-ru="Проектирование, миграция и администрирование серверной инфраструктуры и облачных решений"
+             data-lang-en="Design, migration and administration of server infrastructure and cloud solutions">
+            Проектирование, миграция и администрирование серверной инфраструктуры и облачных решений
+          </p>
+          <ul class="service-features">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Миграции ESXi, Proxmox, облачные платформы" data-lang-en="ESXi, Proxmox, cloud platform migrations">Миграции ESXi, Proxmox, облачные платформы</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Мониторинг Zabbix с Telegram-ботами" data-lang-en="Zabbix monitoring with Telegram bots">Мониторинг Zabbix с Telegram-ботами</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Linux-администрирование и сервисы" data-lang-en="Linux administration and services">Linux-администрирование и сервисы</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Nextcloud, OnlyOffice, бэкапы" data-lang-en="Nextcloud, OnlyOffice, backups">Nextcloud, OnlyOffice, бэкапы</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Microsoft 365 & Security -->
+        <div class="service-card" style="--card-color: #f43f5e; --card-color-end: #fb7185;">
+          <div class="service-icon rose">
+            <i class="fab fa-microsoft"></i>
+          </div>
+          <h3 class="lang-text" data-lang-ru="Microsoft 365 & Security" data-lang-en="Microsoft 365 & Security">Microsoft 365 & Security</h3>
+          <p class="lang-text"
+             data-lang-ru="Гибридная инфраструктура земля-облако, управление устройствами и защита данных"
+             data-lang-en="Hybrid on-premise/cloud infrastructure, device management and data protection">
+            Гибридная инфраструктура земля-облако, управление устройствами и защита данных
+          </p>
+          <ul class="service-features">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Microsoft Intune — управление устройствами" data-lang-en="Microsoft Intune — device management">Microsoft Intune — управление устройствами</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Defender & Purview — безопасность" data-lang-en="Defender & Purview — security">Defender & Purview — безопасность</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Миграция между тенантами" data-lang-en="Tenant-to-tenant migration">Миграция между тенантами</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span class="lang-text" data-lang-ru="Гибридная AD + Azure AD" data-lang-en="Hybrid AD + Azure AD">Гибридная AD + Azure AD</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -1524,6 +1687,75 @@
              data-lang-en="Workstations, laptops, and components">
             Рабочие станции, ноутбуки и комплектующие
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="section tech-section" id="tech">
+    <div class="section-container">
+      <div class="section-header" style="text-align:center;">
+        <div class="section-label">
+          <i class="fas fa-microchip"></i>
+          <span class="lang-text" data-lang-ru="Технологии" data-lang-en="Technologies">Технологии</span>
+        </div>
+        <h2 class="section-title lang-text" data-lang-ru="Наш стек" data-lang-en="Our Tech Stack">Наш стек</h2>
+        <p class="section-subtitle lang-text" style="margin:0 auto;"
+           data-lang-ru="Технологии и платформы, с которыми мы работаем"
+           data-lang-en="Technologies and platforms we work with">
+          Технологии и платформы, с которыми мы работаем
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-item">
+          <i class="fas fa-cube tech-1c"></i>
+          <span>1C</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-database tech-oracle"></i>
+          <span>Oracle</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-users tech-bitrix"></i>
+          <span>Bitrix24</span>
+        </div>
+        <div class="tech-item">
+          <i class="fab fa-microsoft tech-ms"></i>
+          <span>Microsoft 365</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-shield-halved tech-ms"></i>
+          <span>Intune & Defender</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-chart-area tech-zabbix"></i>
+          <span>Zabbix</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-cloud tech-yandex"></i>
+          <span class="lang-text" data-lang-ru="Облачные платформы" data-lang-en="Cloud Platforms">Облачные платформы</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-server tech-vmware"></i>
+          <span>VMware ESXi</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-box tech-proxmox"></i>
+          <span>Proxmox</span>
+        </div>
+        <div class="tech-item">
+          <i class="fab fa-node-js tech-node"></i>
+          <span>Node.js / NestJS</span>
+        </div>
+        <div class="tech-item">
+          <i class="fab fa-linux tech-linux"></i>
+          <span>Linux</span>
+        </div>
+        <div class="tech-item">
+          <i class="fas fa-file-lines tech-oracle"></i>
+          <span>Oracle BI</span>
         </div>
       </div>
     </div>
