@@ -956,6 +956,85 @@
       border-radius: 12px;
     }
 
+    .cta-form {
+      max-width: 500px;
+      margin: 32px auto 0;
+      position: relative;
+    }
+
+    .cta-form-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .cta-form input,
+    .cta-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .cta-form input::placeholder,
+    .cta-form textarea::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .cta-form input:focus,
+    .cta-form textarea:focus {
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    .cta-form textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .cta-form-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+      color: #3b82f6;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .cta-form-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .cta-form-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .cta-form-status {
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .cta-form-status.success { color: #bbf7d0; }
+    .cta-form-status.error { color: #fecaca; }
+
+    @media (max-width: 480px) {
+      .cta-form-row { flex-direction: column; }
+    }
+
     /* ===== FOOTER ===== */
     .footer {
       text-align: center;
@@ -1399,14 +1478,14 @@
         <span class="lang-text" data-lang-ru="IT-решения для вашего бизнеса" data-lang-en="IT solutions for your business">IT-решения для вашего бизнеса</span>
       </div>
       <h1>
-        <span class="lang-text" data-lang-ru="Автоматизация." data-lang-en="Automation.">Автоматизация.</span><br>
-        <span class="gradient-text lang-text" data-lang-ru="Аналитика. AI." data-lang-en="Analytics. AI.">Аналитика. AI.</span><br>
-        <span class="lang-text" data-lang-ru="Результат." data-lang-en="Results.">Результат.</span>
+        <span class="lang-text" data-lang-ru="Анализ." data-lang-en="Analysis.">Анализ.</span><br>
+        <span class="gradient-text lang-text" data-lang-ru="Оптимизация. AI." data-lang-en="Optimization. AI.">Оптимизация. AI.</span><br>
+        <span class="lang-text" data-lang-ru="Подготовка к росту." data-lang-en="Ready to grow.">Подготовка к росту.</span>
       </h1>
       <p class="lang-text"
-         data-lang-ru="Внедряем современные IT-решения для роста вашего бизнеса: от бизнес-анализа и автоматизации процессов до интеграции AI-инструментов"
-         data-lang-en="We implement modern IT solutions for your business growth: from business analysis and process automation to AI tools integration">
-        Внедряем современные IT-решения для роста вашего бизнеса: от бизнес-анализа и автоматизации процессов до интеграции AI-инструментов
+         data-lang-ru="Описываем бизнес-процессы, разрабатываем KPI и готовим вашу компанию к автоматизации — чтобы внедрение прошло быстро и без лишних затрат"
+         data-lang-en="We map business processes, develop KPIs and prepare your company for automation — so implementation is fast and cost-effective">
+        Описываем бизнес-процессы, разрабатываем KPI и готовим вашу компанию к автоматизации — чтобы внедрение прошло быстро и без лишних затрат
       </p>
       <div class="hero-buttons">
         <a href="#services" class="btn btn-primary">
@@ -1445,9 +1524,9 @@
         </div>
         <h2 class="section-title lang-text" data-lang-ru="Услуги для бизнеса" data-lang-en="Business Services">Услуги для бизнеса</h2>
         <p class="section-subtitle lang-text"
-           data-lang-ru="Комплексные решения для цифровой трансформации вашей компании"
-           data-lang-en="Comprehensive solutions for digital transformation of your company">
-          Комплексные решения для цифровой трансформации вашей компании
+           data-lang-ru="Подготовим вашу компанию к автоматизации: от аудита процессов до готового ТЗ для интегратора"
+           data-lang-en="We prepare your company for automation: from process audit to a ready-made brief for the integrator">
+          Подготовим вашу компанию к автоматизации: от аудита процессов до готового ТЗ для интегратора
         </p>
       </div>
 
@@ -1488,28 +1567,28 @@
           <div class="service-icon purple">
             <i class="fas fa-gears"></i>
           </div>
-          <h3 class="lang-text" data-lang-ru="Автоматизация" data-lang-en="Automation">Автоматизация</h3>
+          <h3 class="lang-text" data-lang-ru="Подготовка к автоматизации" data-lang-en="Automation Readiness">Подготовка к автоматизации</h3>
           <p class="lang-text"
-             data-lang-ru="Автоматизация рутинных задач и бизнес-процессов для повышения эффективности и снижения затрат"
-             data-lang-en="Automation of routine tasks and business processes to increase efficiency and reduce costs">
-            Автоматизация рутинных задач и бизнес-процессов для повышения эффективности и снижения затрат
+             data-lang-ru="Формируем требования и ТЗ для внедрения CRM, ERP и других систем — чтобы интегратор работал по чёткому плану"
+             data-lang-en="We create requirements and specs for CRM, ERP and other systems — so the integrator works from a clear plan">
+            Формируем требования и ТЗ для внедрения CRM, ERP и других систем — чтобы интегратор работал по чёткому плану
           </p>
           <ul class="service-features">
             <li>
               <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Автоматизация документооборота" data-lang-en="Document workflow automation">Автоматизация документооборота</span>
+              <span class="lang-text" data-lang-ru="Сбор и формализация требований" data-lang-en="Requirements gathering and formalization">Сбор и формализация требований</span>
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="CRM и ERP интеграция" data-lang-en="CRM and ERP integration">CRM и ERP интеграция</span>
+              <span class="lang-text" data-lang-ru="Техническое задание для интегратора" data-lang-en="Technical brief for integrator">Техническое задание для интегратора</span>
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Оптимизация workflow" data-lang-en="Workflow optimization">Оптимизация workflow</span>
+              <span class="lang-text" data-lang-ru="Выбор подходящей системы" data-lang-en="Choosing the right system">Выбор подходящей системы</span>
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Настройка уведомлений и отчётов" data-lang-en="Notification and report setup">Настройка уведомлений и отчётов</span>
+              <span class="lang-text" data-lang-ru="Дорожная карта внедрения" data-lang-en="Implementation roadmap">Дорожная карта внедрения</span>
             </li>
           </ul>
         </div>
@@ -1521,9 +1600,9 @@
           </div>
           <h3 class="lang-text" data-lang-ru="AI-инструменты" data-lang-en="AI Tools">AI-инструменты</h3>
           <p class="lang-text"
-             data-lang-ru="Внедрение искусственного интеллекта в бизнес-процессы для принятия решений на основе данных"
-             data-lang-en="Implementing artificial intelligence in business processes for data-driven decision making">
-            Внедрение искусственного интеллекта в бизнес-процессы для принятия решений на основе данных
+             data-lang-ru="Подбор и интеграция AI-инструментов в бизнес-процессы для принятия решений на основе данных"
+             data-lang-en="Selection and integration of AI tools into business processes for data-driven decision making">
+            Подбор и интеграция AI-инструментов в бизнес-процессы для принятия решений на основе данных
           </p>
           <ul class="service-features">
             <li>
@@ -1546,20 +1625,20 @@
           <div class="service-icon orange">
             <i class="fas fa-database"></i>
           </div>
-          <h3 class="lang-text" data-lang-ru="1C & ERP системы" data-lang-en="1C & ERP Systems">1C & ERP системы</h3>
+          <h3 class="lang-text" data-lang-ru="Консалтинг 1C & ERP" data-lang-en="1C & ERP Consulting">Консалтинг 1C & ERP</h3>
           <p class="lang-text"
-             data-lang-ru="Внедрение, настройка и сопровождение решений 1C и Oracle для управления предприятием"
-             data-lang-en="Implementation, configuration and support of 1C and Oracle enterprise management solutions">
-            Внедрение, настройка и сопровождение решений 1C и Oracle для управления предприятием
+             data-lang-ru="Аудит, подбор решений и подготовка к внедрению 1С, Oracle и других учётных систем"
+             data-lang-en="Audit, solution selection and preparation for implementing 1C, Oracle and other accounting systems">
+            Аудит, подбор решений и подготовка к внедрению 1С, Oracle и других учётных систем
           </p>
           <ul class="service-features">
             <li>
               <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="1С: Бухгалтерия, ЗУП, ERP, Розница" data-lang-en="1C: Accounting, HR, ERP, Retail">1С: Бухгалтерия, ЗУП, ERP, Розница</span>
+              <span class="lang-text" data-lang-ru="Аудит текущих учётных систем" data-lang-en="Current accounting systems audit">Аудит текущих учётных систем</span>
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Oracle Hyperion & Planning Cloud" data-lang-en="Oracle Hyperion & Planning Cloud">Oracle Hyperion & Planning Cloud</span>
+              <span class="lang-text" data-lang-ru="Подбор оптимального решения" data-lang-en="Optimal solution selection">Подбор оптимального решения</span>
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
@@ -1567,7 +1646,7 @@
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Электронный документооборот" data-lang-en="Electronic document management">Электронный документооборот</span>
+              <span class="lang-text" data-lang-ru="ТЗ и план внедрения" data-lang-en="Specs and implementation plan">ТЗ и план внедрения</span>
             </li>
           </ul>
         </div>
@@ -1579,9 +1658,9 @@
           </div>
           <h3 class="lang-text" data-lang-ru="IT-инфраструктура" data-lang-en="IT Infrastructure">IT-инфраструктура</h3>
           <p class="lang-text"
-             data-lang-ru="Проектирование, миграция и администрирование серверной инфраструктуры и облачных решений"
-             data-lang-en="Design, migration and administration of server infrastructure and cloud solutions">
-            Проектирование, миграция и администрирование серверной инфраструктуры и облачных решений
+             data-lang-ru="Аудит, проектирование и планирование миграции серверной инфраструктуры и облачных решений"
+             data-lang-en="Audit, design and migration planning for server infrastructure and cloud solutions">
+            Аудит, проектирование и планирование миграции серверной инфраструктуры и облачных решений
           </p>
           <ul class="service-features">
             <li>
@@ -1610,9 +1689,9 @@
           </div>
           <h3 class="lang-text" data-lang-ru="Microsoft 365 & Security" data-lang-en="Microsoft 365 & Security">Microsoft 365 & Security</h3>
           <p class="lang-text"
-             data-lang-ru="Гибридная инфраструктура земля-облако, управление устройствами и защита данных"
-             data-lang-en="Hybrid on-premise/cloud infrastructure, device management and data protection">
-            Гибридная инфраструктура земля-облако, управление устройствами и защита данных
+             data-lang-ru="Аудит и проектирование гибридной инфраструктуры, политик безопасности и управления устройствами"
+             data-lang-en="Audit and design of hybrid infrastructure, security policies and device management">
+            Аудит и проектирование гибридной инфраструктуры, политик безопасности и управления устройствами
           </p>
           <ul class="service-features">
             <li>
@@ -1890,9 +1969,9 @@
         </a>
 
         <div class="case-card">
-          <div class="case-card-visual" style="background: linear-gradient(135deg, #1e1b4b, #312e81);">
+          <div class="case-card-visual">
             <div class="case-logo">
-              <span class="lang-text" style="color: white;" data-lang-ru="АО «Казтелерадио»" data-lang-en="Kazteleradio JSC">АО «Казтелерадио»</span>
+              <span class="gradient-text lang-text" data-lang-ru="Казтелерадио" data-lang-en="Kazteleradio">Казтелерадио</span>
             </div>
             <div class="case-card-stats">
               <div class="case-card-stat">
@@ -1910,15 +1989,15 @@
             </div>
           </div>
           <div class="case-card-content">
-            <div class="case-card-badge" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
+            <div class="case-card-badge">
               <i class="fas fa-building-columns"></i>
               <span class="lang-text" data-lang-ru="Корпоративный проект" data-lang-en="Corporate Project">Корпоративный проект</span>
             </div>
             <h3 class="lang-text" data-lang-ru="Описание бизнес-процессов АО «Казтелерадио»" data-lang-en="Business Process Mapping for Kazteleradio JSC">Описание бизнес-процессов АО «Казтелерадио»</h3>
             <p class="lang-text"
-               data-lang-ru="Инициирование и участие в проекте описания бизнес-процессов всех департаментов центрального аппарата национального оператора телерадиовещания. На основе процессов HR-департамента разработана внутренняя система тестирования сотрудников"
-               data-lang-en="Initiated and participated in mapping business processes across all departments of the central office of the national broadcasting operator. An internal employee testing system was developed based on HR department processes">
-              Инициирование и участие в проекте описания бизнес-процессов всех департаментов центрального аппарата национального оператора телерадиовещания. На основе процессов HR-департамента разработана внутренняя система тестирования сотрудников
+               data-lang-ru="Описание бизнес-процессов всех департаментов центрального аппарата. Разработка внутренней системы тестирования сотрудников на основе HR-процессов"
+               data-lang-en="Business process mapping across all central office departments. Development of an internal employee testing system based on HR processes">
+              Описание бизнес-процессов всех департаментов центрального аппарата. Разработка внутренней системы тестирования сотрудников на основе HR-процессов
             </p>
             <div class="case-card-tags">
               <span class="case-card-tag">draw.io</span>
@@ -1961,6 +2040,17 @@
             <span>Telegram</span>
           </a>
         </div>
+        <form class="cta-form" id="contactForm" onsubmit="return false;">
+          <div class="cta-form-row">
+            <input type="text" id="formName" placeholder="Имя" data-placeholder-ru="Имя" data-placeholder-en="Name" required>
+            <input type="tel" id="formPhone" placeholder="Телефон" data-placeholder-ru="Телефон" data-placeholder-en="Phone" required>
+          </div>
+          <textarea id="formMessage" placeholder="Опишите задачу" data-placeholder-ru="Опишите задачу" data-placeholder-en="Describe your task"></textarea>
+          <button type="submit" class="cta-form-btn" id="formSubmitBtn">
+            <span class="lang-text" data-lang-ru="Оставить заявку" data-lang-en="Submit request">Оставить заявку</span>
+          </button>
+          <div class="cta-form-status" id="formStatus"></div>
+        </form>
       </div>
     </div>
   </section>
@@ -2074,6 +2164,9 @@
         document.title = lang === 'ru'
           ? 'Ric Solutions - IT-решения для бизнеса'
           : 'Ric Solutions - IT Solutions for Business';
+
+        // Update form placeholders
+        if (typeof updateFormPlaceholders === 'function') updateFormPlaceholders(lang);
 
         // Save preference
         try { localStorage.setItem('lang', lang); } catch(e) {}
@@ -2337,6 +2430,99 @@
       });
     });
 
+    // Contact form — send to Telegram
+    function initContactForm() {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var name = document.getElementById('formName').value.trim();
+        var phone = document.getElementById('formPhone').value.trim();
+        var message = document.getElementById('formMessage').value.trim();
+        var btn = document.getElementById('formSubmitBtn');
+        var status = document.getElementById('formStatus');
+
+        if (!name || !phone) {
+          status.textContent = 'Заполните имя и телефон';
+          status.className = 'cta-form-status error';
+          return;
+        }
+
+        btn.disabled = true;
+        status.textContent = '';
+        status.className = 'cta-form-status';
+
+        var text = '📩 Новая заявка с сайта\n\n'
+          + '👤 Имя: ' + name + '\n'
+          + '📱 Телефон: ' + phone + '\n'
+          + (message ? '💬 Сообщение: ' + message + '\n' : '')
+          + '\n🕐 ' + new Date().toLocaleString('ru-RU');
+
+        var TG_TOKEN = '8592169898:AAFmzBw5-DT6FPfBFapUSAb9Rcrj4-pSUJ8';
+        var TG_CHAT = '111055030';
+
+        fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: TG_CHAT, text: text, parse_mode: 'HTML' })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.ok) {
+            status.textContent = 'Заявка отправлена! Мы свяжемся с вами.';
+            status.className = 'cta-form-status success';
+            form.reset();
+          } else {
+            throw new Error('Telegram API error');
+          }
+        })
+        .catch(function() {
+          status.textContent = 'Ошибка отправки. Попробуйте через WhatsApp или Telegram.';
+          status.className = 'cta-form-status error';
+        })
+        .finally(function() {
+          btn.disabled = false;
+        });
+      });
+    }
+
+    // Visitor counter (Firebase Firestore)
+    function initVisitorCounter() {
+      var counterRef = db.collection('stats').doc('visitors');
+
+      // Check if this session is unique (sessionStorage)
+      var counted = false;
+      try { counted = sessionStorage.getItem('visitor_counted'); } catch(e) {}
+
+      if (!counted) {
+        counterRef.get().then(function(doc) {
+          if (doc.exists) {
+            counterRef.update({
+              total: firebase.firestore.FieldValue.increment(1),
+              lastVisit: firebase.firestore.FieldValue.serverTimestamp()
+            });
+          } else {
+            counterRef.set({
+              total: 1,
+              lastVisit: firebase.firestore.FieldValue.serverTimestamp()
+            });
+          }
+          try { sessionStorage.setItem('visitor_counted', '1'); } catch(e) {}
+        }).catch(function() {});
+      }
+    }
+
+    // Update form placeholders on language switch
+    function updateFormPlaceholders(lang) {
+      var inputs = document.querySelectorAll('[data-placeholder-ru]');
+      for (var i = 0; i < inputs.length; i++) {
+        var ph = inputs[i].getAttribute('data-placeholder-' + lang);
+        if (ph) inputs[i].placeholder = ph;
+      }
+    }
+
     // Init
     document.addEventListener('DOMContentLoaded', function() {
       initLanguageSwitcher();
@@ -2346,6 +2532,8 @@
       initAuth();
       generateCaptcha('reg');
       generateCaptcha('login');
+      initContactForm();
+      initVisitorCounter();
     });
   </script>
 </body>
