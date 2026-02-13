@@ -709,6 +709,12 @@
       background: white;
     }
 
+    .cases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
     .case-card {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1838,49 +1844,92 @@
         </p>
       </div>
 
-      <a href="geokurs-case.html" class="case-card">
-        <div class="case-card-visual">
-          <div class="case-logo">
-            <span class="gradient-text">Geokurs</span>
+      <div class="cases-grid">
+        <a href="geokurs-case.html" class="case-card">
+          <div class="case-card-visual">
+            <div class="case-logo">
+              <span class="gradient-text">Geokurs</span>
+            </div>
+            <div class="case-card-stats">
+              <div class="case-card-stat">
+                <div class="num">12</div>
+                <div class="lbl lang-text" data-lang-ru="процессов" data-lang-en="processes">процессов</div>
+              </div>
+              <div class="case-card-stat">
+                <div class="num">29+</div>
+                <div class="lbl">KPI</div>
+              </div>
+              <div class="case-card-stat">
+                <div class="num">70+</div>
+                <div class="lbl lang-text" data-lang-ru="задач" data-lang-en="tasks">задач</div>
+              </div>
+            </div>
           </div>
-          <div class="case-card-stats">
-            <div class="case-card-stat">
-              <div class="num">12</div>
-              <div class="lbl lang-text" data-lang-ru="процессов" data-lang-en="processes">процессов</div>
+          <div class="case-card-content">
+            <div class="case-card-badge">
+              <i class="fas fa-chart-line"></i>
+              <span class="lang-text" data-lang-ru="Бизнес-анализ" data-lang-en="Business Analysis">Бизнес-анализ</span>
             </div>
-            <div class="case-card-stat">
-              <div class="num">29+</div>
-              <div class="lbl">KPI</div>
+            <h3 class="lang-text" data-lang-ru="Описание процессов и KPI для Geokurs" data-lang-en="Process Mapping & KPI for Geokurs">Описание процессов и KPI для Geokurs</h3>
+            <p class="lang-text"
+               data-lang-ru="Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования"
+               data-lang-en="Business process mapping, KPI matrix development, and automation roadmap for a geodetic equipment supplier">
+              Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования
+            </p>
+            <div class="case-card-tags">
+              <span class="case-card-tag">BPMN</span>
+              <span class="case-card-tag">KPI</span>
+              <span class="case-card-tag">Bitrix24</span>
+              <span class="case-card-tag">1C</span>
             </div>
-            <div class="case-card-stat">
-              <div class="num">70+</div>
-              <div class="lbl lang-text" data-lang-ru="задач" data-lang-en="tasks">задач</div>
+            <div class="case-card-link">
+              <span class="lang-text" data-lang-ru="Подробнее" data-lang-en="Learn more">Подробнее</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+
+        <div class="case-card">
+          <div class="case-card-visual" style="background: linear-gradient(135deg, #1e1b4b, #312e81);">
+            <div class="case-logo">
+              <span class="lang-text" style="color: white;" data-lang-ru="АО «Казтелерадио»" data-lang-en="Kazteleradio JSC">АО «Казтелерадио»</span>
+            </div>
+            <div class="case-card-stats">
+              <div class="case-card-stat">
+                <div class="num">50+</div>
+                <div class="lbl lang-text" data-lang-ru="процессов" data-lang-en="processes">процессов</div>
+              </div>
+              <div class="case-card-stat">
+                <div class="num lang-text" data-lang-ru="Все" data-lang-en="All">Все</div>
+                <div class="lbl lang-text" data-lang-ru="департаменты" data-lang-en="departments">департаменты</div>
+              </div>
+              <div class="case-card-stat">
+                <div class="num">1</div>
+                <div class="lbl lang-text" data-lang-ru="IT-система" data-lang-en="IT system">IT-система</div>
+              </div>
+            </div>
+          </div>
+          <div class="case-card-content">
+            <div class="case-card-badge" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
+              <i class="fas fa-building-columns"></i>
+              <span class="lang-text" data-lang-ru="Корпоративный проект" data-lang-en="Corporate Project">Корпоративный проект</span>
+            </div>
+            <h3 class="lang-text" data-lang-ru="Описание бизнес-процессов АО «Казтелерадио»" data-lang-en="Business Process Mapping for Kazteleradio JSC">Описание бизнес-процессов АО «Казтелерадио»</h3>
+            <p class="lang-text"
+               data-lang-ru="Инициирование и участие в проекте описания бизнес-процессов всех департаментов центрального аппарата национального оператора телерадиовещания. На основе процессов HR-департамента разработана внутренняя система тестирования сотрудников"
+               data-lang-en="Initiated and participated in mapping business processes across all departments of the central office of the national broadcasting operator. An internal employee testing system was developed based on HR department processes">
+              Инициирование и участие в проекте описания бизнес-процессов всех департаментов центрального аппарата национального оператора телерадиовещания. На основе процессов HR-департамента разработана внутренняя система тестирования сотрудников
+            </p>
+            <div class="case-card-tags">
+              <span class="case-card-tag">draw.io</span>
+              <span class="case-card-tag">Visio</span>
+              <span class="case-card-tag">C#</span>
+              <span class="case-card-tag">TypeScript</span>
+              <span class="case-card-tag">BPMN</span>
             </div>
           </div>
         </div>
-        <div class="case-card-content">
-          <div class="case-card-badge">
-            <i class="fas fa-chart-line"></i>
-            <span class="lang-text" data-lang-ru="Бизнес-анализ" data-lang-en="Business Analysis">Бизнес-анализ</span>
-          </div>
-          <h3 class="lang-text" data-lang-ru="Описание процессов и KPI для Geokurs" data-lang-en="Process Mapping & KPI for Geokurs">Описание процессов и KPI для Geokurs</h3>
-          <p class="lang-text"
-             data-lang-ru="Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования"
-             data-lang-en="Business process mapping, KPI matrix development, and automation roadmap for a geodetic equipment supplier">
-            Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования
-          </p>
-          <div class="case-card-tags">
-            <span class="case-card-tag">BPMN</span>
-            <span class="case-card-tag">KPI</span>
-            <span class="case-card-tag">Bitrix24</span>
-            <span class="case-card-tag">1C</span>
-          </div>
-          <div class="case-card-link">
-            <span class="lang-text" data-lang-ru="Подробнее" data-lang-en="Learn more">Подробнее</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-      </a>
+      </div>
     </div>
   </section>
 
