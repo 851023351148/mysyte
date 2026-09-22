@@ -129,6 +129,41 @@
     .alt-contacts { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-muted); }
     .alt-contacts a { margin: 0 var(--space-2); white-space: nowrap; }
 
+    /* ===== Форма в модальном окне (ссылка /zakaz и кнопки «Предзаказать») ===== */
+    .order-close { display: none; }
+    body.modal-open { overflow: hidden; }
+    #order.is-modal {
+      position: fixed; inset: 0; z-index: 200; overflow-y: auto; overscroll-behavior: contain;
+      padding: var(--space-16) 0 var(--space-12); background: var(--surface-sunken);
+    }
+    #order.is-modal .order-photo { top: var(--space-6); }
+    #order.is-modal .order-close {
+      display: inline-flex; align-items: center; justify-content: center; position: fixed; top: var(--space-3); right: var(--space-4);
+      z-index: 201; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-strong);
+      background: var(--surface-raised); color: var(--ink); font: 400 26px/1 var(--font-sans); cursor: pointer;
+    }
+    #order.is-modal .order-close:hover { border-color: var(--ink); }
+    @media (max-width: 860px) {
+      #order.is-modal { padding-top: var(--space-6); }
+      #order.is-modal .section-head { padding-right: var(--space-12); }
+      #order.is-modal .section-head .lead, #order.is-modal .section-head .eyebrow { display: none; }
+      #order.is-modal .section-head { margin-bottom: var(--space-4); }
+      #order.is-modal .section-head .h2 { margin-top: var(--space-2); font-size: 26px; line-height: 32px; }
+      #order.is-modal .order-grid { gap: var(--space-3); }
+      #order.is-modal .order-photo img { width: 88px; }
+      #order.is-modal .phone-caption { padding: var(--space-3) var(--space-4); }
+      #order.is-modal .order-box { padding: var(--space-4); }
+      #order.is-modal .order-summary { padding: var(--space-3) var(--space-4); margin-bottom: var(--space-4); }
+      select.input { font-size: 15px; }
+    }
+    @media (max-width: 640px) {
+      #order.is-modal .colors { grid-template-columns: repeat(4, 1fr); gap: var(--space-1); }
+      #order.is-modal .swatch { padding: var(--space-2) 2px; gap: var(--space-1); }
+      #order.is-modal .swatch.active { padding: 7px 1px; }
+      #order.is-modal .swatch-dot { width: 24px; height: 24px; }
+      #order.is-modal .swatch-name { font-size: 12px; }
+    }
+
     /* ===== Характеристики ===== */
     .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface-raised); }
     .spec-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
@@ -162,7 +197,12 @@
     @media (max-width: 860px) {
       .hero .wrap, .order-grid { grid-template-columns: 1fr; }
       .hero-photo { order: -1; }
-      .order-photo { position: static; max-width: 420px; width: 100%; margin: 0 auto; }
+      /* На телефоне фото — компактная строка, чтобы форма начиналась на первом экране */
+      .order-photo { position: static; display: flex; align-items: stretch; }
+      .order-photo img { width: 132px; flex-shrink: 0; }
+      .phone-caption { flex: 1; flex-direction: column; justify-content: center; gap: var(--space-1); border-top: 0; border-left: 1px solid var(--line); padding: var(--space-4); }
+      #order .section-head { margin-bottom: var(--space-6); }
+      #order .section-head .lead { font-size: 16px; line-height: 24px; }
       .legal-grid { grid-template-columns: 1fr; gap: var(--space-6); }
     }
     @media (max-width: 640px) {
@@ -361,12 +401,13 @@
     </div>
   </section>
 
-  <section class="section section--sunken" id="order">
+  <section class="section section--sunken" id="order" aria-labelledby="orderTitle">
+    <button type="button" class="order-close" id="orderClose" aria-label="Закрыть">×</button>
     <div class="wrap">
       <div class="section-head">
         <div>
           <p class="eyebrow">03 — Предзаказ</p>
-          <h2 class="h2">Оформить предзаказ</h2>
+          <h2 class="h2" id="orderTitle">Оформить предзаказ</h2>
         </div>
         <p class="lead">Оставьте заявку — мы свяжемся, подтвердим конфигурацию и пришлём ссылку на оплату Kaspi. Деньги списываются только после вашего подтверждения.</p>
       </div>
@@ -692,12 +733,42 @@
       document.getElementById('fModel').value = id;
       var m = currentModel();
       updateSummary();
-      if (scroll) {
-        document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-        setTimeout(function () { document.getElementById('fName').focus(); }, 500);
-      }
+      if (scroll) openOrder(false);
     }
     selectModel(CATALOG[0].id, false);
+
+    // ==== Форма поверх страницы ====
+    var orderEl = document.getElementById('order');
+    var lastFocus = null;
+    function openOrder(focusName) {
+      lastFocus = document.activeElement;
+      orderEl.classList.add('is-modal');
+      orderEl.setAttribute('role', 'dialog');
+      orderEl.setAttribute('aria-modal', 'true');
+      document.body.classList.add('modal-open');
+      orderEl.scrollTop = 0;
+      if (location.hash !== '#order') history.replaceState(null, '', location.pathname + location.search + '#order');
+      setTimeout(function () {
+        (focusName ? document.getElementById('fName') : document.getElementById('orderClose')).focus({ preventScroll: true });
+      }, 50);
+    }
+    function closeOrder() {
+      orderEl.classList.remove('is-modal');
+      orderEl.removeAttribute('role');
+      orderEl.removeAttribute('aria-modal');
+      document.body.classList.remove('modal-open');
+      history.replaceState(null, '', location.pathname + location.search);
+      if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+    }
+    document.getElementById('orderClose').addEventListener('click', closeOrder);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && orderEl.classList.contains('is-modal')) closeOrder();
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('a[href="#order"]'), function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); openOrder(false); });
+    });
+    // Ссылка softrain.kz/zakaz ведёт сюда с #order — сразу открываем форму
+    if (location.hash === '#order') openOrder(false);
 
     // ==== Предвыбор из ссылки ====
     // softrain.kz/zakaz?model=pro-1tb&color=burgundy — подставляет модель и цвет.
