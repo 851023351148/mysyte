@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0f172a"/>
-  <text x="16" y="23" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">RS</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 3.5 56 56"><title>SoftRain</title><style>.d{fill:#0f1c24}.c{stroke:#f6f5f1}.u{stroke:#4cc3e6}@media (prefers-color-scheme:dark){.d{fill:#f6f5f1}.c{stroke:#0f1c24}.u{stroke:#0a6f8f}}</style><path class="d" d="M32 4C26 14 13 27 13 40A19 19 0 0 0 51 40C51 27 38 14 32 4Z"/><polyline class="c" points="22.5,32.5 30,39.5 22.5,46.5" fill="none" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/><line class="u" x1="34.5" y1="47" x2="41.5" y2="47" stroke-width="5.5" stroke-linecap="round"/></svg>
