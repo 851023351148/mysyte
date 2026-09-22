@@ -207,6 +207,8 @@ a.case:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); col
 }
 .input::placeholder { color: #7b858c; }
 .input:focus { outline: 2px solid var(--focus); outline-offset: 1px; border-color: var(--focus); }
+.input[aria-invalid="true"] { border-color: var(--danger); }
+.cta .input[aria-invalid="true"] { border-color: #f2857c; }
 textarea.input { resize: vertical; min-height: 96px; }
 .cta .input { background: rgba(246, 245, 241, .06); border-color: rgba(169, 184, 192, .5); color: var(--ink-inverse); }
 .cta .input::placeholder { color: #8d9ca4; }
