@@ -200,6 +200,49 @@
     .swatch-name { font-size: 12px; color: #94a3b8; }
     .swatch.active .swatch-name { color: #fff; font-weight: 600; }
 
+    /* ===== ИЛЛЮСТРАЦИЯ ТЕЛЕФОНА ===== */
+    /* Цвета корпуса приходят CSS-переменными --ph-* от ближайшего родителя */
+    .ph { display: block; width: 100%; height: auto; overflow: visible; }
+    .ph .frame { fill: var(--ph-frame); }
+    .ph .body  { fill: var(--ph-body); }
+    .ph .plate { fill: var(--ph-plate); }
+    .ph .edge  { fill: var(--ph-edge); }
+    .ph .glass { fill: var(--ph-glass); }
+    .ph .wa { stop-color: var(--ph-wall-a); }
+    .ph .wb { stop-color: var(--ph-wall-b); }
+    .ph .frame, .ph .body, .ph .plate, .ph .edge, .ph .glass { transition: fill .35s ease; }
+    .ph .wa, .ph .wb { transition: stop-color .35s ease; }
+    .ph text { font-family: inherit; }
+
+    .phone-stage { position: relative; display: flex; justify-content: center; padding: 6px 0 4px; margin-bottom: 18px; }
+    .phone-stage::after {
+      content: ''; position: absolute; left: 50%; bottom: 0; width: 280px; height: 28px; transform: translateX(-50%);
+      background: radial-gradient(closest-side, rgba(0,0,0,.45), transparent); pointer-events: none;
+    }
+    .phone-pair { position: relative; width: 262px; height: 300px; transform-origin: 50% 100%; transition: transform .35s ease; z-index: 1; }
+    .phone-pair.max { transform: scale(1.07); }
+    .phone-pair .ph-front { position: absolute; left: 0; top: 0; width: 132px; }
+    .phone-pair .ph-back { position: absolute; right: 0; top: 16px; width: 140px; filter: drop-shadow(-10px 12px 18px rgba(0,0,0,.45)); }
+    .phone-stage .ph-photo { display: none; height: 300px; width: auto; max-width: 100%; object-fit: contain; position: relative; z-index: 1; }
+    .phone-stage.has-photo .ph-photo { display: block; }
+    .phone-stage.has-photo .phone-pair { display: none; }
+    .hero-phone img { display: block; width: 100%; height: auto; }
+    .phone-caption { text-align: center; font-size: 13px; color: #94a3b8; margin-bottom: 20px; }
+    .phone-caption b { color: #fff; font-weight: 600; }
+
+    .hero-phones { display: flex; justify-content: center; align-items: flex-end; margin: 52px auto 8px; padding-left: 30px; }
+    .hero-phone {
+      width: 128px; margin-left: -30px; padding: 0; border: 0; background: none; cursor: pointer;
+      font-family: inherit; color: #94a3b8; transition: transform .25s ease;
+    }
+    .hero-phone { position: relative; }
+    .hero-phone:nth-child(1) { z-index: 1; } .hero-phone:nth-child(2) { z-index: 2; }
+    .hero-phone:nth-child(3) { z-index: 3; } .hero-phone:nth-child(4) { z-index: 4; }
+    .hero-phone:hover { transform: translateY(-10px); }
+    .hero-phone .ph { filter: drop-shadow(-8px 12px 16px rgba(0,0,0,.5)); }
+    .hero-phone span { display: block; margin-top: 12px; font-size: 13px; font-weight: 500; }
+    .hero-phone:hover span { color: #fff; }
+
     .consent { display: flex; gap: 11px; align-items: flex-start; margin: 22px 0; }
     .consent input { width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0; accent-color: var(--blue); }
     .consent label { font-size: 13px; color: #94a3b8; line-height: 1.6; }
@@ -208,9 +251,10 @@
     .order-summary {
       background: rgba(59,130,246,.1); border: 1px solid rgba(59,130,246,.25);
       border-radius: 12px; padding: 15px 17px; margin-bottom: 22px; font-size: 15px;
+      display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 14px;
     }
     .order-summary b { color: #fff; }
-    .order-summary .sum-price { float: right; font-weight: 700; color: #fff; }
+    .order-summary .sum-price { font-weight: 700; color: #fff; white-space: nowrap; }
 
     .form-status { margin-top: 16px; font-size: 14px; min-height: 22px; }
     .form-status.error { color: #fca5a5; }
@@ -264,7 +308,7 @@
         animation-duration: .01ms !important; animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
       }
-      .model-card:hover, .btn-primary:hover { transform: none; }
+      .model-card:hover, .btn-primary:hover, .hero-phone:hover { transform: none; }
     }
 
     @media (max-width: 768px) {
@@ -279,6 +323,12 @@
       .hero-facts { flex-direction: column; align-items: center; gap: 14px; }
       .hero-fact { padding: 0; }
       .hero-fact + .hero-fact { border-left: none; }
+      .hero-phones { margin-top: 40px; padding-left: 20px; }
+      .hero-phone { width: 84px; margin-left: -20px; }
+      .hero-phone span { font-size: 12px; }
+      .phone-pair { width: 222px; height: 256px; }
+      .phone-pair .ph-front { width: 112px; }
+      .phone-pair .ph-back { width: 119px; top: 13px; }
     }
   </style>
 
@@ -396,6 +446,9 @@
       </div>
       <a href="#order" class="btn btn-primary">Предзаказать</a>
 
+      <!-- Четыре цвета; клик выбирает цвет в форме предзаказа -->
+      <div class="hero-phones" id="heroPhones"></div>
+
       <div class="hero-facts">
         <div class="hero-fact"><b>10–11 октября</b> — доставка по Алматы</div>
         <div class="hero-fact"><b>Гарантия Apple</b> — сервис iSpace</div>
@@ -458,6 +511,15 @@
 
       <div class="order-box">
         <form id="orderForm" novalidate>
+          <div class="phone-stage" id="phoneStage" role="img" aria-label="iPhone 18 Pro, цвет Black">
+            <img class="ph-photo" id="phPhoto" alt="">
+            <div class="phone-pair" id="phonePair">
+              <div class="ph-front" id="phFront"></div>
+              <div class="ph-back" id="phBack"></div>
+            </div>
+          </div>
+          <div class="phone-caption" id="phoneCaption"><b>iPhone 18 Pro · Black</b> · изображение иллюстративное</div>
+
           <div class="order-summary">
             <b id="sumModel">iPhone 18 Pro 256GB</b>
             <span class="sum-price" id="sumPrice">834 990 ₸</span>
@@ -637,15 +699,121 @@
 
     // Цена от цвета не зависит. Артикулы в CATALOG относятся к чёрным аппаратам —
     // для остальных цветов у дистрибьютора свои коды, поэтому наружу они не показываются.
+    // photo — путь к фотографии этого цвета (например 'img/black.webp' в папке iphone-18-pro/).
+    //   Пока путь пустой, вместо фото показывается нарисованный телефон.
+    // ph — оттенки для нарисованного телефона: рамка, задняя панель, камерное плато, тень, стекло, обои экрана.
     var COLORS = [
-      { id: 'black',    name: 'Black',    hex: '#1d1d1f' },
-      { id: 'silver',   name: 'Silver',   hex: '#e5e6e8' },
-      { id: 'glacier',  name: 'Glacier',  hex: '#c3d4dd' },
-      { id: 'burgundy', name: 'Burgundy', hex: '#6e2b39' }
+      { id: 'black',    name: 'Black',    hex: '#1d1d1f', photo: '',
+        ph: { frame: '#3a3a3e', body: '#29292c', plate: '#323236', edge: '#18181a', glass: '#2c2c2f', 'wall-a': '#4a4a58', 'wall-b': '#0c0c10' } },
+      { id: 'silver',   name: 'Silver',   hex: '#e5e6e8', photo: '',
+        ph: { frame: '#cfd2d6', body: '#e4e5e8', plate: '#eeeff1', edge: '#b8bbc0', glass: '#e1e2e5', 'wall-a': '#c9ced6', 'wall-b': '#5d636e' } },
+      { id: 'glacier',  name: 'Glacier',  hex: '#c3d4dd', photo: '',
+        ph: { frame: '#a9bfcb', body: '#c3d4dd', plate: '#d0e0e8', edge: '#93aab7', glass: '#bfd0d9', 'wall-a': '#9cc4d8', 'wall-b': '#24485a' } },
+      { id: 'burgundy', name: 'Burgundy', hex: '#6e2b39', photo: '',
+        ph: { frame: '#5a2230', body: '#6e2b39', plate: '#7b3343', edge: '#461823', glass: '#6b2a38', 'wall-a': '#a4495e', 'wall-b': '#250c13' } }
     ];
     var selectedColor = COLORS[0];
 
     function money(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₸'; }
+
+    // ==== Иллюстрация телефона ====
+    // Рисуем сами: вид сзади с камерным плато и вид спереди с экраном.
+    // Цвет корпуса задаётся переменными --ph-* на родителе, поэтому смена цвета — это смена переменных.
+    var phUid = 0;
+    function phVars(el, c) {
+      Object.keys(c.ph).forEach(function (k) { el.style.setProperty('--ph-' + k, c.ph[k]); });
+    }
+    function phLens(u, cx, cy) {
+      return '<circle class="edge" cx="' + cx + '" cy="' + cy + '" r="21"/>' +
+        '<circle cx="' + cx + '" cy="' + cy + '" r="21" fill="none" stroke="#fff" stroke-opacity=".18"/>' +
+        '<circle cx="' + cx + '" cy="' + cy + '" r="17" fill="#0b0c0f"/>' +
+        '<circle cx="' + cx + '" cy="' + cy + '" r="11" fill="url(#ln' + u + ')"/>' +
+        '<circle cx="' + (cx - 4) + '" cy="' + (cy - 4) + '" r="2.6" fill="#fff" fill-opacity=".45"/>';
+    }
+    function phoneBack() {
+      var u = ++phUid;
+      var plate = 'M6 36A30 30 0 0 1 36 6H164A30 30 0 0 1 194 36V112A20 20 0 0 1 174 132H26A20 20 0 0 1 6 112Z';
+      return '<svg class="ph" viewBox="-4 -2 208 420" aria-hidden="true">' +
+        '<defs>' +
+          '<linearGradient id="sh' + u + '" x1="0" y1="0" x2="1" y2="1">' +
+            '<stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/>' +
+            '<stop offset="1" stop-color="#000" stop-opacity=".14"/></linearGradient>' +
+          '<radialGradient id="ln' + u + '" cx=".38" cy=".34" r=".75">' +
+            '<stop offset="0" stop-color="#43557a"/><stop offset=".5" stop-color="#12161f"/><stop offset="1" stop-color="#040507"/></radialGradient>' +
+        '</defs>' +
+        '<rect class="frame" x="-2.5" y="104" width="4" height="26" rx="2"/>' +
+        '<rect class="frame" x="-2.5" y="150" width="4" height="46" rx="2"/>' +
+        '<rect class="frame" x="-2.5" y="206" width="4" height="46" rx="2"/>' +
+        '<rect class="frame" x="198.5" y="166" width="4" height="64" rx="2"/>' +
+        '<rect class="frame" x="2" y="2" width="196" height="412" rx="34"/>' +
+        '<rect class="body" x="6" y="6" width="188" height="404" rx="30"/>' +
+        '<rect class="glass" x="36" y="236" width="128" height="124" rx="18"/>' +
+        '<path class="edge" d="' + plate + '" transform="translate(0 3)" opacity=".55"/>' +
+        '<path class="plate" d="' + plate + '"/>' +
+        phLens(u, 46, 42) + phLens(u, 46, 96) + phLens(u, 94, 69) +
+        '<circle cx="158" cy="42" r="10" fill="#1a1a1c"/><circle cx="158" cy="42" r="7.5" fill="#f1ead6"/>' +
+        '<circle cx="158" cy="96" r="10" fill="#101114"/><circle cx="158" cy="96" r="5" fill="#1e2230"/>' +
+        '<circle cx="128" cy="69" r="2.2" fill="#101114"/>' +
+        '<rect x="6" y="6" width="188" height="404" rx="30" fill="url(#sh' + u + ')"/>' +
+      '</svg>';
+    }
+    function phoneFront() {
+      var u = ++phUid;
+      return '<svg class="ph" viewBox="-4 -2 208 420" aria-hidden="true">' +
+        '<defs>' +
+          '<linearGradient id="wp' + u + '" x1="0" y1="0" x2=".35" y2="1">' +
+            '<stop class="wa" offset="0"/><stop class="wb" offset="1"/></linearGradient>' +
+          '<radialGradient id="gl' + u + '" cx=".75" cy=".78" r=".6">' +
+            '<stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>' +
+        '</defs>' +
+        '<rect class="frame" x="198.5" y="104" width="4" height="26" rx="2"/>' +
+        '<rect class="frame" x="198.5" y="150" width="4" height="46" rx="2"/>' +
+        '<rect class="frame" x="198.5" y="206" width="4" height="46" rx="2"/>' +
+        '<rect class="frame" x="-2.5" y="166" width="4" height="64" rx="2"/>' +
+        '<rect class="frame" x="2" y="2" width="196" height="412" rx="34"/>' +
+        '<rect x="6" y="6" width="188" height="404" rx="30" fill="#050506"/>' +
+        '<rect x="11" y="11" width="178" height="394" rx="25" fill="url(#wp' + u + ')"/>' +
+        '<rect x="11" y="11" width="178" height="394" rx="25" fill="url(#gl' + u + ')"/>' +
+        '<rect x="73" y="21" width="54" height="16" rx="8" fill="#000"/>' +
+        '<text x="100" y="80" text-anchor="middle" font-size="11" font-weight="500" fill="#fff" fill-opacity=".85">Суббота, 10 октября</text>' +
+        '<text x="100" y="130" text-anchor="middle" font-size="52" font-weight="600" fill="#fff" letter-spacing="-1">9:41</text>' +
+        '<rect x="70" y="390" width="60" height="4" rx="2" fill="#fff" fill-opacity=".7"/>' +
+      '</svg>';
+    }
+
+    // ==== Витрина цветов в первом экране ====
+    (function renderHeroPhones() {
+      var host = document.getElementById('heroPhones');
+      COLORS.forEach(function (c, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'hero-phone';
+        b.setAttribute('aria-label', 'Выбрать цвет ' + c.name + ' и перейти к предзаказу');
+        b.innerHTML = (c.photo ? '<img src="' + c.photo + '" alt="">' : phoneBack()) + '<span>' + c.name + '</span>';
+        phVars(b, c);
+        b.addEventListener('click', function () {
+          setColor(i);
+          document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        });
+        host.appendChild(b);
+      });
+    })();
+
+    // ==== Превью в форме ====
+    document.getElementById('phFront').innerHTML = phoneFront();
+    document.getElementById('phBack').innerHTML = phoneBack();
+
+    function updatePreview(m) {
+      var stage = document.getElementById('phoneStage');
+      phVars(stage, selectedColor);
+      document.getElementById('phonePair').classList.toggle('max', m.line === 'iPhone 18 Pro Max');
+      var photo = selectedColor.photo;
+      stage.classList.toggle('has-photo', !!photo);
+      if (photo) { document.getElementById('phPhoto').src = photo; }
+      stage.setAttribute('aria-label', m.line + ', цвет ' + selectedColor.name);
+      document.getElementById('phoneCaption').innerHTML =
+        '<b>' + m.line + ' · ' + selectedColor.name + '</b>' + (photo ? '' : ' · изображение иллюстративное');
+    }
 
     // ==== Карточки моделей ====
     (function renderModels() {
@@ -704,22 +872,25 @@
         el.setAttribute('tabindex', '0');
         el.innerHTML = '<div class="swatch-dot" style="background:' + c.hex + '"></div>' +
                        '<div class="swatch-name">' + c.name + '</div>';
-        function pick() {
-          selectedColor = c;
-          Array.prototype.forEach.call(host.children, function (n) { n.classList.remove('active'); });
-          el.classList.add('active');
-          updateSummary();
-        }
+        function pick() { setColor(i); }
         el.addEventListener('click', pick);
         el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
         host.appendChild(el);
       });
     })();
 
+    function setColor(j) {
+      selectedColor = COLORS[j];
+      var sw = document.getElementById('fColors').children;
+      Array.prototype.forEach.call(sw, function (n, k) { n.classList.toggle('active', k === j); });
+      updateSummary();
+    }
+
     function updateSummary() {
       var m = currentModel();
       document.getElementById('sumModel').textContent = m.name + ' ' + selectedColor.name;
       document.getElementById('sumPrice').textContent = money(m.our);
+      updatePreview(m);
     }
 
     function selectModel(id, scroll) {
@@ -756,13 +927,7 @@
       var wantColor = (q.get('color') || q.get('c') || '').toLowerCase();
       if (wantColor) {
         for (var j = 0; j < COLORS.length; j++) {
-          if (COLORS[j].id === wantColor) {
-            selectedColor = COLORS[j];
-            var sw = document.getElementById('fColors').children;
-            Array.prototype.forEach.call(sw, function (n, k) { n.classList.toggle('active', k === j); });
-            updateSummary();
-            break;
-          }
+          if (COLORS[j].id === wantColor) { setColor(j); break; }
         }
       }
     })();
@@ -824,10 +989,8 @@
           status.className = 'form-status success';
           status.textContent = 'Заявка принята. Мы свяжемся с вами в течение рабочего дня.';
           document.getElementById('orderForm').reset();
-          selectedColor = COLORS[0];
-          var sw = document.getElementById('fColors').children;
-          Array.prototype.forEach.call(sw, function (n, i) { n.classList.toggle('active', i === 0); });
           selectModel(m.id, false);
+          setColor(0);
         })
         .catch(function () {
           status.className = 'form-status error';
