@@ -105,6 +105,7 @@
     .order-summary b { font-weight: 600; }
     .order-summary .sum-price { font: 500 18px/24px var(--font-mono); white-space: nowrap; }
     #orderForm .field { margin-bottom: var(--space-4); }
+    .input[readonly] { background: var(--surface-sunken); color: var(--ink-muted); cursor: default; }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
     select.input { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
       background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: var(--space-12); }
@@ -406,7 +407,8 @@
 
             <div class="field">
               <label for="fCity">Город доставки</label>
-              <input class="input" type="text" id="fCity" name="city" placeholder="Алматы" required>
+              <input class="input" type="text" id="fCity" name="city" value="Алматы" readonly aria-describedby="fCityNote">
+              <span class="muted" id="fCityNote" style="font-size:13px;line-height:20px">Доставляем только по Алматы</span>
             </div>
 
             <div class="field">
@@ -751,7 +753,7 @@
       status.className = 'form-status';
       if (!data.name || !data.phone || !data.city) {
         status.className = 'form-status error';
-        status.textContent = 'Заполните имя, телефон и город.';
+        status.textContent = 'Заполните имя и телефон.';
         return;
       }
       if (!document.getElementById('fConsent').checked) {
