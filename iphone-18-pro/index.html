@@ -16,9 +16,13 @@
   <meta property="og:title" content="iPhone 18 Pro и Pro Max — предзаказ в Алматы от 834 990 ₸">
   <meta property="og:description" content="Пять конфигураций, четыре цвета. Доставка 10–11 октября по Алматы включена в цену. Официальная гарантия 1 год, оплата Kaspi после подтверждения.">
   <meta property="og:image" content="https://softrain.kz/logo.png">
+  <meta property="og:image:alt" content="SoftRain — предзаказ iPhone 18 Pro в Алматы">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="SoftRain">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="iPhone 18 Pro и Pro Max — предзаказ в Алматы">
+  <meta name="twitter:description" content="Пять конфигураций, четыре цвета. Доставка 10–11 октября по Алматы включена в цену.">
+  <meta name="twitter:image" content="https://softrain.kz/logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -283,6 +287,29 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://softrain.kz/#organization",
+        "name": "SoftRain",
+        "url": "https://softrain.kz/",
+        "logo": "https://softrain.kz/logo.png",
+        "email": "vm@softrain.kz",
+        "telephone": "+77074239899",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Алматы",
+          "addressCountry": "KZ"
+        },
+        "areaServed": { "@type": "City", "name": "Алматы" },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+77074239899",
+          "email": "vm@softrain.kz",
+          "contactType": "sales",
+          "areaServed": "KZ",
+          "availableLanguage": ["Russian", "Kazakh"]
+        }
+      },
+      {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "SoftRain", "item": "https://softrain.kz/" },
@@ -302,21 +329,21 @@
             "offers": { "@type": "Offer", "price": "834990", "priceCurrency": "KZT",
               "availability": "https://schema.org/PreOrder", "availabilityStarts": "2026-10-10",
               "priceValidUntil": "2026-10-31", "itemCondition": "https://schema.org/NewCondition",
-              "seller": { "@type": "Organization", "name": "SoftRain" } }
+              "seller": { "@id": "https://softrain.kz/#organization" } }
           },
           {
             "@type": "Product", "name": "iPhone 18 Pro 512GB",
             "offers": { "@type": "Offer", "price": "968990", "priceCurrency": "KZT",
               "availability": "https://schema.org/PreOrder", "availabilityStarts": "2026-10-10",
               "priceValidUntil": "2026-10-31", "itemCondition": "https://schema.org/NewCondition",
-              "seller": { "@type": "Organization", "name": "SoftRain" } }
+              "seller": { "@id": "https://softrain.kz/#organization" } }
           },
           {
             "@type": "Product", "name": "iPhone 18 Pro 1TB",
             "offers": { "@type": "Offer", "price": "1240990", "priceCurrency": "KZT",
               "availability": "https://schema.org/PreOrder", "availabilityStarts": "2026-10-10",
               "priceValidUntil": "2026-10-31", "itemCondition": "https://schema.org/NewCondition",
-              "seller": { "@type": "Organization", "name": "SoftRain" } }
+              "seller": { "@id": "https://softrain.kz/#organization" } }
           }
         ]
       },
@@ -333,14 +360,14 @@
             "offers": { "@type": "Offer", "price": "894990", "priceCurrency": "KZT",
               "availability": "https://schema.org/PreOrder", "availabilityStarts": "2026-10-10",
               "priceValidUntil": "2026-10-31", "itemCondition": "https://schema.org/NewCondition",
-              "seller": { "@type": "Organization", "name": "SoftRain" } }
+              "seller": { "@id": "https://softrain.kz/#organization" } }
           },
           {
             "@type": "Product", "name": "iPhone 18 Pro Max 512GB",
             "offers": { "@type": "Offer", "price": "1038990", "priceCurrency": "KZT",
               "availability": "https://schema.org/PreOrder", "availabilityStarts": "2026-10-10",
               "priceValidUntil": "2026-10-31", "itemCondition": "https://schema.org/NewCondition",
-              "seller": { "@type": "Organization", "name": "SoftRain" } }
+              "seller": { "@id": "https://softrain.kz/#organization" } }
           }
         ]
       }
