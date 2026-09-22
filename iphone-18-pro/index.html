@@ -560,12 +560,13 @@
     </div>
   </footer>
 
+  <script src="../assets/order.js"></script>
   <script>
     // ==== Конфигурация ====
     // Приёмник заявок — Cloudflare Worker.
     // Токен бота лежит в секретах Worker и в этот файл не попадает.
     // Пустая строка переводит форму в локальный режим: показывает payload, ничего не отправляет.
-    var ORDER_ENDPOINT = 'https://softrain-orders.vm-065.workers.dev';
+    var ORDER_ENDPOINT = SoftRainOrder.endpoint;
 
     var CATALOG = [
       { id: 'pro-256',     sku: 'MJRP4AF/A', name: 'iPhone 18 Pro 256GB',     line: 'iPhone 18 Pro',     storage: '256 ГБ', our: 834990,  official: 849990,  featured: false },
@@ -751,11 +752,16 @@
       };
 
       status.className = 'form-status';
-      if (!data.name || !data.phone || !data.city) {
+      var nameEl = document.getElementById('fName'), phoneEl = document.getElementById('fPhone');
+      var bad = SoftRainOrder.validate(data.name, data.phone);
+      SoftRainOrder.markInvalid(nameEl, bad && bad.field === 'name');
+      SoftRainOrder.markInvalid(phoneEl, bad && bad.field === 'phone');
+      if (bad) {
         status.className = 'form-status error';
-        status.textContent = 'Заполните имя и телефон.';
+        status.textContent = bad.message;
         return;
       }
+      data.phone = SoftRainOrder.normalizePhone(data.phone);
       if (!document.getElementById('fConsent').checked) {
         status.className = 'form-status error';
         status.textContent = 'Без согласия на обработку персональных данных мы не можем принять заявку.';
@@ -773,12 +779,7 @@
 
       btn.disabled = true;
       status.textContent = 'Отправляем…';
-      fetch(ORDER_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-        .then(function (r) { if (!r.ok) { throw new Error('http ' + r.status); } return r.json(); })
+      SoftRainOrder.send(data)
         .then(function () {
           status.className = 'form-status success';
           status.textContent = 'Заявка принята. Мы свяжемся с вами в течение рабочего дня.';
@@ -786,9 +787,9 @@
           selectModel(m.id, false);
           setColor(0);
         })
-        .catch(function () {
+        .catch(function (err) {
           status.className = 'form-status error';
-          status.textContent = 'Не удалось отправить. Напишите нам в WhatsApp или Telegram — ссылки ниже.';
+          status.textContent = err.message + ' ' + SoftRainOrder.fallback() + ' Ссылки ниже.';
         })
         .finally(function () { btn.disabled = false; });
     });

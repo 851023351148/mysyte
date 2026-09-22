@@ -412,6 +412,7 @@
     </div>
   </footer>
 
+  <script src="assets/order.js"></script>
   <script>
     // ==== Переключение языка ====
     function initLanguageSwitcher() {
@@ -483,10 +484,7 @@
     });
 
     // ==== Форма заявки ====
-    // Приёмник заявок — Cloudflare Worker.
-    // Токен бота лежит в секретах Worker и в этот файл не попадает.
-    var ORDER_ENDPOINT = 'https://softrain-orders.vm-065.workers.dev';
-
+    // Проверка данных и отправка — в assets/order.js
     function initContactForm() {
       var form = document.getElementById('contactForm');
       if (!form) return;
@@ -494,15 +492,20 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var name = document.getElementById('formName').value.trim();
-        var phone = document.getElementById('formPhone').value.trim();
+        var nameEl = document.getElementById('formName');
+        var phoneEl = document.getElementById('formPhone');
+        var name = nameEl.value.trim();
+        var phone = phoneEl.value.trim();
         var message = document.getElementById('formMessage').value.trim();
         var btn = document.getElementById('formSubmitBtn');
         var status = document.getElementById('formStatus');
         var en = document.documentElement.lang === 'en';
 
-        if (!name || !phone) {
-          status.textContent = en ? 'Please enter your name and phone' : 'Заполните имя и телефон';
+        var bad = SoftRainOrder.validate(name, phone);
+        SoftRainOrder.markInvalid(nameEl, bad && bad.field === 'name');
+        SoftRainOrder.markInvalid(phoneEl, bad && bad.field === 'phone');
+        if (bad) {
+          status.textContent = bad.message;
           status.className = 'form-status error';
           return;
         }
@@ -511,26 +514,17 @@
         status.textContent = '';
         status.className = 'form-status';
 
-        fetch(ORDER_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: name, phone: phone, comment: message,
-            page: location.pathname, website: ''
-          })
+        SoftRainOrder.send({
+          name: name, phone: SoftRainOrder.normalizePhone(phone), comment: message,
+          page: location.pathname, website: ''
         })
-          .then(function (r) { return r.json(); })
-          .then(function (data) {
-            if (data.ok) {
-              status.textContent = en ? 'Request sent! We will contact you.' : 'Заявка отправлена! Мы свяжемся с вами.';
-              status.className = 'form-status success';
-              form.reset();
-            } else {
-              throw new Error('Telegram API error');
-            }
+          .then(function () {
+            status.textContent = en ? 'Request sent! We will contact you.' : 'Заявка отправлена! Мы свяжемся с вами.';
+            status.className = 'form-status success';
+            form.reset();
           })
-          .catch(function () {
-            status.textContent = en ? 'Could not send. Please message us on WhatsApp or Telegram.' : 'Ошибка отправки. Попробуйте через WhatsApp или Telegram.';
+          .catch(function (err) {
+            status.textContent = err.message + ' ' + SoftRainOrder.fallback();
             status.className = 'form-status error';
           })
           .finally(function () {
