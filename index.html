@@ -191,25 +191,6 @@
       font-weight: 600;
     }
 
-    .auth-btn button {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: white;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 13px;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-    }
-
-    .auth-btn button:hover {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-    }
-
     /* Mobile menu toggle */
     .menu-toggle {
       display: none;
@@ -1048,35 +1029,6 @@
     }
 
     /* ===== MODAL ===== */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(5px);
-    }
-
-    .modal.show {
-      display: flex;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 32px;
-      border-radius: 20px;
-      max-width: 420px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
-      animation: modalSlideIn 0.3s ease;
-    }
 
     @keyframes modalSlideIn {
       from {
@@ -1089,150 +1041,13 @@
       }
     }
 
-    .modal .close {
-      position: absolute;
-      right: 16px;
-      top: 16px;
-      font-size: 24px;
-      cursor: pointer;
-      color: #94a3b8;
-      transition: color 0.3s ease;
-      line-height: 1;
-    }
-
-    .modal .close:hover {
-      color: #ef4444;
-    }
-
-    .modal-content input {
-      width: 100%;
-      padding: 12px 16px;
-      margin: 8px 0;
-      border: 2px solid #e2e8f0;
-      border-radius: 10px;
-      font-size: 14px;
-      transition: all 0.3s ease;
-      font-family: inherit;
-    }
-
-    .modal-content input:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    }
-
-    .modal-content button {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 14px;
-      font-weight: 600;
-      width: 100%;
-      margin-top: 10px;
-      font-family: inherit;
-    }
-
-    .modal-content button:hover {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-    }
-
-    .modal-content button:disabled {
-      background: #94a3b8;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    .tabs {
-      display: flex;
-      margin-bottom: 24px;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 2px solid #e2e8f0;
-    }
-
-    .tab-btn {
-      flex: 1;
-      padding: 12px;
-      cursor: pointer;
-      border: none;
-      background: #f8fafc;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      font-size: 14px;
-      font-family: inherit;
-    }
-
     .tab-btn.active {
       background: #0f172a;
       color: white;
     }
 
-    .tab {
-      display: none;
-    }
-
     .tab.active {
       display: block;
-    }
-
-    .error-message {
-      color: #ef4444;
-      font-size: 12px;
-      margin-top: 4px;
-      display: none;
-      text-align: left;
-    }
-
-    .success-message {
-      color: #22c55e;
-      font-size: 14px;
-      margin-top: 10px;
-      display: none;
-      font-weight: 500;
-    }
-
-    .custom-captcha {
-      border: 2px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 16px;
-      margin: 12px 0;
-      background: #f8fafc;
-    }
-
-    .captcha-question {
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #0f172a;
-      font-size: 14px;
-    }
-
-    .captcha-input {
-      width: 80px !important;
-      text-align: center;
-      margin: 0 !important;
-    }
-
-    .captcha-refresh {
-      background: #64748b !important;
-      color: white;
-      border: none;
-      padding: 5px 10px !important;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 12px;
-      margin-left: 10px;
-      width: auto !important;
-    }
-
-    .captcha-refresh:hover {
-      background: #475569 !important;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -1356,20 +1171,11 @@
         gap: 16px;
       }
 
-      .modal-content {
-        margin: 20px;
-        padding: 24px;
-      }
     }
 
     @media (max-width: 480px) {
       .nav-right {
         gap: 8px;
-      }
-
-      .auth-btn button {
-        padding: 6px 14px;
-        font-size: 12px;
       }
 
       .language-switcher button {
@@ -1425,64 +1231,11 @@
         <button class="lang-btn active" data-lang="ru">RU</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      <div class="auth-btn">
-        <button id="openAuthModal" class="lang-text" data-lang-ru="Войти" data-lang-en="Sign In">Войти</button>
-      </div>
+      <!-- Кнопка «Войти» скрыта: личный кабинет пока не используется -->
     </div>
   </nav>
 
   <!-- Auth Modal -->
-  <div id="authModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="register">
-          <span class="lang-text" data-lang-ru="Регистрация" data-lang-en="Register">Регистрация</span>
-        </button>
-        <button class="tab-btn" data-tab="login">
-          <span class="lang-text" data-lang-ru="Вход" data-lang-en="Login">Вход</span>
-        </button>
-      </div>
-
-      <div id="register-form" class="tab active">
-        <input type="email" id="reg-email" placeholder="Email" required>
-        <div class="error-message" id="reg-email-error"></div>
-        <input type="password" id="reg-password" placeholder="Password (min 6 characters)" required>
-        <div class="error-message" id="reg-password-error"></div>
-
-        <div class="custom-captcha">
-          <div class="captcha-question" id="reg-captcha-question">2 + 3 = ?</div>
-          <input type="number" id="reg-captcha-answer" class="captcha-input" placeholder="?" required>
-          <button type="button" class="captcha-refresh" data-type="reg">&#x1f504;</button>
-          <div class="error-message" id="reg-captcha-error"></div>
-        </div>
-
-        <button id="registerBtn">
-          <span class="lang-text" data-lang-ru="Зарегистрироваться" data-lang-en="Register">Зарегистрироваться</span>
-        </button>
-        <div class="success-message" id="reg-success"></div>
-      </div>
-
-      <div id="login-form" class="tab">
-        <input type="email" id="login-email" placeholder="Email" required>
-        <div class="error-message" id="login-email-error"></div>
-        <input type="password" id="login-password" placeholder="Password" required>
-        <div class="error-message" id="login-password-error"></div>
-
-        <div class="custom-captcha">
-          <div class="captcha-question" id="login-captcha-question">5 + 1 = ?</div>
-          <input type="number" id="login-captcha-answer" class="captcha-input" placeholder="?" required>
-          <button type="button" class="captcha-refresh" data-type="login">&#x1f504;</button>
-          <div class="error-message" id="login-captcha-error"></div>
-        </div>
-
-        <button id="loginBtn">
-          <span class="lang-text" data-lang-ru="Войти" data-lang-en="Sign In">Войти</span>
-        </button>
-        <div class="success-message" id="login-success"></div>
-      </div>
-    </div>
-  </div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -2077,78 +1830,8 @@
     </p>
   </div>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
   <script>
-    // Firebase config
-    const firebaseConfig = {
-      apiKey: "AIzaSyD8CfZJJwOPPR72RjpRP7fxFDSP3g73swU",
-      authDomain: "digital-ac.firebaseapp.com",
-      projectId: "digital-ac",
-      storageBucket: "digital-ac.firebasestorage.app",
-      messagingSenderId: "58717701581",
-      appId: "1:58717701581:web:e820d9a8df0fcae97bb084",
-      measurementId: "G-YJ79EBE7Y8"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-
-    // CAPTCHA
-    var captchaData = {
-      reg: { question: '', answer: 0 },
-      login: { question: '', answer: 0 }
-    };
-
-    function generateCaptcha(type) {
-      var operations = [
-        { op: '+', symbol: '+' },
-        { op: '-', symbol: '-' },
-        { op: '*', symbol: '\u00d7' }
-      ];
-
-      var operation = operations[Math.floor(Math.random() * operations.length)];
-      var num1, num2, answer, question;
-
-      if (operation.op === '+') {
-        num1 = Math.floor(Math.random() * 10) + 1;
-        num2 = Math.floor(Math.random() * 10) + 1;
-        answer = num1 + num2;
-        question = num1 + ' + ' + num2 + ' = ?';
-      } else if (operation.op === '-') {
-        num1 = Math.floor(Math.random() * 10) + 5;
-        num2 = Math.floor(Math.random() * num1) + 1;
-        answer = num1 - num2;
-        question = num1 + ' - ' + num2 + ' = ?';
-      } else {
-        num1 = Math.floor(Math.random() * 5) + 2;
-        num2 = Math.floor(Math.random() * 5) + 2;
-        answer = num1 * num2;
-        question = num1 + ' \u00d7 ' + num2 + ' = ?';
-      }
-
-      captchaData[type] = { question: question, answer: answer };
-      document.getElementById(type + '-captcha-question').textContent = question;
-      document.getElementById(type + '-captcha-answer').value = '';
-      hideError(type + '-captcha-error');
-    }
-
-    function validateCaptcha(type) {
-      var userAnswer = parseInt(document.getElementById(type + '-captcha-answer').value);
-      var correctAnswer = captchaData[type].answer;
-
-      if (isNaN(userAnswer) || userAnswer !== correctAnswer) {
-        showError(type + '-captcha-error', 'Incorrect answer');
-        return false;
-      }
-
-      hideError(type + '-captcha-error');
-      return true;
-    }
 
     // Language switching
     function initLanguageSwitcher() {
@@ -2206,222 +1889,6 @@
       switchLanguage(getLanguage());
     }
 
-    // Modal
-    function initModal() {
-      var modal = document.getElementById('authModal');
-      var openBtn = document.getElementById('openAuthModal');
-      var closeBtn = document.querySelector('.close');
-
-      if (openBtn) {
-        openBtn.addEventListener('click', function() {
-          modal.classList.add('show');
-        });
-      }
-
-      if (closeBtn) {
-        closeBtn.addEventListener('click', function() {
-          modal.classList.remove('show');
-        });
-      }
-
-      window.addEventListener('click', function(e) {
-        if (e.target === modal) {
-          modal.classList.remove('show');
-        }
-      });
-    }
-
-    // Tabs
-    function initTabs() {
-      var tabs = document.querySelectorAll(".tab-btn");
-      var tabBlocks = document.querySelectorAll(".tab");
-
-      for (var i = 0; i < tabs.length; i++) {
-        tabs[i].addEventListener("click", function() {
-          for (var j = 0; j < tabs.length; j++) {
-            tabs[j].classList.remove("active");
-          }
-          this.classList.add("active");
-
-          var target = this.getAttribute('data-tab');
-          for (var j = 0; j < tabBlocks.length; j++) {
-            tabBlocks[j].classList.remove("active");
-          }
-
-          var targetForm = document.getElementById(target + '-form');
-          if (targetForm) {
-            targetForm.classList.add("active");
-          }
-
-          generateCaptcha(target);
-        });
-      }
-    }
-
-    function initCaptchaRefresh() {
-      var refreshButtons = document.querySelectorAll('.captcha-refresh');
-      for (var i = 0; i < refreshButtons.length; i++) {
-        refreshButtons[i].addEventListener('click', function() {
-          var type = this.getAttribute('data-type');
-          generateCaptcha(type);
-        });
-      }
-    }
-
-    function validateEmail(email) {
-      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-    }
-
-    function showError(elementId, message) {
-      var errorElement = document.getElementById(elementId);
-      if (errorElement) {
-        errorElement.textContent = message;
-        errorElement.style.display = 'block';
-      }
-    }
-
-    function hideError(elementId) {
-      var errorElement = document.getElementById(elementId);
-      if (errorElement) {
-        errorElement.style.display = 'none';
-      }
-    }
-
-    function showSuccess(elementId, message) {
-      var successElement = document.getElementById(elementId);
-      if (successElement) {
-        successElement.textContent = message;
-        successElement.style.display = 'block';
-      }
-    }
-
-    function validateForm(email, password, type) {
-      var isValid = true;
-
-      hideError(type + '-email-error');
-      hideError(type + '-password-error');
-
-      if (!email || !validateEmail(email)) {
-        showError(type + '-email-error', 'Please enter a valid email');
-        isValid = false;
-      }
-
-      if (!password || password.length < 6) {
-        showError(type + '-password-error', 'Password must be at least 6 characters');
-        isValid = false;
-      }
-
-      return isValid;
-    }
-
-    function saveUserToFirestore(user, additionalData) {
-      return db.collection('users').doc(user.uid).set({
-        email: user.email,
-        uid: user.uid,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        lastLogin: firebase.firestore.FieldValue.serverTimestamp(),
-        ...additionalData
-      });
-    }
-
-    // Auth
-    function initAuth() {
-      var registerBtn = document.getElementById("registerBtn");
-      var loginBtn = document.getElementById("loginBtn");
-
-      if (registerBtn) {
-        registerBtn.addEventListener("click", function() {
-          var email = document.getElementById("reg-email").value.trim();
-          var password = document.getElementById("reg-password").value;
-
-          if (!validateForm(email, password, 'reg')) return;
-          if (!validateCaptcha('reg')) return;
-
-          this.disabled = true;
-          var self = this;
-
-          auth.createUserWithEmailAndPassword(email, password)
-            .then(function(userCredential) {
-              return saveUserToFirestore(userCredential.user, {
-                registrationMethod: 'email',
-                source: 'website'
-              });
-            })
-            .then(function() {
-              showSuccess('reg-success', 'Registration successful!');
-              document.getElementById("reg-email").value = '';
-              document.getElementById("reg-password").value = '';
-              generateCaptcha('reg');
-
-              setTimeout(function() {
-                document.getElementById('authModal').classList.remove('show');
-              }, 2000);
-            })
-            .catch(function(error) {
-              var errorMessage = 'Registration error';
-              if (error.code === 'auth/email-already-in-use') errorMessage = 'Email already in use';
-              else if (error.code === 'auth/weak-password') errorMessage = 'Password is too weak';
-              else if (error.code === 'auth/invalid-email') errorMessage = 'Invalid email format';
-              showError('reg-email-error', errorMessage);
-            })
-            .finally(function() {
-              self.disabled = false;
-            });
-        });
-      }
-
-      if (loginBtn) {
-        loginBtn.addEventListener("click", function() {
-          var email = document.getElementById("login-email").value.trim();
-          var password = document.getElementById("login-password").value;
-
-          if (!validateForm(email, password, 'login')) return;
-          if (!validateCaptcha('login')) return;
-
-          this.disabled = true;
-          var self = this;
-
-          auth.signInWithEmailAndPassword(email, password)
-            .then(function(userCredential) {
-              return db.collection('users').doc(userCredential.user.uid).update({
-                lastLogin: firebase.firestore.FieldValue.serverTimestamp()
-              });
-            })
-            .then(function() {
-              showSuccess('login-success', 'Welcome back!');
-              document.getElementById("login-email").value = '';
-              document.getElementById("login-password").value = '';
-              generateCaptcha('login');
-
-              setTimeout(function() {
-                document.getElementById('authModal').classList.remove('show');
-              }, 2000);
-            })
-            .catch(function(error) {
-              var errorMessage = 'Login error';
-              if (error.code === 'auth/user-not-found') errorMessage = 'User not found';
-              else if (error.code === 'auth/wrong-password') errorMessage = 'Incorrect password';
-              else if (error.code === 'auth/invalid-email') errorMessage = 'Invalid email format';
-              showError('login-email-error', errorMessage);
-            })
-            .finally(function() {
-              self.disabled = false;
-            });
-        });
-      }
-    }
-
-    // Auth state
-    auth.onAuthStateChanged(function(user) {
-      var authBtn = document.getElementById('openAuthModal');
-      if (user) {
-        if (authBtn) authBtn.textContent = user.email.split('@')[0];
-      } else {
-        if (authBtn) authBtn.textContent = 'Войти';
-      }
-    });
-
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       var navbar = document.getElementById('navbar');
@@ -2444,7 +1911,11 @@
       });
     });
 
-    // Contact form — send to Telegram
+    // Приёмник заявок — Cloudflare Worker.
+    // Токен бота лежит в секретах Worker и в этот файл не попадает.
+    var ORDER_ENDPOINT = 'https://softrain-orders.vm-065.workers.dev';
+
+    // Форма обратной связи
     function initContactForm() {
       var form = document.getElementById('contactForm');
       if (!form) return;
@@ -2468,19 +1939,13 @@
         status.textContent = '';
         status.className = 'cta-form-status';
 
-        var text = '📩 Новая заявка с сайта\n\n'
-          + '👤 Имя: ' + name + '\n'
-          + '📱 Телефон: ' + phone + '\n'
-          + (message ? '💬 Сообщение: ' + message + '\n' : '')
-          + '\n🕐 ' + new Date().toLocaleString('ru-RU');
-
-        var TG_TOKEN = '8592169898:AAFmzBw5-DT6FPfBFapUSAb9Rcrj4-pSUJ8';
-        var TG_CHAT = '111055030';
-
-        fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+        fetch(ORDER_ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: TG_CHAT, text: text, parse_mode: 'HTML' })
+          body: JSON.stringify({
+            name: name, phone: phone, comment: message,
+            page: location.pathname, website: ''
+          })
         })
         .then(function(r) { return r.json(); })
         .then(function(data) {
@@ -2502,32 +1967,6 @@
       });
     }
 
-    // Visitor counter (Firebase Firestore)
-    function initVisitorCounter() {
-      var counterRef = db.collection('stats').doc('visitors');
-
-      // Check if this session is unique (sessionStorage)
-      var counted = false;
-      try { counted = sessionStorage.getItem('visitor_counted'); } catch(e) {}
-
-      if (!counted) {
-        counterRef.get().then(function(doc) {
-          if (doc.exists) {
-            counterRef.update({
-              total: firebase.firestore.FieldValue.increment(1),
-              lastVisit: firebase.firestore.FieldValue.serverTimestamp()
-            });
-          } else {
-            counterRef.set({
-              total: 1,
-              lastVisit: firebase.firestore.FieldValue.serverTimestamp()
-            });
-          }
-          try { sessionStorage.setItem('visitor_counted', '1'); } catch(e) {}
-        }).catch(function() {});
-      }
-    }
-
     // Update form placeholders on language switch
     function updateFormPlaceholders(lang) {
       var inputs = document.querySelectorAll('[data-placeholder-ru]');
@@ -2540,14 +1979,7 @@
     // Init
     document.addEventListener('DOMContentLoaded', function() {
       initLanguageSwitcher();
-      initModal();
-      initTabs();
-      initCaptchaRefresh();
-      initAuth();
-      generateCaptcha('reg');
-      generateCaptcha('login');
       initContactForm();
-      initVisitorCounter();
     });
   </script>
 </body>
