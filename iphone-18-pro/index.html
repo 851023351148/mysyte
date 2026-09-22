@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 
   <title>iPhone 18 Pro и Pro Max — предзаказ в Алматы от 834 990 ₸ | SoftRain</title>
   <meta name="description" content="Предзаказ iPhone 18 Pro и iPhone 18 Pro Max в Алматы от 834 990 ₸. Пять конфигураций, четыре цвета, доставка 10–11 октября включена в цену, официальная гарантия 1 год.">
@@ -15,270 +15,163 @@
   <meta property="og:url" content="https://softrain.kz/iphone-18-pro/">
   <meta property="og:title" content="iPhone 18 Pro и Pro Max — предзаказ в Алматы от 834 990 ₸">
   <meta property="og:description" content="Пять конфигураций, четыре цвета. Доставка 10–11 октября по Алматы включена в цену. Официальная гарантия 1 год, оплата Kaspi после подтверждения.">
-  <meta property="og:image" content="https://softrain.kz/logo.png">
+  <meta property="og:image" content="https://softrain.kz/iphone-18-pro/img/lineup.jpg">
+  <meta property="og:image:width" content="980">
+  <meta property="og:image:height" content="700">
   <meta property="og:image:alt" content="SoftRain — предзаказ iPhone 18 Pro в Алматы">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="SoftRain">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="iPhone 18 Pro и Pro Max — предзаказ в Алматы">
   <meta name="twitter:description" content="Пять конфигураций, четыре цвета. Доставка 10–11 октября по Алматы включена в цену.">
-  <meta name="twitter:image" content="https://softrain.kz/logo.png">
+  <meta name="twitter:image" content="https://softrain.kz/iphone-18-pro/img/lineup.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/softrain.css">
 
   <style>
-    :root {
-      --blue: #3b82f6;
-      --blue-dark: #2563eb;
-      --navy: #0f172a;
-      --navy-soft: #1e293b;
-      --bg: #f8fafc;
-      --border: #e2e8f0;
-      --muted: #64748b;
-      --muted-dark: #475569;
-      --green: #10b981;
-      --amber: #f59e0b;
-    }
+    /* Страница предзаказа. Общие токены и компоненты — в /assets/softrain.css */
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.7;
-      background: var(--bg);
-      color: var(--navy-soft);
-    }
-
-    /* ===== NAV ===== */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(20px);
-      padding: 0 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 70px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 700; font-size: 18px; }
-    .nav-logo img { height: 32px; width: auto; }
-    .nav-back { color: #93c5fd; text-decoration: none; font-size: 14px; font-weight: 500; }
-    .nav-back:hover { color: #fff; }
-
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-      color: #fff;
-      padding: 150px 20px 90px;
-      text-align: center;
-    }
-    .hero-inner { max-width: 880px; margin: 0 auto; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      color: #6ee7b7;
-      padding: 7px 16px; border-radius: 100px;
-      font-size: 14px; font-weight: 600; margin-bottom: 24px;
-    }
-    .hero h1 {
-      font-size: 48px; font-weight: 800; line-height: 1.15;
-      letter-spacing: -1.5px; margin-bottom: 18px;
-    }
-    .hero h1 .accent {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero p.lead { font-size: 19px; color: #cbd5e1; margin-bottom: 14px; }
-    .hero-price { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 32px; }
-    .hero-price small { display: block; font-size: 14px; font-weight: 400; color: #94a3b8; margin-top: 6px; }
-
-    .btn {
-      display: inline-block; padding: 16px 38px; border-radius: 12px;
-      font-size: 16px; font-weight: 600; text-decoration: none;
-      border: none; cursor: pointer; transition: all .3s ease;
-      font-family: inherit;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: #fff; box-shadow: 0 4px 15px rgba(59,130,246,.3);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59,130,246,.4); }
-    .btn-primary:disabled { opacity: .6; cursor: not-allowed; transform: none; }
-
+    /* ===== Первый экран ===== */
+    .hero { padding: var(--space-12) 0 var(--space-16); }
+    .hero .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--space-12); align-items: center; }
+    .hero .h1 { margin: var(--space-4) 0 var(--space-4); }
+    .hero .lead { max-width: 520px; }
+    .hero-price { font: 500 32px/38px var(--font-mono); margin: var(--space-6) 0 var(--space-2); letter-spacing: -.01em; }
+    .hero-price-note { font-size: 14px; line-height: 22px; color: var(--ink-muted); margin-bottom: var(--space-8); }
+    .hero-photo { background: #000; border-radius: var(--radius-lg); overflow: hidden; }
+    .hero-photo img { width: 100%; height: auto; }
     .hero-facts {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      margin-top: 44px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 26px;
+      grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8);
+      margin-top: var(--space-4); padding-top: var(--space-6); border-top: 1px solid var(--line);
     }
-    .hero-fact { font-size: 14px; color: #94a3b8; padding: 0 22px; }
-    .hero-fact + .hero-fact { border-left: 1px solid rgba(255,255,255,.12); }
-    .hero-fact b { color: #e2e8f0; font-weight: 600; }
+    .hero-fact { font-size: 14px; line-height: 22px; color: var(--ink-muted); }
+    .hero-fact b { display: block; font: 500 15px/22px var(--font-mono); color: var(--ink); }
 
-    /* ===== SECTIONS ===== */
-    .section { padding: 90px 20px; }
-    .section-inner { max-width: 1080px; margin: 0 auto; }
-    .section-title { font-size: 38px; font-weight: 800; color: var(--navy); letter-spacing: -1.2px; line-height: 1.2; margin-bottom: 14px; text-align: center; }
-    .section-sub { font-size: 17px; color: var(--muted); text-align: center; max-width: 640px; margin: 0 auto 48px; }
-
-    /* ===== PRICE CARDS ===== */
-    .models { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 22px; }
-    .model-group + .model-group { margin-top: 46px; }
+    /* ===== Конфигурации ===== */
+    .model-group + .model-group { margin-top: var(--space-12); }
     .group-head {
-      display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
-      margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: baseline; gap: var(--space-4); flex-wrap: wrap;
+      margin-bottom: var(--space-6); padding-bottom: var(--space-3); border-bottom: 1px solid var(--line);
     }
-    .group-head h3 { font-size: 21px; font-weight: 700; color: var(--navy); letter-spacing: -.5px; }
-    .group-head span { font-size: 14px; color: var(--muted); }
+    .group-head span { font: 400 13px/20px var(--font-mono); color: var(--ink-muted); }
+    .models { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
     .model-card {
-      background: #fff; border: 1px solid var(--border); border-radius: 18px;
-      padding: 28px; transition: all .3s ease; position: relative;
-      display: flex; flex-direction: column;
+      position: relative; background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-lg);
+      padding: var(--space-8); display: flex; flex-direction: column; transition: transform .2s ease-out, box-shadow .2s ease-out;
     }
-    .model-card:hover { border-color: var(--blue); box-shadow: 0 12px 34px rgba(15,23,42,.09); transform: translateY(-3px); }
-    .model-card.featured { border-color: var(--blue); box-shadow: 0 10px 30px rgba(59,130,246,.13); }
+    .model-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .model-card.featured { border-color: var(--rain); }
     .model-tag {
-      position: absolute; top: -11px; right: 22px;
-      background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff;
-      font-size: 12px; font-weight: 600; padding: 4px 13px; border-radius: 100px;
+      position: absolute; top: -11px; right: var(--space-6); background: var(--sun); color: var(--on-sun);
+      font: 500 12px/16px var(--font-mono); padding: 3px var(--space-2); border-radius: var(--radius-sm);
     }
-    .model-name { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .model-meta { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
-    .price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
-    .price-our { font-size: 30px; font-weight: 800; color: var(--navy); letter-spacing: -1px; }
-    .model-avail {
-      margin-top: 10px; font-size: 13px; font-weight: 600; color: #047857;
-      display: flex; align-items: center; gap: 7px;
-    }
-    .model-avail::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
-    .model-card .btn { margin-top: 22px; width: 100%; text-align: center; padding: 13px; font-size: 15px; }
+    .model-name { font-family: var(--font-display); font-size: 22px; line-height: 28px; font-weight: 600; }
+    .model-meta { font: 400 12px/18px var(--font-mono); color: var(--ink-muted); margin: var(--space-1) 0 var(--space-6); }
+    .price-our { font: 500 30px/36px var(--font-mono); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+    .model-avail { margin-top: var(--space-2); font-size: 13px; font-weight: 500; color: var(--success); display: flex; align-items: center; gap: var(--space-2); }
+    .model-avail::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--success); }
     .model-spacer { flex: 1; }
+    .model-card .btn { margin-top: var(--space-6); width: 100%; }
+    .price-note { margin-top: var(--space-8); font-size: 14px; line-height: 22px; color: var(--ink-muted); }
 
-    .price-note { text-align: center; font-size: 14px; color: var(--muted); margin-top: 28px; }
+    /* ===== Почему у нас ===== */
+    .why-item h3 { margin: var(--space-4) 0 var(--space-2); }
+    .why-item p { color: var(--ink-muted); font-size: 15px; line-height: 24px; }
+    .why-figure { font: 500 30px/36px var(--font-mono); letter-spacing: -.02em; }
+    .why-figure small { display: block; font: 500 12px/16px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--rain); margin-top: var(--space-2); }
 
-    /* ===== WHY ===== */
-    .why-section { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .why-item { padding: 6px; }
-    .why-figure {
-      font-size: 30px; font-weight: 800; color: var(--navy); letter-spacing: -1.2px;
-      font-variant-numeric: tabular-nums; line-height: 1.1; margin-bottom: 4px;
+    /* ===== Форма предзаказа ===== */
+    .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start; }
+    .order-photo {
+      position: sticky; top: calc(var(--nav-height) + var(--space-6));
+      background: #f6f5f8; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden;
     }
-    .why-figure small { display: block; font-size: 13px; font-weight: 600; color: var(--blue); letter-spacing: .06em; text-transform: uppercase; margin-top: 6px; }
-    .why-item h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin: 16px 0 8px; }
-    .why-item p { font-size: 15px; color: var(--muted-dark); }
-
-    /* ===== FORM ===== */
-    .order-section { background: linear-gradient(135deg, #0f172a, #1e293b); color: #fff; }
-    .order-section .section-title { color: #fff; }
-    .order-section .section-sub { color: #94a3b8; }
-    .order-box { max-width: 620px; margin: 0 auto; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; padding: 34px; }
-    .field { margin-bottom: 18px; }
-    .field label { display: block; font-size: 14px; font-weight: 600; color: #cbd5e1; margin-bottom: 7px; }
-    .field input, .field select, .field textarea {
-      width: 100%; padding: 13px 15px; border-radius: 11px;
-      border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06);
-      color: #fff; font-size: 15px; font-family: inherit;
+    .order-photo img { width: 100%; height: auto; aspect-ratio: 640 / 744; object-fit: contain; transition: opacity .2s ease-out; }
+    .order-photo img.loading { opacity: .35; }
+    .phone-caption {
+      display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) var(--space-6);
+      border-top: 1px solid var(--line); background: var(--surface-raised); font: 400 13px/20px var(--font-mono); color: var(--ink-muted);
     }
-    .field input::placeholder, .field textarea::placeholder { color: #64748b; }
-    .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--blue); background: rgba(255,255,255,.09); }
-    .field select option { background: #1e293b; color: #fff; }
-    .field textarea { resize: vertical; min-height: 78px; }
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-    .colors { display: flex; gap: 9px; flex-wrap: wrap; }
-    .swatch {
-      display: flex; flex-direction: column; align-items: center; gap: 7px;
-      cursor: pointer; padding: 10px 8px; border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04);
-      transition: all .2s ease; min-width: 74px; flex: 1;
-    }
-    .swatch:hover { background: rgba(255,255,255,.08); }
-    .swatch.active { border-color: var(--blue); background: rgba(59,130,246,.14); }
-    .swatch-dot { width: 30px; height: 30px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255,255,255,.22), 0 2px 6px rgba(0,0,0,.3); }
-    .swatch-name { font-size: 12px; color: #94a3b8; }
-    .swatch.active .swatch-name { color: #fff; font-weight: 600; }
-
-    .consent { display: flex; gap: 11px; align-items: flex-start; margin: 22px 0; }
-    .consent input { width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0; accent-color: var(--blue); }
-    .consent label { font-size: 13px; color: #94a3b8; line-height: 1.6; }
-    .consent a { color: #93c5fd; }
-
+    .phone-caption b { color: var(--ink); font-weight: 500; }
+    .order-box { background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: var(--space-8); }
     .order-summary {
-      background: rgba(59,130,246,.1); border: 1px solid rgba(59,130,246,.25);
-      border-radius: 12px; padding: 15px 17px; margin-bottom: 22px; font-size: 15px;
+      display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: var(--space-1) var(--space-4);
+      background: var(--rain-soft); border-radius: var(--radius-md); padding: var(--space-4) var(--space-6);
+      margin-bottom: var(--space-6); font-variant-numeric: tabular-nums;
     }
-    .order-summary b { color: #fff; }
-    .order-summary .sum-price { float: right; font-weight: 700; color: #fff; }
-
-    .form-status { margin-top: 16px; font-size: 14px; min-height: 22px; }
-    .form-status.error { color: #fca5a5; }
-    .form-status.success { color: #6ee7b7; }
-    .form-status pre { background: rgba(0,0,0,.3); padding: 12px; border-radius: 9px; margin-top: 10px; font-size: 12px; overflow-x: auto; color: #cbd5e1; }
-
-    .alt-contacts { text-align: center; margin-top: 26px; font-size: 14px; color: #94a3b8; }
-    .alt-contacts a { color: #93c5fd; text-decoration: none; margin: 0 9px; }
-
-    /* ===== SPECS ===== */
-    .spec-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
-    .spec-table th, .spec-table td { padding: 15px 18px; text-align: left; border-bottom: 1px solid var(--border); font-size: 15px; }
-    .spec-table th { background: #f1f5f9; font-weight: 600; color: var(--navy); }
-    .spec-table td:first-child { color: var(--muted); width: 38%; }
-    .spec-table tr:last-child th, .spec-table tr:last-child td { border-bottom: none; }
-    .table-scroll { overflow-x: auto; }
-
-    /* ===== FAQ ===== */
-    .faq-item { background: #fff; border: 1px solid var(--border); border-radius: 14px; margin-bottom: 13px; overflow: hidden; }
-    .faq-q { width: 100%; text-align: left; padding: 19px 22px; background: none; border: none; font-size: 16px; font-weight: 600; color: var(--navy); cursor: pointer; font-family: inherit; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
-    .faq-q span.chev { color: var(--blue); font-size: 20px; line-height: 1; transition: transform .25s ease; }
-    .faq-item.open .faq-q span.chev { transform: rotate(45deg); }
-    .faq-a { padding: 0 22px; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease; color: var(--muted-dark); font-size: 15px; }
-    .faq-item.open .faq-a { padding: 0 22px 20px; max-height: 420px; }
-
-    /* ===== LEGAL ===== */
-    .legal-section { background: #fff; border-top: 1px solid var(--border); }
-    .legal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 26px; font-size: 14px; color: var(--muted-dark); }
-    .legal-grid h4 { font-size: 15px; color: var(--navy); margin-bottom: 9px; font-weight: 700; }
-    .legal-grid p { margin-bottom: 5px; }
-    .legal-note { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
-
-    .footer { background: var(--navy); color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 14px; }
-    .footer a { color: #93c5fd; text-decoration: none; }
-
-    /* ===== ТИПОГРАФИКА И ДОСТУПНОСТЬ ===== */
-    h1, h2, h3, .section-title { text-wrap: balance; }
-    .order-summary, .swatch-name, .spec-table td, .spec-table th { font-variant-numeric: tabular-nums; }
-
-    a:focus-visible, button:focus-visible, input:focus-visible,
-    select:focus-visible, textarea:focus-visible, .swatch:focus-visible {
-      outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px;
+    .order-summary b { font-weight: 600; }
+    .order-summary .sum-price { font: 500 18px/24px var(--font-mono); white-space: nowrap; }
+    #orderForm .field { margin-bottom: var(--space-4); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    select.input { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+      background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: var(--space-12); }
+    .colors { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-2); }
+    .swatch {
+      display: flex; flex-direction: column; align-items: center; gap: var(--space-2); cursor: pointer;
+      padding: var(--space-3) var(--space-2); border-radius: var(--radius-md); border: 1px solid var(--line); background: var(--surface-raised);
+      transition: border-color .15s ease-out, background .15s ease-out;
     }
-    .order-section a:focus-visible, .order-section button:focus-visible,
-    .order-section input:focus-visible, .order-section select:focus-visible,
-    .order-section textarea:focus-visible, .swatch:focus-visible { outline-color: #93c5fd; }
+    .swatch:hover { border-color: var(--line-strong); }
+    .swatch.active { border: 2px solid var(--rain); padding: 11px 7px; background: var(--rain-soft); }
+    .swatch-dot { width: 28px; height: 28px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(15, 28, 36, .25); }
+    .swatch-name { font-size: 13px; color: var(--ink-muted); }
+    .swatch.active .swatch-name { color: var(--ink); font-weight: 600; }
+    .consent { display: flex; gap: var(--space-3); align-items: flex-start; margin: var(--space-6) 0; }
+    .consent input { width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0; accent-color: var(--rain); }
+    .consent label { font-size: 13px; line-height: 20px; color: var(--ink-muted); }
+    #submitBtn { width: 100%; }
+    #orderForm .form-status { margin-top: var(--space-4); }
+    .form-status pre { background: var(--surface-sunken); padding: var(--space-3); border-radius: var(--radius-sm); margin-top: var(--space-2); font-size: 12px; overflow-x: auto; }
+    .alt-contacts { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-muted); }
+    .alt-contacts a { margin: 0 var(--space-2); white-space: nowrap; }
 
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: .01ms !important; animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-      .model-card:hover, .btn-primary:hover { transform: none; }
+    /* ===== Характеристики ===== */
+    .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface-raised); }
+    .spec-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    .spec-table th, .spec-table td { padding: var(--space-4) var(--space-6); text-align: left; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .spec-table th { font-family: var(--font-display); font-weight: 600; font-size: 17px; background: var(--surface-sunken); }
+    .spec-table td:first-child { color: var(--ink-muted); width: 34%; }
+    .spec-table tr:last-child td { border-bottom: none; }
+
+    /* ===== Вопросы ===== */
+    .faq { max-width: 800px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-item:first-child { border-top: 1px solid var(--line); }
+    .faq-q {
+      width: 100%; text-align: left; padding: var(--space-6) 0; background: none; border: none; cursor: pointer;
+      font: 600 17px/26px var(--font-sans); color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: var(--space-4);
     }
+    .faq-q .chev { font-family: var(--font-mono); color: var(--rain); font-size: 20px; transition: transform .2s ease-out; }
+    .faq-item.open .faq-q .chev { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; color: var(--ink-muted); transition: max-height .3s ease-out, padding .3s ease-out; }
+    .faq-item.open .faq-a { max-height: 420px; padding-bottom: var(--space-6); }
 
-    @media (max-width: 768px) {
-      .navbar { padding: 0 18px; }
-      .hero { padding: 120px 18px 66px; }
-      .hero h1 { font-size: 32px; letter-spacing: -1px; }
-      .hero p.lead { font-size: 16px; }
-      .section { padding: 60px 18px; }
-      .section-title { font-size: 27px; }
-      .field-row { grid-template-columns: 1fr; }
-      .order-box { padding: 24px 20px; }
-      .hero-facts { flex-direction: column; align-items: center; gap: 14px; }
-      .hero-fact { padding: 0; }
-      .hero-fact + .hero-fact { border-left: none; }
+    /* ===== Продавец ===== */
+    .legal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); font-size: 14px; line-height: 22px; color: var(--ink-muted); }
+    .legal-grid h3 { color: var(--ink); margin-bottom: var(--space-3); }
+    .legal-grid p { margin-bottom: var(--space-1); }
+    .legal-note { margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--line); font-size: 13px; line-height: 20px; color: var(--ink-muted); }
+
+    @media (max-width: 1024px) {
+      .models { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .hero .wrap, .order-grid { grid-template-columns: 1fr; }
+      .hero-photo { order: -1; }
+      .order-photo { position: static; max-width: 420px; width: 100%; margin: 0 auto; }
+      .legal-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+    }
+    @media (max-width: 640px) {
+      .hero { padding: var(--space-6) 0 var(--space-12); }
+      .hero-facts { grid-template-columns: 1fr; gap: var(--space-3); }
+      .models { grid-template-columns: 1fr; }
+      .model-card, .order-box { padding: var(--space-6); }
+      .field-row { grid-template-columns: 1fr; gap: 0; }
+      .colors { grid-template-columns: repeat(2, 1fr); }
+      .spec-table th, .spec-table td { padding: var(--space-3) var(--space-4); font-size: 14px; }
     }
   </style>
 
@@ -291,7 +184,7 @@
         "@id": "https://softrain.kz/#organization",
         "name": "SoftRain",
         "url": "https://softrain.kz/",
-        "logo": "https://softrain.kz/logo.png",
+        "logo": "https://softrain.kz/assets/softrain-mark-512.png",
         "email": "vm@softrain.kz",
         "telephone": "+77074239899",
         "address": {
@@ -322,6 +215,7 @@
         "description": "iPhone 18 Pro, дисплей OLED 6,3 дюйма, чип A20 Pro, камера 48 Мп Fusion Main. Доступен в цветах Black, Silver, Glacier и Burgundy.",
         "brand": { "@type": "Brand", "name": "Apple" },
         "productGroupID": "iphone-18-pro",
+        "image": "https://softrain.kz/iphone-18-pro/img/lineup.jpg",
         "variesBy": ["https://schema.org/size"],
         "hasVariant": [
           {
@@ -353,6 +247,7 @@
         "description": "iPhone 18 Pro Max, дисплей OLED 6,9 дюйма, чип A20 Pro, камера 48 Мп Fusion Main. Доступен в цветах Black, Silver, Glacier и Burgundy.",
         "brand": { "@type": "Brand", "name": "Apple" },
         "productGroupID": "iphone-18-pro-max",
+        "image": "https://softrain.kz/iphone-18-pro/img/lineup.jpg",
         "variesBy": ["https://schema.org/size"],
         "hasVariant": [
           {
@@ -376,46 +271,55 @@
   </script>
 </head>
 <body>
-
-  <nav class="navbar">
-    <a href="../" class="nav-logo">
-      <img src="../logo.png" alt="SoftRain">
-      <span>SoftRain</span>
-    </a>
-    <a href="../" class="nav-back">← На главную</a>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-badge">● Приём предзаказов открыт</div>
-      <h1>iPhone 18 Pro и Pro Max<br><span class="accent">привезём 10–11 октября</span></h1>
-      <p class="lead">Пять конфигураций, четыре цвета. Доставка по Алматы включена в цену, время согласуем заранее.</p>
-      <div class="hero-price">
-        от 834 990 ₸
-        <small>Официальная гарантия 1 год · Оплата Kaspi после подтверждения</small>
-      </div>
-      <a href="#order" class="btn btn-primary">Предзаказать</a>
-
-      <div class="hero-facts">
-        <div class="hero-fact"><b>10–11 октября</b> — доставка по Алматы</div>
-        <div class="hero-fact"><b>Гарантия Apple</b> — сервис iSpace</div>
-        <div class="hero-fact"><b>Без предоплаты</b> — платите после подтверждения</div>
+  <nav class="nav" id="navbar">
+    <div class="wrap">
+      <a href="../" class="nav-logo" aria-label="SoftRain — на главную"><img src="../assets/softrain-logo.svg" alt="SoftRain" width="157" height="48"></a>
+      <div class="nav-right">
+        <a href="../" class="nav-back">← На главную</a>
+        <a href="#order" class="btn btn-primary">Предзаказать</a>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <section class="section">
-    <div class="section-inner">
-      <h2 class="section-title">Пять конфигураций в наличии</h2>
-      <p class="section-sub">Все четыре цвета в наличии: Black, Silver, Glacier и Burgundy. Цена от цвета не зависит — выбирайте любой.</p>
+  <main>
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <span class="tag tag--ok">● Приём предзаказов открыт</span>
+        <h1 class="h1">iPhone 18 Pro и Pro Max — <em>привезём 10–11 октября</em></h1>
+        <p class="lead">Пять конфигураций, четыре цвета. Доставка по Алматы включена в цену, время согласуем заранее.</p>
+        <div class="hero-price">от 834 990 ₸</div>
+        <p class="hero-price-note">Официальная гарантия 1 год · Оплата Kaspi после подтверждения</p>
+        <a href="#order" class="btn btn-primary">Предзаказать <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-photo">
+        <img src="img/lineup.jpg" alt="iPhone 18 Pro в цветах Black, Silver, Glacier и Burgundy" width="980" height="700">
+      </div>
+      <div class="hero-facts">
+        <div class="hero-fact"><b>10–11 октября</b>доставка по Алматы</div>
+        <div class="hero-fact"><b>Гарантия Apple</b>сервис iSpace</div>
+        <div class="hero-fact"><b>Без предоплаты</b>платите после подтверждения</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section section--sunken">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">01 — Конфигурации</p>
+          <h2 class="h2">Пять конфигураций в наличии</h2>
+        </div>
+        <p class="lead">Все четыре цвета в наличии: Black, Silver, Glacier и Burgundy. Цена от цвета не зависит — выбирайте любой.</p>
+      </div>
 
       <div class="model-group">
-        <div class="group-head"><h3>iPhone 18 Pro</h3><span>6,3″ · три объёма памяти</span></div>
+        <div class="group-head"><h3 class="h3">iPhone 18 Pro</h3><span>6,3″ · три объёма памяти</span></div>
         <div class="models" id="models-pro"></div>
       </div>
 
       <div class="model-group">
-        <div class="group-head"><h3>iPhone 18 Pro Max</h3><span>6,9″ · два объёма памяти</span></div>
+        <div class="group-head"><h3 class="h3">iPhone 18 Pro Max</h3><span>6,9″ · два объёма памяти</span></div>
         <div class="models" id="models-max"></div>
       </div>
 
@@ -426,73 +330,89 @@
     </div>
   </section>
 
-  <section class="section why-section">
-    <div class="section-inner">
-      <h2 class="section-title">Почему у нас</h2>
-      <p class="section-sub">Никакого серого ввоза и никакой предоплаты вслепую. Мы работаем с казахстанским дистрибьютором и отвечаем за каждый аппарат.</p>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">02 — Гарантии и доставка</p>
+          <h2 class="h2">Почему у нас</h2>
+        </div>
+        <p class="lead">Никакого серого ввоза и никакой предоплаты вслепую. Мы работаем с казахстанским дистрибьютором и отвечаем за каждый аппарат.</p>
+      </div>
 
-      <div class="why-grid">
+      <div class="grid-3">
         <div class="why-item">
           <div class="why-figure">10–11 октября<small>доставка включена в цену</small></div>
-          <h3>Привезём в согласованный день</h3>
+          <h3 class="h3">Привезём в согласованный день</h3>
           <p>Партия приходит разом, и мы развозим её по маршруту за один день. Время согласуем заранее — ждать курьера с утра до вечера не придётся.</p>
         </div>
         <div class="why-item">
           <div class="why-figure">1 год<small>сервис iSpace</small></div>
-          <h3>Официальная гарантия</h3>
+          <h3 class="h3">Официальная гарантия</h3>
           <p>Аппараты ввезены официально и верифицированы по IMEI. Обслуживание в авторизованном сервисном центре iSpace, как у любого аппарата из магазина.</p>
         </div>
         <div class="why-item">
           <div class="why-figure">Не объявление<small>поставщик ИТ-оборудования</small></div>
-          <h3>За нами есть история</h3>
+          <h3 class="h3">За нами есть история</h3>
           <p>SoftRain поставляет технику компаниям, среди клиентов — Geokurs и Казтелерадио, кейсы открыты на сайте. Вы покупаете не у анонимного продавца с площадки объявлений.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section order-section" id="order">
-    <div class="section-inner">
-      <h2 class="section-title">Оформить предзаказ</h2>
-      <p class="section-sub">Оставьте заявку — мы свяжемся, подтвердим конфигурацию и пришлём ссылку на оплату Kaspi. Деньги списываются только после вашего подтверждения.</p>
+  <section class="section section--sunken" id="order">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">03 — Предзаказ</p>
+          <h2 class="h2">Оформить предзаказ</h2>
+        </div>
+        <p class="lead">Оставьте заявку — мы свяжемся, подтвердим конфигурацию и пришлём ссылку на оплату Kaspi. Деньги списываются только после вашего подтверждения.</p>
+      </div>
 
-      <div class="order-box">
-        <form id="orderForm" novalidate>
-          <div class="order-summary">
-            <b id="sumModel">iPhone 18 Pro 256GB</b>
-            <span class="sum-price" id="sumPrice">834 990 ₸</span>
-          </div>
+      <div class="order-grid">
+        <figure class="order-photo">
+          <img id="phPhoto" src="img/black.webp" alt="iPhone 18 Pro, цвет Black" width="640" height="744">
+          <figcaption class="phone-caption" id="phoneCaption"><b>iPhone 18 Pro · Black</b><span>вид сзади и спереди</span></figcaption>
+        </figure>
 
-          <div class="field">
-            <label for="fModel">Модель и память</label>
-            <select id="fModel" name="model"></select>
-          </div>
-
-          <div class="field">
-            <label>Цвет</label>
-            <div class="colors" id="fColors"></div>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="fName">Имя</label>
-              <input type="text" id="fName" name="name" placeholder="Как к вам обращаться" required>
+        <div class="order-box">
+          <form id="orderForm" novalidate>
+            <div class="order-summary">
+              <b id="sumModel">iPhone 18 Pro 256GB</b>
+              <span class="sum-price" id="sumPrice">834 990 ₸</span>
             </div>
+
             <div class="field">
-              <label for="fPhone">Телефон</label>
-              <input type="tel" id="fPhone" name="phone" placeholder="+7 7XX XXX XX XX" required>
+              <label for="fModel">Модель и память</label>
+              <select class="input" id="fModel" name="model"></select>
             </div>
-          </div>
 
-          <div class="field">
-            <label for="fCity">Город доставки</label>
-            <input type="text" id="fCity" name="city" placeholder="Алматы" required>
-          </div>
+            <div class="field">
+              <label id="fColorsLabel">Цвет</label>
+              <div class="colors" id="fColors" role="radiogroup" aria-labelledby="fColorsLabel"></div>
+            </div>
 
-          <div class="field">
-            <label for="fComment">Комментарий <span style="font-weight:400;color:#64748b">— необязательно</span></label>
-            <textarea id="fComment" name="comment" placeholder="Удобное время для звонка, вопросы по доставке"></textarea>
-          </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="fName">Имя</label>
+                <input class="input" type="text" id="fName" name="name" placeholder="Как к вам обращаться" required>
+              </div>
+              <div class="field">
+                <label for="fPhone">Телефон</label>
+                <input class="input" type="tel" id="fPhone" name="phone" placeholder="+7 7XX XXX XX XX" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="fCity">Город доставки</label>
+              <input class="input" type="text" id="fCity" name="city" placeholder="Алматы" required>
+            </div>
+
+            <div class="field">
+              <label for="fComment">Комментарий <span class="muted" style="font-weight:400">— необязательно</span></label>
+              <textarea class="input" id="fComment" name="comment" placeholder="Удобное время для звонка, вопросы по доставке"></textarea>
+            </div>
 
           <!-- Ловушка для ботов: человек это поле не видит и не заполняет -->
           <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
@@ -507,25 +427,30 @@
             </label>
           </div>
 
-          <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%">Отправить предзаказ</button>
-          <div class="form-status" id="formStatus"></div>
-        </form>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Отправить предзаказ</button>
+            <div class="form-status" id="formStatus" role="status"></div>
+          </form>
 
-        <div class="alt-contacts">
-          Или напишите напрямую:
-          <a href="https://wa.me/77074239899" target="_blank" rel="noopener">WhatsApp</a>·
-          <a href="https://t.me/WRain" target="_blank" rel="noopener">Telegram</a>·
-          <a href="tel:+77074239899">+7 707 423 9899</a>
+          <div class="alt-contacts">
+            Или напишите напрямую:
+            <a href="https://wa.me/77074239899" target="_blank" rel="noopener">WhatsApp</a>·
+            <a href="https://t.me/WRain" target="_blank" rel="noopener">Telegram</a>·
+            <a href="tel:+77074239899">+7 707 423 9899</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <div class="section-inner">
-      <h2 class="section-title">Характеристики</h2>
-      <p class="section-sub">Данные приведены по официальной спецификации Apple.</p>
-
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">04 — Спецификация</p>
+          <h2 class="h2">Характеристики</h2>
+        </div>
+        <p class="lead">Данные приведены по официальной спецификации Apple.</p>
+      </div>
       <div class="table-scroll">
         <table class="spec-table">
           <tr><th></th><th>iPhone 18 Pro</th><th>iPhone 18 Pro Max</th></tr>
@@ -542,11 +467,15 @@
     </div>
   </section>
 
-  <section class="section why-section">
-    <div class="section-inner" style="max-width:800px">
-      <h2 class="section-title">Частые вопросы</h2>
-      <div style="margin-top:40px">
-
+  <section class="section section--sunken">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">05 — Вопросы</p>
+          <h2 class="h2">Частые вопросы</h2>
+        </div>
+      </div>
+      <div class="faq">
         <div class="faq-item">
           <button class="faq-q">Когда я получу телефон? <span class="chev">+</span></button>
           <div class="faq-a">Партия поступает 10 октября 2026 года, развозим 10 и 11 октября по Алматы. Точное время согласуем с вами заранее. Если сроки поставки сдвинутся, мы сообщим об этом сразу, а не в день доставки.</div>
@@ -581,26 +510,31 @@
     </div>
   </section>
 
-  <section class="section legal-section" id="legal">
-    <div class="section-inner">
-      <h2 class="section-title">Продавец и условия</h2>
-      <div class="legal-grid" style="margin-top:40px">
+  <section class="section" id="legal">
+    <div class="wrap">
+      <div class="section-head">
         <div>
-          <h4>Реквизиты</h4>
+          <p class="eyebrow">06 — Продавец</p>
+          <h2 class="h2">Продавец и условия</h2>
+        </div>
+      </div>
+      <div class="legal-grid">
+        <div>
+          <h3 class="h3">Реквизиты</h3>
           <p>ИП Softrain</p>
           <p>ИИН: 851023351148</p>
           <p>Адрес: Республика Казахстан, г. Алматы, 10 микрорайон, дом 16, кв. 16</p>
           <p>Плательщик НДС</p>
         </div>
         <div>
-          <h4>Контакты</h4>
+          <h3 class="h3">Контакты</h3>
           <p>Телефон: <a href="tel:+77074239899">+7 707 423 9899</a></p>
           <p>Почта: <a href="mailto:vm@softrain.kz">vm@softrain.kz</a></p>
           <p>Telegram: <a href="https://t.me/WRain" target="_blank" rel="noopener">@WRain</a></p>
           <p>WhatsApp: <a href="https://wa.me/77074239899" target="_blank" rel="noopener">+7 707 423 9899</a></p>
         </div>
         <div>
-          <h4>Условия</h4>
+          <h3 class="h3">Условия</h3>
           <p>Доставка: 10–11 октября по Алматы, включена в цену</p>
           <p>Оплата: Kaspi по ссылке, после подтверждения заказа</p>
           <p>Гарантия: 1 год, сервис iSpace</p>
@@ -615,10 +549,14 @@
       </div>
     </div>
   </section>
+  </main>
 
-  <div class="footer">
-    <p>© 2026 SoftRain · <a href="../">На главную</a></p>
-  </div>
+  <footer class="footer">
+    <div class="wrap">
+      <span>© 2026 SoftRain</span>
+      <a href="../">На главную</a>
+    </div>
+  </footer>
 
   <script>
     // ==== Конфигурация ====
@@ -637,15 +575,33 @@
 
     // Цена от цвета не зависит. Артикулы в CATALOG относятся к чёрным аппаратам —
     // для остальных цветов у дистрибьютора свои коды, поэтому наружу они не показываются.
+    // Фото каждого цвета лежат в iphone-18-pro/img/: вид сзади и спереди на светлом фоне.
     var COLORS = [
-      { id: 'black',    name: 'Black',    hex: '#1d1d1f' },
-      { id: 'silver',   name: 'Silver',   hex: '#e5e6e8' },
-      { id: 'glacier',  name: 'Glacier',  hex: '#c3d4dd' },
-      { id: 'burgundy', name: 'Burgundy', hex: '#6e2b39' }
+      { id: 'black',    name: 'Black',    hex: '#1d1d1f', photo: 'img/black.webp' },
+      { id: 'silver',   name: 'Silver',   hex: '#e5e6e8', photo: 'img/silver.webp', view: 'вид сзади и сбоку' },
+      { id: 'glacier',  name: 'Glacier',  hex: '#c3d4dd', photo: 'img/glacier.webp' },
+      { id: 'burgundy', name: 'Burgundy', hex: '#6e2b39', photo: 'img/burgundy.webp' }
     ];
     var selectedColor = COLORS[0];
 
     function money(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ₸'; }
+
+    // Подгружаем все фото заранее, чтобы смена цвета была мгновенной
+    COLORS.forEach(function (c) { var im = new Image(); im.src = c.photo; });
+
+    // ==== Фото в форме ====
+    function updatePreview(m) {
+      var img = document.getElementById('phPhoto');
+      var alt = m.line + ', цвет ' + selectedColor.name;
+      if (img.getAttribute('src') !== selectedColor.photo) {
+        img.classList.add('loading');
+        img.onload = function () { img.classList.remove('loading'); };
+        img.src = selectedColor.photo;
+      }
+      img.alt = alt;
+      document.getElementById('phoneCaption').innerHTML =
+        '<b>' + m.line + ' · ' + selectedColor.name + '</b><span>' + (selectedColor.view || 'вид сзади и спереди') + '</span>';
+    }
 
     // ==== Карточки моделей ====
     (function renderModels() {
@@ -700,26 +656,33 @@
       COLORS.forEach(function (c, i) {
         var el = document.createElement('div');
         el.className = 'swatch' + (i === 0 ? ' active' : '');
-        el.setAttribute('role', 'button');
+        el.setAttribute('role', 'radio');
+        el.setAttribute('aria-checked', i === 0 ? 'true' : 'false');
         el.setAttribute('tabindex', '0');
         el.innerHTML = '<div class="swatch-dot" style="background:' + c.hex + '"></div>' +
                        '<div class="swatch-name">' + c.name + '</div>';
-        function pick() {
-          selectedColor = c;
-          Array.prototype.forEach.call(host.children, function (n) { n.classList.remove('active'); });
-          el.classList.add('active');
-          updateSummary();
-        }
+        function pick() { setColor(i); }
         el.addEventListener('click', pick);
         el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
         host.appendChild(el);
       });
     })();
 
+    function setColor(j) {
+      selectedColor = COLORS[j];
+      var sw = document.getElementById('fColors').children;
+      Array.prototype.forEach.call(sw, function (n, k) {
+        n.classList.toggle('active', k === j);
+        n.setAttribute('aria-checked', k === j ? 'true' : 'false');
+      });
+      updateSummary();
+    }
+
     function updateSummary() {
       var m = currentModel();
       document.getElementById('sumModel').textContent = m.name + ' ' + selectedColor.name;
       document.getElementById('sumPrice').textContent = money(m.our);
+      updatePreview(m);
     }
 
     function selectModel(id, scroll) {
@@ -756,13 +719,7 @@
       var wantColor = (q.get('color') || q.get('c') || '').toLowerCase();
       if (wantColor) {
         for (var j = 0; j < COLORS.length; j++) {
-          if (COLORS[j].id === wantColor) {
-            selectedColor = COLORS[j];
-            var sw = document.getElementById('fColors').children;
-            Array.prototype.forEach.call(sw, function (n, k) { n.classList.toggle('active', k === j); });
-            updateSummary();
-            break;
-          }
+          if (COLORS[j].id === wantColor) { setColor(j); break; }
         }
       }
     })();
@@ -824,10 +781,8 @@
           status.className = 'form-status success';
           status.textContent = 'Заявка принята. Мы свяжемся с вами в течение рабочего дня.';
           document.getElementById('orderForm').reset();
-          selectedColor = COLORS[0];
-          var sw = document.getElementById('fColors').children;
-          Array.prototype.forEach.call(sw, function (n, i) { n.classList.toggle('active', i === 0); });
           selectModel(m.id, false);
+          setColor(0);
         })
         .catch(function () {
           status.className = 'form-status error';

@@ -5,52 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <title>Страница не найдена — SoftRain</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/softrain.css">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-      color: #e2e8f0; min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      padding: 40px 20px; line-height: 1.7;
-    }
-    .box { max-width: 560px; width: 100%; text-align: center; }
-    .logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 44px; text-decoration: none; color: #fff; font-weight: 700; font-size: 19px; }
-    .logo img { height: 34px; width: auto; }
-    .code { font-size: 15px; font-weight: 700; letter-spacing: .18em; color: #64748b; margin-bottom: 14px; }
-    h1 { font-size: 34px; font-weight: 800; letter-spacing: -1px; line-height: 1.2; color: #fff; margin-bottom: 14px; text-wrap: balance; }
-    p { color: #94a3b8; font-size: 16px; margin-bottom: 38px; }
-    .links { display: flex; flex-direction: column; gap: 12px; text-align: left; }
+    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-12) var(--space-4); }
+    .box { max-width: 560px; width: 100%; }
+    .logo { display: inline-block; margin-bottom: var(--space-12); }
+    .logo img { height: 40px; width: auto; }
+    .h1 { margin: var(--space-3) 0 var(--space-4); }
+    .box > p.lead { margin-bottom: var(--space-8); }
+    .links { display: grid; gap: var(--space-3); }
     .link {
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      padding: 18px 22px; border-radius: 14px; text-decoration: none;
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
-      transition: background .2s ease, border-color .2s ease;
+      display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+      padding: var(--space-4) var(--space-6); border-radius: var(--radius-lg); text-decoration: none;
+      background: var(--surface-raised); border: 1px solid var(--line); color: var(--ink);
+      transition: border-color .15s ease-out, transform .2s ease-out;
     }
-    .link:hover, .link:focus-visible { background: rgba(59,130,246,.12); border-color: #3b82f6; outline: none; }
-    .link b { display: block; color: #fff; font-size: 16px; font-weight: 600; }
-    .link span { color: #94a3b8; font-size: 14px; }
-    .link i { color: #93c5fd; font-size: 20px; line-height: 1; flex-shrink: 0; }
-    .contacts { margin-top: 38px; font-size: 14px; color: #64748b; }
-    .contacts a { color: #93c5fd; text-decoration: none; }
-    @media (max-width: 480px) {
-      h1 { font-size: 27px; }
-      .link { padding: 15px 18px; }
-    }
+    .link:hover { border-color: var(--rain); color: var(--ink); transform: translateY(-2px); }
+    .link b { display: block; font-weight: 600; }
+    .link span span { color: var(--ink-muted); font-size: 14px; }
+    .link i { font-style: normal; font-family: var(--font-mono); color: var(--rain); }
+    .contacts { margin-top: var(--space-8); font-size: 14px; color: var(--ink-muted); }
+    .contacts a { white-space: nowrap; }
   </style>
 </head>
 <body>
   <div class="box">
-    <a href="/" class="logo"><img src="/logo.png" alt="SoftRain">SoftRain</a>
+    <a href="/" class="logo" aria-label="SoftRain — на главную"><img src="/assets/softrain-logo.svg" alt="SoftRain" width="157" height="48"></a>
 
-    <div class="code">ОШИБКА 404</div>
-    <h1>Такой страницы у нас нет</h1>
-    <p>Возможно, адрес набран с опечаткой или страница была удалена. Вот что есть на сайте:</p>
+    <p class="eyebrow">Ошибка 404</p>
+    <h1 class="h1">Такой страницы у нас нет</h1>
+    <p class="lead">Возможно, адрес набран с опечаткой или страница была удалена. Вот что есть на сайте:</p>
 
     <div class="links">
       <a class="link" href="/">

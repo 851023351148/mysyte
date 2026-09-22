@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <title>SoftRain - Поставщик ИТ оборудования и программного обеспечения</title>
   <meta name="description" content="SoftRain — поставщик ИТ оборудования, бизнес-анализ, автоматизация процессов и AI инструменты для бизнеса. Серверы, сетевое оборудование, хранилища данных, компьютеры и лицензионное ПО.">
   <meta name="keywords" content="ИТ оборудование, серверы, бизнес анализ, автоматизация, AI инструменты, сетевое оборудование, хранилища данных, компьютеры, программное обеспечение, SoftRain">
@@ -21,16 +21,18 @@
   <meta property="og:url" content="https://softrain.kz/">
   <meta property="og:title" content="SoftRain — IT-решения для бизнеса">
   <meta property="og:description" content="Бизнес-анализ, автоматизация процессов, AI-инструменты и поставка IT-оборудования для вашей компании.">
-  <meta property="og:image" content="https://softrain.kz/logo.png">
+  <meta property="og:image" content="https://softrain.kz/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:site_name" content="SoftRain">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SoftRain — IT-решения для бизнеса">
   <meta name="twitter:description" content="Бизнес-анализ, автоматизация процессов, AI-инструменты и поставка IT-оборудования.">
-  <meta name="twitter:image" content="https://softrain.kz/logo.png">
+  <meta name="twitter:image" content="https://softrain.kz/assets/og-image.png">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -39,7 +41,7 @@
     "@type": "Organization",
     "name": "SoftRain",
     "url": "https://softrain.kz",
-    "logo": "https://softrain.kz/logo.png",
+    "logo": "https://softrain.kz/assets/softrain-mark-512.png",
     "description": "IT-решения для бизнеса: бизнес-анализ, автоматизация процессов, AI-инструменты, поставка IT-оборудования и ПО.",
     "email": "vm@softrain.kz",
     "telephone": "+77074239899",
@@ -69,1129 +71,70 @@
   }
   </script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/softrain.css">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.7;
-      background-color: #f8fafc;
-      color: #1e293b;
-    }
-
-    /* ===== NAVIGATION ===== */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(20px);
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 70px;
-      transition: all 0.3s ease;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .navbar.scrolled {
-      background: rgba(15, 23, 42, 0.98);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: white;
-    }
-
-    .nav-logo img {
-      height: 40px;
-      border-radius: 6px;
-    }
-
-    .nav-logo span {
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: white;
-      background: rgba(255,255,255,0.1);
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .language-switcher {
-      display: flex;
-      gap: 4px;
-    }
-
-    .language-switcher button {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.7);
-      font-size: 13px;
-      cursor: pointer;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
-
-    .language-switcher button:hover {
-      background: rgba(255,255,255,0.2);
-      color: white;
-    }
-
-    .language-switcher button.active {
-      background: #3b82f6;
-      border-color: #3b82f6;
-      color: white;
-      font-weight: 600;
-    }
-
-    /* Mobile menu toggle */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    /* ===== HERO SECTION ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 20px 80px;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                  radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
-      animation: heroGlow 15s ease-in-out infinite alternate;
-    }
-
-    @keyframes heroGlow {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-5%, 5%); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      color: #93c5fd;
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 30px;
-      letter-spacing: 0.5px;
-    }
-
-    .hero-badge i {
-      font-size: 12px;
-    }
-
-    .hero h1 {
-      font-size: 56px;
-      font-weight: 800;
-      color: white;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      letter-spacing: -2px;
-    }
-
-    .hero h1 .gradient-text {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: rgba(255,255,255,0.6);
-      max-width: 600px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
-      font-weight: 300;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 32px;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: white;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: white;
-      border: 2px solid rgba(255,255,255,0.2);
-    }
-
-    .btn-outline:hover {
-      border-color: rgba(255,255,255,0.4);
-      background: rgba(255,255,255,0.05);
-      transform: translateY(-2px);
-    }
-
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-top: 60px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .stat-item {
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 36px;
-      font-weight: 800;
-      color: white;
-      letter-spacing: -1px;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      margin-top: 4px;
-      font-weight: 500;
-    }
-
-    /* ===== SECTION COMMON ===== */
-    .section {
-      padding: 100px 20px;
-    }
-
-    .section-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #3b82f6;
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-size: 40px;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -1.5px;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .section-subtitle {
-      font-size: 18px;
-      color: #64748b;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* ===== SERVICES SECTION ===== */
-    .services-section {
-      background: white;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .service-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 20px;
-      padding: 40px 30px;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--card-color, #3b82f6), var(--card-color-end, #2563eb));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-      border-color: transparent;
-    }
-
-    .service-card:hover::before {
-      opacity: 1;
-    }
-
-    .service-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      margin-bottom: 24px;
-      transition: transform 0.3s ease;
-    }
-
-    .service-card:hover .service-icon {
-      transform: scale(1.1);
-    }
-
-    .service-icon.blue {
-      background: rgba(59, 130, 246, 0.1);
-      color: #3b82f6;
-    }
-
-    .service-icon.purple {
-      background: rgba(139, 92, 246, 0.1);
-      color: #8b5cf6;
-    }
-
-    .service-icon.cyan {
-      background: rgba(6, 182, 212, 0.1);
-      color: #06b6d4;
-    }
-
-    .service-icon.orange {
-      background: rgba(245, 158, 11, 0.1);
-      color: #f59e0b;
-    }
-
-    .service-icon.green {
-      background: rgba(16, 185, 129, 0.1);
-      color: #10b981;
-    }
-
-    .service-icon.rose {
-      background: rgba(244, 63, 94, 0.1);
-      color: #f43f5e;
-    }
-
-    .service-card h3 {
-      font-size: 22px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-
-    .service-card p {
-      font-size: 15px;
-      color: #64748b;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .service-features {
-      list-style: none;
-    }
-
-    .service-features li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 0;
-      font-size: 14px;
-      color: #475569;
-    }
-
-    .service-features li i {
-      font-size: 12px;
-      color: #22c55e;
-      flex-shrink: 0;
-    }
-
-    /* ===== PRODUCTS SECTION ===== */
-    .products-section {
-      background: #f8fafc;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-
-    .product-item {
-      background: white;
-      border: 1px solid #e2e8f0;
-      padding: 36px 24px;
-      text-align: center;
-      border-radius: 16px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-      border-color: #3b82f6;
-    }
-
-    .product-item i {
-      font-size: 44px;
-      color: #3b82f6;
-      margin-bottom: 16px;
-      transition: all 0.3s ease;
-    }
-
-    .product-item:hover i {
-      color: #2563eb;
-      transform: scale(1.1);
-    }
-
-    .product-item h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-
-    .product-item p {
-      font-size: 14px;
-      color: #64748b;
-      line-height: 1.6;
-    }
-
-    /* ===== TECH STACK ===== */
-    .tech-section {
-      background: white;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    .tech-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    .tech-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #334155;
-      transition: all 0.3s ease;
-    }
-
-    .tech-item:hover {
-      border-color: #3b82f6;
-      background: rgba(59, 130, 246, 0.05);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    }
-
-    .tech-item i {
-      font-size: 20px;
-      width: 28px;
-      text-align: center;
-    }
-
-    .tech-item .tech-1c { color: #f7d100; }
-    .tech-item .tech-oracle { color: #f80000; }
-    .tech-item .tech-bitrix { color: #00aeef; }
-    .tech-item .tech-zabbix { color: #d40000; }
-    .tech-item .tech-ms { color: #00a4ef; }
-    .tech-item .tech-yandex { color: #fc3f1d; }
-    .tech-item .tech-proxmox { color: #e57000; }
-    .tech-item .tech-node { color: #339933; }
-    .tech-item .tech-linux { color: #fcc624; }
-    .tech-item .tech-vmware { color: #696566; }
-
-    /* ===== WHY CHOOSE US ===== */
-    .advantages-section {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-    }
-
-    .advantages-section .section-label {
-      color: #93c5fd;
-    }
-
-    .advantages-section .section-title {
-      color: white;
-    }
-
-    .advantages-section .section-subtitle {
-      color: rgba(255,255,255,0.6);
-    }
-
-    .advantages-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-    }
-
-    .advantage-card {
-      text-align: center;
-      padding: 30px 20px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: all 0.3s ease;
-    }
-
-    .advantage-card:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-4px);
-    }
-
-    .advantage-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 24px;
-      background: rgba(59, 130, 246, 0.2);
-      color: #93c5fd;
-    }
-
-    .advantage-card h4 {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .advantage-card p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.6;
-    }
-
-    /* ===== CASES SECTION ===== */
-    .cases-section {
-      background: white;
-    }
-
-    .cases-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .case-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .case-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-      border-color: transparent;
-    }
-
-    .case-card-visual {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      padding: 48px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .case-card-visual::before {
-      content: '';
-      position: absolute;
-      top: -30%;
-      right: -30%;
-      width: 250px;
-      height: 250px;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-    }
-
-    .case-card-visual .case-logo {
-      font-size: 36px;
-      font-weight: 800;
-      color: white;
-      letter-spacing: -1.5px;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .case-card-visual .case-logo .gradient-text {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .case-card-stats {
-      display: flex;
-      gap: 24px;
-      position: relative;
-    }
-
-    .case-card-stat {
-      text-align: center;
-    }
-
-    .case-card-stat .num {
-      font-size: 28px;
-      font-weight: 800;
-      color: #93c5fd;
-      line-height: 1;
-    }
-
-    .case-card-stat .lbl {
-      font-size: 11px;
-      color: rgba(255,255,255,0.5);
-      margin-top: 4px;
-      font-weight: 500;
-    }
-
-    .case-card-content {
-      padding: 48px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .case-card-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(59, 130, 246, 0.1);
-      color: #3b82f6;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      width: fit-content;
-    }
-
-    .case-card-content h3 {
-      font-size: 22px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-
-    .case-card-content p {
-      font-size: 15px;
-      color: #64748b;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .case-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .case-card-tag {
-      background: white;
-      border: 1px solid #e2e8f0;
-      color: #475569;
-      padding: 5px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    .case-card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #3b82f6;
-      font-size: 14px;
-      font-weight: 600;
-      transition: gap 0.3s ease;
-    }
-
-    .case-card:hover .case-card-link {
-      gap: 12px;
-    }
-
-    @media (max-width: 768px) {
-      .case-card {
-        grid-template-columns: 1fr;
-      }
-
-      .case-card-visual {
-        padding: 32px 24px;
-      }
-
-      .case-card-content {
-        padding: 32px 24px;
-      }
-
-      .case-card-visual .case-logo {
-        font-size: 28px;
-      }
-    }
-
-    /* ===== CTA SECTION ===== */
-    .cta-section {
-      background: #f8fafc;
-      text-align: center;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      border-radius: 24px;
-      padding: 60px 40px;
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-box::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 400px;
-      height: 400px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-    }
-
-    .cta-box h2 {
-      font-size: 32px;
-      font-weight: 800;
-      color: white;
-      margin-bottom: 16px;
-      position: relative;
-      letter-spacing: -1px;
-    }
-
-    .cta-box p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 32px;
-      position: relative;
-    }
-
-    .cta-contacts {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      position: relative;
-    }
-
-    .cta-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .cta-contact-item:hover {
-      transform: translateY(-2px);
-    }
-
-    .cta-contact-item i {
-      font-size: 20px;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.2);
-      border-radius: 12px;
-    }
-
-    .cta-form {
-      max-width: 500px;
-      margin: 32px auto 0;
-      position: relative;
-    }
-
-    .cta-form-row {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .cta-form input,
-    .cta-form textarea {
-      width: 100%;
-      padding: 14px 18px;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.15);
-      color: white;
-      font-size: 15px;
-      font-family: 'Inter', sans-serif;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .cta-form input::placeholder,
-    .cta-form textarea::placeholder {
-      color: rgba(255,255,255,0.5);
-    }
-
-    .cta-form input:focus,
-    .cta-form textarea:focus {
-      border-color: rgba(255,255,255,0.7);
-    }
-
-    .cta-form textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-
-    .cta-form-btn {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 12px;
-      background: white;
-      color: #3b82f6;
-      font-size: 16px;
-      font-weight: 700;
-      font-family: 'Inter', sans-serif;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .cta-form-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-
-    .cta-form-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .cta-form-status {
-      margin-top: 12px;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .cta-form-status.success { color: #bbf7d0; }
-    .cta-form-status.error { color: #fecaca; }
-
-    @media (max-width: 480px) {
-      .cta-form-row { flex-direction: column; }
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      text-align: center;
-      padding: 30px 20px;
-      background: #0f172a;
-      color: rgba(255,255,255,0.5);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 14px;
-    }
-
-    /* ===== MODAL ===== */
-
-    @keyframes modalSlideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-30px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .tab-btn.active {
-      background: #0f172a;
-      color: white;
-    }
-
-    .tab.active {
-      display: block;
-    }
+    /* Первый экран */
+    .hero { padding: var(--space-16) 0 var(--space-24); }
+    .hero .wrap { display: grid; grid-template-columns: 1fr 440px; gap: var(--space-12); align-items: center; }
+    .hero .display { margin: var(--space-4) 0 var(--space-6); }
+    .hero-actions { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-8); }
+
+    /* Предзаказ iPhone: фон совпадает с фоном фотографии */
+    .promo {
+      display: grid; grid-template-columns: 1fr 1.15fr; align-items: center; gap: var(--space-8);
+      background: #000; color: var(--ink-inverse); border-radius: var(--radius-lg); overflow: hidden;
+      text-decoration: none; transition: transform .2s ease-out, box-shadow .2s ease-out;
+    }
+    .promo:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); color: var(--ink-inverse); }
+    .promo-body { padding: var(--space-12) 0 var(--space-12) var(--space-12); }
+    .promo .eyebrow { color: var(--rain-light); }
+    .promo .h2 { color: var(--ink-inverse); margin: var(--space-3) 0 var(--space-4); }
+    .promo p { color: var(--ink-inverse-muted); }
+    .promo-price { font: 500 28px/34px var(--font-mono); color: var(--ink-inverse); margin: var(--space-6) 0; }
+    .promo .btn { pointer-events: none; }
+    .promo img { width: 100%; height: auto; }
+    .promo:focus-visible { outline: 2px solid var(--rain); outline-offset: 3px; }
+
+    /* Продукты */
+    .products { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); }
+    .product { padding: var(--space-6) var(--space-6) 0 0; display: grid; gap: var(--space-2); align-content: start; }
+    .product + .product { padding-left: var(--space-6); border-left: 1px solid var(--line); }
+    .product p { font-size: 14px; line-height: 22px; color: var(--ink-muted); }
+    .stack { margin-top: var(--space-16); }
+    .stack .eyebrow { margin-bottom: var(--space-4); }
+
+    .cases { display: grid; gap: var(--space-8); }
+
+    /* Форма в блоке контактов */
+    .cta-form { display: grid; gap: var(--space-4); align-content: start; }
+    .cta-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    .cta-form label { color: var(--ink-inverse); }
+    .cta-form .btn { width: 100%; }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-
-      .advantages-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .section-title {
-        font-size: 32px;
-      }
+      .hero .wrap { grid-template-columns: 1fr 320px; }
+      .products { grid-template-columns: repeat(3, 1fr); row-gap: var(--space-6); }
+      .product:nth-child(3n+1) { padding-left: 0; border-left: 0; }
     }
-
-    @media (max-width: 768px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .navbar {
-        padding: 0 20px;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(15, 23, 42, 0.98);
-        flex-direction: column;
-        padding: 20px;
-        gap: 4px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 12px 16px;
-        width: 100%;
-        text-align: left;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 120px 20px 60px;
-      }
-
-      .hero h1 {
-        font-size: 32px;
-        letter-spacing: -1px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .hero-stats {
-        gap: 30px;
-        flex-wrap: wrap;
-      }
-
-      .stat-number {
-        font-size: 28px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-      }
-
-      .section {
-        padding: 60px 20px;
-      }
-
-      .section-title {
-        font-size: 28px;
-      }
-
-      .advantages-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .products-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-      }
-
-      .cta-box {
-        padding: 40px 24px;
-      }
-
-      .cta-box h2 {
-        font-size: 24px;
-      }
-
-      .cta-contacts {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-      }
-
+    @media (max-width: 860px) {
+      .hero { padding: var(--space-12) 0 var(--space-16); }
+      .hero .wrap { grid-template-columns: 1fr; }
+      .hero-art { display: none; }
+      .promo { grid-template-columns: 1fr; gap: 0; }
+      .promo-body { padding: var(--space-8) var(--space-6) 0; }
     }
-
-    @media (max-width: 480px) {
-      .nav-right {
-        gap: 8px;
-      }
-
-      .language-switcher button {
-        padding: 5px 8px;
-        font-size: 12px;
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 640px) {
+      .products { grid-template-columns: 1fr 1fr; }
+      .product, .product + .product { padding: var(--space-4) var(--space-4) 0 0; border-left: 0; }
+      .cta-form .row { grid-template-columns: 1fr; }
+      .promo-price { font-size: 24px; }
     }
   </style>
+
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
       (function(m,e,t,r,i,k,a){
@@ -1207,695 +150,348 @@
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <a href="#" class="nav-logo">
-      <img src="logo.png" alt="SoftRain">
-      <span>SoftRain</span>
-    </a>
+  <nav class="nav" id="navbar">
+    <div class="wrap">
+      <a href="./" class="nav-logo" aria-label="SoftRain"><img src="assets/softrain-logo.svg" alt="SoftRain" width="157" height="48"></a>
 
-    <button class="menu-toggle" id="menuToggle">
-      <i class="fas fa-bars"></i>
-    </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a class="lang-text" data-lang-ru="Услуги" data-lang-en="Services" href="#services">Услуги</a></li>
+        <li><a class="lang-text" data-lang-ru="Продукты" data-lang-en="Products" href="#products">Продукты</a></li>
+        <li><a href="iphone-18-pro/">iPhone 18 Pro</a></li>
+        <li><a class="lang-text" data-lang-ru="Кейсы" data-lang-en="Cases" href="#cases">Кейсы</a></li>
+        <li><a class="lang-text" data-lang-ru="Контакты" data-lang-en="Contacts" href="#contact">Контакты</a></li>
+      </ul>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#services" class="lang-text" data-lang-ru="Услуги" data-lang-en="Services">Услуги</a></li>
-      <li><a href="#products" class="lang-text" data-lang-ru="Продукты" data-lang-en="Products">Продукты</a></li>
-      <li><a href="#advantages" class="lang-text" data-lang-ru="Преимущества" data-lang-en="Advantages">Преимущества</a></li>
-      <li><a href="#cases" class="lang-text" data-lang-ru="Кейсы" data-lang-en="Cases">Кейсы</a></li>
-      <li><a href="#contact" class="lang-text" data-lang-ru="Контакты" data-lang-en="Contacts">Контакты</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <div class="language-switcher">
-        <button class="lang-btn active" data-lang="ru">RU</button>
-        <button class="lang-btn" data-lang="en">EN</button>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Язык / Language">
+          <button class="lang-btn active" data-lang="ru">RU</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <a class="lang-text btn btn-primary" data-lang-ru="Оставить заявку" data-lang-en="Get in touch" href="#contact">Оставить заявку</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Меню" aria-expanded="false" aria-controls="navLinks"><span></span></button>
       </div>
-      <!-- Кнопка «Войти» скрыта: личный кабинет пока не используется -->
     </div>
   </nav>
 
-  <!-- Auth Modal -->
+  <main>
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <p class="lang-text eyebrow" data-lang-ru="IT-консалтинг · Казахстан" data-lang-en="IT consulting · Kazakhstan">IT-консалтинг · Казахстан</p>
+        <h1 class="display"><span class="lang-text" data-lang-ru="Анализ. Оптимизация." data-lang-en="Analysis. Optimization.">Анализ. Оптимизация.</span> <em>AI.</em> <span class="lang-text" data-lang-ru="Подготовка к росту." data-lang-en="Ready to grow.">Подготовка к росту.</span></h1>
+        <p class="lang-text lead" data-lang-ru="Описываем бизнес-процессы, разрабатываем KPI и готовим вашу компанию к автоматизации — чтобы внедрение прошло быстро и без лишних затрат" data-lang-en="We map business processes, develop KPIs and prepare your company for automation — so implementation is fast and cost-effective">Описываем бизнес-процессы, разрабатываем KPI и готовим вашу компанию к автоматизации — чтобы внедрение прошло быстро и без лишних затрат</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary"><span class="lang-text" data-lang-ru="Обсудить проект" data-lang-en="Discuss a project">Обсудить проект</span> <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="lang-text btn btn-secondary" data-lang-ru="Наши услуги" data-lang-en="Our Services" href="#services">Наши услуги</a>
+        </div>
+      </div>
+      <svg class="hero-art rain-art" viewBox="0 0 480 440" aria-hidden="true">
+        <rect class="soft" x="0" y="0" width="400" height="360" rx="16"/>
+        <rect class="rain" x="240" y="200" width="240" height="240" rx="16"/>
+        <rect class="sun" x="64" y="376" width="112" height="64" rx="16"/>
+        <rect class="rain" x="40" y="104" width="6" height="24" rx="3"/><rect class="rain" x="64" y="88" width="6" height="24" rx="3"/><rect class="rain" x="88" y="152" width="6" height="16" rx="3"/><rect class="rain" x="112" y="248" width="6" height="16" rx="3"/><rect class="rain" x="136" y="112" width="6" height="24" rx="3"/><rect class="rain" x="160" y="120" width="6" height="16" rx="3"/><rect class="rain" x="184" y="72" width="6" height="32" rx="3"/><rect class="rain" x="184" y="144" width="6" height="24" rx="3"/><rect class="rain" x="208" y="200" width="6" height="24" rx="3"/><rect class="rain" x="232" y="200" width="6" height="32" rx="3"/><rect class="rain" x="256" y="80" width="6" height="16" rx="3"/><rect class="rain" x="256" y="136" width="6" height="24" rx="3"/><rect class="rain" x="280" y="80" width="6" height="32" rx="3"/><rect class="rain" x="280" y="280" width="6" height="24" rx="3"/><rect class="rain" x="304" y="224" width="6" height="32" rx="3"/><rect class="rain" x="328" y="88" width="6" height="16" rx="3"/><rect class="rain" x="352" y="272" width="6" height="24" rx="3"/><rect class="rain" x="112" y="40" width="6" height="16" rx="3"/><rect class="rain" x="208" y="40" width="6" height="24" rx="3"/>
+      </svg>
+    </div>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <i class="fas fa-rocket"></i>
-        <span class="lang-text" data-lang-ru="IT-решения для вашего бизнеса" data-lang-en="IT solutions for your business">IT-решения для вашего бизнеса</span>
+  <section class="section" style="padding-top:0" aria-label="Предзаказ iPhone 18 Pro">
+    <div class="wrap">
+      <a class="promo" href="iphone-18-pro/">
+        <div class="promo-body">
+          <p class="lang-text eyebrow" data-lang-ru="Предзаказ открыт" data-lang-en="Pre-orders open">Предзаказ открыт</p>
+          <h2 class="lang-text h2" data-lang-ru="iPhone 18 Pro и Pro Max" data-lang-en="iPhone 18 Pro and Pro Max">iPhone 18 Pro и Pro Max</h2>
+          <p class="lang-text" data-lang-ru="Привезём 10–11 октября. Доставка по Алматы, официальная гарантия, оплата Kaspi после подтверждения." data-lang-en="Delivered October 10–11. Delivery in Almaty, official warranty, Kaspi payment after confirmation.">Привезём 10–11 октября. Доставка по Алматы, официальная гарантия, оплата Kaspi после подтверждения.</p>
+          <div class="promo-price"><span class="lang-text" data-lang-ru="от 834 990 ₸" data-lang-en="from 834 990 ₸">от 834 990 ₸</span></div>
+          <span class="btn btn-inverse"><span class="lang-text" data-lang-ru="Выбрать модель" data-lang-en="Choose a model">Выбрать модель</span> <span class="arrow" aria-hidden="true">→</span></span>
+        </div>
+        <img src="iphone-18-pro/img/lineup.jpg" alt="iPhone 18 Pro в цветах Black, Silver, Glacier и Burgundy" width="980" height="700" loading="lazy">
+      </a>
+    </div>
+  </section>
+
+  <section class="section section--sunken" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="lang-text eyebrow" data-lang-ru="01 — Что мы делаем" data-lang-en="01 — What we do">01 — Что мы делаем</p>
+          <h2 class="lang-text h2" data-lang-ru="Услуги для бизнеса" data-lang-en="Business Services">Услуги для бизнеса</h2>
+        </div>
+        <p class="lang-text lead" data-lang-ru="Подготовим вашу компанию к автоматизации: от аудита процессов до готового ТЗ для интегратора" data-lang-en="We prepare your company for automation: from process audit to a ready-made brief for the integrator">Подготовим вашу компанию к автоматизации: от аудита процессов до готового ТЗ для интегратора</p>
       </div>
-      <h1>
-        <span class="lang-text" data-lang-ru="Анализ." data-lang-en="Analysis.">Анализ.</span><br>
-        <span class="gradient-text lang-text" data-lang-ru="Оптимизация. AI." data-lang-en="Optimization. AI.">Оптимизация. AI.</span><br>
-        <span class="lang-text" data-lang-ru="Подготовка к росту." data-lang-en="Ready to grow.">Подготовка к росту.</span>
-      </h1>
-      <p class="lang-text"
-         data-lang-ru="Описываем бизнес-процессы, разрабатываем KPI и готовим вашу компанию к автоматизации — чтобы внедрение прошло быстро и без лишних затрат"
-         data-lang-en="We map business processes, develop KPIs and prepare your company for automation — so implementation is fast and cost-effective">
-        Описываем бизнес-процессы, разрабатываем KPI и готовим вашу компанию к автоматизации — чтобы внедрение прошло быстро и без лишних затрат
-      </p>
-      <div class="hero-buttons">
-        <a href="#services" class="btn btn-primary">
-          <i class="fas fa-arrow-right"></i>
-          <span class="lang-text" data-lang-ru="Наши услуги" data-lang-en="Our Services">Наши услуги</span>
-        </a>
-        <a href="#contact" class="btn btn-outline">
-          <i class="fas fa-envelope"></i>
-          <span class="lang-text" data-lang-ru="Связаться с нами" data-lang-en="Contact Us">Связаться с нами</span>
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-number lang-text" data-lang-ru="50+" data-lang-en="50+">50+</div>
-          <div class="stat-label lang-text" data-lang-ru="Клиентов" data-lang-en="Clients">Клиентов</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number lang-text" data-lang-ru="100+" data-lang-en="100+">100+</div>
-          <div class="stat-label lang-text" data-lang-ru="Проектов" data-lang-en="Projects">Проектов</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number lang-text" data-lang-ru="5 лет" data-lang-en="5 years">5 лет</div>
-          <div class="stat-label lang-text" data-lang-ru="На рынке" data-lang-en="In the market">На рынке</div>
-        </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-num"><span>01</span><span class="lang-text" data-lang-ru="Анализ" data-lang-en="Analysis">Анализ</span></div>
+          <h3 class="lang-text h3" data-lang-ru="Бизнес-анализ" data-lang-en="Business Analysis">Бизнес-анализ</h3>
+          <p class="lang-text" data-lang-ru="Глубокий анализ бизнес-процессов вашей компании для выявления точек роста и оптимизации" data-lang-en="In-depth analysis of your company&#x27;s business processes to identify growth points and optimization opportunities">Глубокий анализ бизнес-процессов вашей компании для выявления точек роста и оптимизации</p>
+          <ul class="list">
+            <li class="lang-text" data-lang-ru="Аудит текущих процессов" data-lang-en="Current process audit">Аудит текущих процессов</li>
+            <li class="lang-text" data-lang-ru="Анализ данных и метрик" data-lang-en="Data and metrics analysis">Анализ данных и метрик</li>
+            <li class="lang-text" data-lang-ru="Стратегические рекомендации" data-lang-en="Strategic recommendations">Стратегические рекомендации</li>
+            <li class="lang-text" data-lang-ru="Дорожная карта развития" data-lang-en="Development roadmap">Дорожная карта развития</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-num"><span>02</span><span class="lang-text" data-lang-ru="ТЗ" data-lang-en="Specs">ТЗ</span></div>
+          <h3 class="lang-text h3" data-lang-ru="Подготовка к автоматизации" data-lang-en="Automation Readiness">Подготовка к автоматизации</h3>
+          <p class="lang-text" data-lang-ru="Формируем требования и ТЗ для внедрения CRM, ERP и других систем — чтобы интегратор работал по чёткому плану" data-lang-en="We create requirements and specs for CRM, ERP and other systems — so the integrator works from a clear plan">Формируем требования и ТЗ для внедрения CRM, ERP и других систем — чтобы интегратор работал по чёткому плану</p>
+          <ul class="list">
+            <li class="lang-text" data-lang-ru="Сбор и формализация требований" data-lang-en="Requirements gathering and formalization">Сбор и формализация требований</li>
+            <li class="lang-text" data-lang-ru="Техническое задание для интегратора" data-lang-en="Technical brief for integrator">Техническое задание для интегратора</li>
+            <li class="lang-text" data-lang-ru="Выбор подходящей системы" data-lang-en="Choosing the right system">Выбор подходящей системы</li>
+            <li class="lang-text" data-lang-ru="Дорожная карта внедрения" data-lang-en="Implementation roadmap">Дорожная карта внедрения</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-num"><span>03</span><span class="lang-text" data-lang-ru="AI" data-lang-en="AI">AI</span></div>
+          <h3 class="lang-text h3" data-lang-ru="AI-инструменты" data-lang-en="AI Tools">AI-инструменты</h3>
+          <p class="lang-text" data-lang-ru="Подбор и интеграция AI-инструментов в бизнес-процессы для принятия решений на основе данных" data-lang-en="Selection and integration of AI tools into business processes for data-driven decision making">Подбор и интеграция AI-инструментов в бизнес-процессы для принятия решений на основе данных</p>
+          <ul class="list">
+            <li class="lang-text" data-lang-ru="Предиктивная аналитика" data-lang-en="Predictive analytics">Предиктивная аналитика</li>
+            <li class="lang-text" data-lang-ru="Обработка данных с ML" data-lang-en="Data processing with ML">Обработка данных с ML</li>
+            <li class="lang-text" data-lang-ru="Генерация контента и отчётов" data-lang-en="Content and report generation">Генерация контента и отчётов</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-num"><span>04</span><span class="lang-text" data-lang-ru="1C · ERP" data-lang-en="1C · ERP">1C · ERP</span></div>
+          <h3 class="lang-text h3" data-lang-ru="Консалтинг 1C &amp; ERP" data-lang-en="1C &amp; ERP Consulting">Консалтинг 1C &amp; ERP</h3>
+          <p class="lang-text" data-lang-ru="Аудит, подбор решений и подготовка к внедрению 1С и других учётных систем" data-lang-en="Audit, solution selection and preparation for implementing 1C and other accounting systems">Аудит, подбор решений и подготовка к внедрению 1С и других учётных систем</p>
+          <ul class="list">
+            <li class="lang-text" data-lang-ru="Аудит текущих учётных систем" data-lang-en="Current accounting systems audit">Аудит текущих учётных систем</li>
+            <li class="lang-text" data-lang-ru="Подбор оптимального решения" data-lang-en="Optimal solution selection">Подбор оптимального решения</li>
+            <li class="lang-text" data-lang-ru="Бюджетирование и BI-аналитика" data-lang-en="Budgeting and BI analytics">Бюджетирование и BI-аналитика</li>
+            <li class="lang-text" data-lang-ru="ТЗ и план внедрения" data-lang-en="Specs and implementation plan">ТЗ и план внедрения</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-num"><span>05</span><span class="lang-text" data-lang-ru="Инфра" data-lang-en="Infra">Инфра</span></div>
+          <h3 class="lang-text h3" data-lang-ru="IT-инфраструктура" data-lang-en="IT Infrastructure">IT-инфраструктура</h3>
+          <p class="lang-text" data-lang-ru="Аудит, проектирование и планирование миграции серверной инфраструктуры и облачных решений" data-lang-en="Audit, design and migration planning for server infrastructure and cloud solutions">Аудит, проектирование и планирование миграции серверной инфраструктуры и облачных решений</p>
+          <ul class="list">
+            <li class="lang-text" data-lang-ru="Миграции ESXi, Proxmox, облачные платформы" data-lang-en="ESXi, Proxmox, cloud platform migrations">Миграции ESXi, Proxmox, облачные платформы</li>
+            <li class="lang-text" data-lang-ru="Мониторинг Zabbix с Telegram-ботами" data-lang-en="Zabbix monitoring with Telegram bots">Мониторинг Zabbix с Telegram-ботами</li>
+            <li class="lang-text" data-lang-ru="Linux-администрирование и сервисы" data-lang-en="Linux administration and services">Linux-администрирование и сервисы</li>
+            <li class="lang-text" data-lang-ru="Nextcloud, OnlyOffice, бэкапы" data-lang-en="Nextcloud, OnlyOffice, backups">Nextcloud, OnlyOffice, бэкапы</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-num"><span>06</span><span class="lang-text" data-lang-ru="M365" data-lang-en="M365">M365</span></div>
+          <h3 class="lang-text h3" data-lang-ru="Microsoft 365 &amp; Security" data-lang-en="Microsoft 365 &amp; Security">Microsoft 365 &amp; Security</h3>
+          <p class="lang-text" data-lang-ru="Аудит и проектирование гибридной инфраструктуры, политик безопасности и управления устройствами" data-lang-en="Audit and design of hybrid infrastructure, security policies and device management">Аудит и проектирование гибридной инфраструктуры, политик безопасности и управления устройствами</p>
+          <ul class="list">
+            <li class="lang-text" data-lang-ru="Миграция между тенантами" data-lang-en="Tenant-to-tenant migration">Миграция между тенантами</li>
+            <li class="lang-text" data-lang-ru="Гибридная AD + Azure AD" data-lang-en="Hybrid AD + Azure AD">Гибридная AD + Azure AD</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="section services-section" id="services">
-    <div class="section-container">
-      <div class="section-header">
-        <div class="section-label">
-          <i class="fas fa-cogs"></i>
-          <span class="lang-text" data-lang-ru="Что мы делаем" data-lang-en="What we do">Что мы делаем</span>
+  <section class="section" id="products">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="lang-text eyebrow" data-lang-ru="02 — IT-оборудование и ПО" data-lang-en="02 — IT equipment &amp; software">02 — IT-оборудование и ПО</p>
+          <h2 class="lang-text h2" data-lang-ru="Наши продукты" data-lang-en="Our Products">Наши продукты</h2>
         </div>
-        <h2 class="section-title lang-text" data-lang-ru="Услуги для бизнеса" data-lang-en="Business Services">Услуги для бизнеса</h2>
-        <p class="section-subtitle lang-text"
-           data-lang-ru="Подготовим вашу компанию к автоматизации: от аудита процессов до готового ТЗ для интегратора"
-           data-lang-en="We prepare your company for automation: from process audit to a ready-made brief for the integrator">
-          Подготовим вашу компанию к автоматизации: от аудита процессов до готового ТЗ для интегратора
-        </p>
+        <p class="lang-text lead" data-lang-ru="Поставка IT-оборудования и лицензионного программного обеспечения" data-lang-en="Supply of IT equipment and licensed software">Поставка IT-оборудования и лицензионного программного обеспечения</p>
+      </div>
+      <div class="products">
+        <div class="product">
+          <h3 class="lang-text h3" data-lang-ru="Серверы" data-lang-en="Servers">Серверы</h3>
+          <p class="lang-text" data-lang-ru="Серверные решения для бизнеса любого масштаба" data-lang-en="Server solutions for businesses of any scale">Серверные решения для бизнеса любого масштаба</p>
+        </div>
+        <div class="product">
+          <h3 class="lang-text h3" data-lang-ru="Сетевое оборудование" data-lang-en="Network Equipment">Сетевое оборудование</h3>
+          <p class="lang-text" data-lang-ru="Коммутаторы, роутеры и точки доступа" data-lang-en="Switches, routers, and access points">Коммутаторы, роутеры и точки доступа</p>
+        </div>
+        <div class="product">
+          <h3 class="lang-text h3" data-lang-ru="Хранилища данных" data-lang-en="Data Storage">Хранилища данных</h3>
+          <p class="lang-text" data-lang-ru="Системы хранения для больших данных" data-lang-en="Storage systems for big data">Системы хранения для больших данных</p>
+        </div>
+        <div class="product">
+          <h3 class="lang-text h3" data-lang-ru="Программное обеспечение" data-lang-en="Software">Программное обеспечение</h3>
+          <p class="lang-text" data-lang-ru="Лицензионный софт для бизнеса" data-lang-en="Licensed software for business">Лицензионный софт для бизнеса</p>
+        </div>
+        <div class="product">
+          <h3 class="lang-text h3" data-lang-ru="Компьютеры" data-lang-en="Computers">Компьютеры</h3>
+          <p class="lang-text" data-lang-ru="Рабочие станции, ноутбуки и комплектующие" data-lang-en="Workstations, laptops, and components">Рабочие станции, ноутбуки и комплектующие</p>
+        </div>
       </div>
 
-      <div class="services-grid">
-        <!-- Business Analysis -->
-        <div class="service-card" style="--card-color: #3b82f6; --card-color-end: #06b6d4;">
-          <div class="service-icon blue">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3 class="lang-text" data-lang-ru="Бизнес-анализ" data-lang-en="Business Analysis">Бизнес-анализ</h3>
-          <p class="lang-text"
-             data-lang-ru="Глубокий анализ бизнес-процессов вашей компании для выявления точек роста и оптимизации"
-             data-lang-en="In-depth analysis of your company's business processes to identify growth points and optimization opportunities">
-            Глубокий анализ бизнес-процессов вашей компании для выявления точек роста и оптимизации
-          </p>
-          <ul class="service-features">
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Аудит текущих процессов" data-lang-en="Current process audit">Аудит текущих процессов</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Анализ данных и метрик" data-lang-en="Data and metrics analysis">Анализ данных и метрик</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Стратегические рекомендации" data-lang-en="Strategic recommendations">Стратегические рекомендации</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Дорожная карта развития" data-lang-en="Development roadmap">Дорожная карта развития</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Automation -->
-        <div class="service-card" style="--card-color: #8b5cf6; --card-color-end: #a855f7;">
-          <div class="service-icon purple">
-            <i class="fas fa-gears"></i>
-          </div>
-          <h3 class="lang-text" data-lang-ru="Подготовка к автоматизации" data-lang-en="Automation Readiness">Подготовка к автоматизации</h3>
-          <p class="lang-text"
-             data-lang-ru="Формируем требования и ТЗ для внедрения CRM, ERP и других систем — чтобы интегратор работал по чёткому плану"
-             data-lang-en="We create requirements and specs for CRM, ERP and other systems — so the integrator works from a clear plan">
-            Формируем требования и ТЗ для внедрения CRM, ERP и других систем — чтобы интегратор работал по чёткому плану
-          </p>
-          <ul class="service-features">
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Сбор и формализация требований" data-lang-en="Requirements gathering and formalization">Сбор и формализация требований</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Техническое задание для интегратора" data-lang-en="Technical brief for integrator">Техническое задание для интегратора</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Выбор подходящей системы" data-lang-en="Choosing the right system">Выбор подходящей системы</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Дорожная карта внедрения" data-lang-en="Implementation roadmap">Дорожная карта внедрения</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- AI Tools -->
-        <div class="service-card" style="--card-color: #06b6d4; --card-color-end: #22d3ee;">
-          <div class="service-icon cyan">
-            <i class="fas fa-robot"></i>
-          </div>
-          <h3 class="lang-text" data-lang-ru="AI-инструменты" data-lang-en="AI Tools">AI-инструменты</h3>
-          <p class="lang-text"
-             data-lang-ru="Подбор и интеграция AI-инструментов в бизнес-процессы для принятия решений на основе данных"
-             data-lang-en="Selection and integration of AI tools into business processes for data-driven decision making">
-            Подбор и интеграция AI-инструментов в бизнес-процессы для принятия решений на основе данных
-          </p>
-          <ul class="service-features">
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Предиктивная аналитика" data-lang-en="Predictive analytics">Предиктивная аналитика</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Обработка данных с ML" data-lang-en="Data processing with ML">Обработка данных с ML</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Генерация контента и отчётов" data-lang-en="Content and report generation">Генерация контента и отчётов</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- 1C & ERP -->
-        <div class="service-card" style="--card-color: #f59e0b; --card-color-end: #f97316;">
-          <div class="service-icon orange">
-            <i class="fas fa-database"></i>
-          </div>
-          <h3 class="lang-text" data-lang-ru="Консалтинг 1C & ERP" data-lang-en="1C & ERP Consulting">Консалтинг 1C & ERP</h3>
-          <p class="lang-text"
-             data-lang-ru="Аудит, подбор решений и подготовка к внедрению 1С и других учётных систем"
-             data-lang-en="Audit, solution selection and preparation for implementing 1C and other accounting systems">
-            Аудит, подбор решений и подготовка к внедрению 1С и других учётных систем
-          </p>
-          <ul class="service-features">
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Аудит текущих учётных систем" data-lang-en="Current accounting systems audit">Аудит текущих учётных систем</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Подбор оптимального решения" data-lang-en="Optimal solution selection">Подбор оптимального решения</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Бюджетирование и BI-аналитика" data-lang-en="Budgeting and BI analytics">Бюджетирование и BI-аналитика</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="ТЗ и план внедрения" data-lang-en="Specs and implementation plan">ТЗ и план внедрения</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- IT Infrastructure -->
-        <div class="service-card" style="--card-color: #10b981; --card-color-end: #34d399;">
-          <div class="service-icon green">
-            <i class="fas fa-server"></i>
-          </div>
-          <h3 class="lang-text" data-lang-ru="IT-инфраструктура" data-lang-en="IT Infrastructure">IT-инфраструктура</h3>
-          <p class="lang-text"
-             data-lang-ru="Аудит, проектирование и планирование миграции серверной инфраструктуры и облачных решений"
-             data-lang-en="Audit, design and migration planning for server infrastructure and cloud solutions">
-            Аудит, проектирование и планирование миграции серверной инфраструктуры и облачных решений
-          </p>
-          <ul class="service-features">
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Миграции ESXi, Proxmox, облачные платформы" data-lang-en="ESXi, Proxmox, cloud platform migrations">Миграции ESXi, Proxmox, облачные платформы</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Мониторинг Zabbix с Telegram-ботами" data-lang-en="Zabbix monitoring with Telegram bots">Мониторинг Zabbix с Telegram-ботами</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Linux-администрирование и сервисы" data-lang-en="Linux administration and services">Linux-администрирование и сервисы</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Nextcloud, OnlyOffice, бэкапы" data-lang-en="Nextcloud, OnlyOffice, backups">Nextcloud, OnlyOffice, бэкапы</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Microsoft 365 & Security -->
-        <div class="service-card" style="--card-color: #f43f5e; --card-color-end: #fb7185;">
-          <div class="service-icon rose">
-            <i class="fab fa-microsoft"></i>
-          </div>
-          <h3 class="lang-text" data-lang-ru="Microsoft 365 & Security" data-lang-en="Microsoft 365 & Security">Microsoft 365 & Security</h3>
-          <p class="lang-text"
-             data-lang-ru="Аудит и проектирование гибридной инфраструктуры, политик безопасности и управления устройствами"
-             data-lang-en="Audit and design of hybrid infrastructure, security policies and device management">
-            Аудит и проектирование гибридной инфраструктуры, политик безопасности и управления устройствами
-          </p>
-          <ul class="service-features">
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Миграция между тенантами" data-lang-en="Tenant-to-tenant migration">Миграция между тенантами</span>
-            </li>
-            <li>
-              <i class="fas fa-check-circle"></i>
-              <span class="lang-text" data-lang-ru="Гибридная AD + Azure AD" data-lang-en="Hybrid AD + Azure AD">Гибридная AD + Azure AD</span>
-            </li>
-          </ul>
-        </div>
+      <div class="stack" id="tech">
+        <h2 class="lang-text eyebrow" data-lang-ru="03 — Наш стек" data-lang-en="03 — Our tech stack">03 — Наш стек</h2>
+        <div class="tags"><span class="tag tag--outline">1C</span> <span class="tag tag--outline">Microsoft 365</span> <span class="tag tag--outline">Zabbix</span> <span class="lang-text tag tag--outline" data-lang-ru="Облачные платформы" data-lang-en="Cloud Platforms">Облачные платформы</span> <span class="tag tag--outline">VMware ESXi</span> <span class="tag tag--outline">Proxmox</span> <span class="tag tag--outline">Node.js / NestJS</span> <span class="tag tag--outline">Linux</span></div>
       </div>
     </div>
   </section>
 
-  <!-- Products Section -->
-  <section class="section products-section" id="products">
-    <div class="section-container">
-      <div class="section-header">
-        <div class="section-label">
-          <i class="fas fa-box"></i>
-          <span class="lang-text" data-lang-ru="IT-оборудование" data-lang-en="IT Equipment">IT-оборудование</span>
+  <section class="section section--sunken" id="cases">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="lang-text eyebrow" data-lang-ru="04 — Наши кейсы" data-lang-en="04 — Our cases">04 — Наши кейсы</p>
+          <h2 class="lang-text h2" data-lang-ru="Реализованные проекты" data-lang-en="Completed Projects">Реализованные проекты</h2>
         </div>
-        <h2 class="section-title lang-text" data-lang-ru="Наши продукты" data-lang-en="Our Products">Наши продукты</h2>
-        <p class="section-subtitle lang-text"
-           data-lang-ru="Поставка IT-оборудования и лицензионного программного обеспечения"
-           data-lang-en="Supply of IT equipment and licensed software">
-          Поставка IT-оборудования и лицензионного программного обеспечения
-        </p>
+        <p class="lang-text lead" data-lang-ru="Примеры наших проектов по бизнес-анализу и автоматизации" data-lang-en="Examples of our business analysis and automation projects">Примеры наших проектов по бизнес-анализу и автоматизации</p>
       </div>
-
-      <div class="products-grid">
-        <div class="product-item">
-          <i class="fas fa-server"></i>
-          <h3 class="lang-text" data-lang-ru="Серверы" data-lang-en="Servers">Серверы</h3>
-          <p class="lang-text" data-lang-ru="Серверные решения для бизнеса любого масштаба"
-             data-lang-en="Server solutions for businesses of any scale">
-            Серверные решения для бизнеса любого масштаба
-          </p>
-        </div>
-        <div class="product-item">
-          <i class="fas fa-network-wired"></i>
-          <h3 class="lang-text" data-lang-ru="Сетевое оборудование" data-lang-en="Network Equipment">Сетевое оборудование</h3>
-          <p class="lang-text" data-lang-ru="Коммутаторы, роутеры и точки доступа"
-             data-lang-en="Switches, routers, and access points">
-            Коммутаторы, роутеры и точки доступа
-          </p>
-        </div>
-        <div class="product-item">
-          <i class="fas fa-hdd"></i>
-          <h3 class="lang-text" data-lang-ru="Хранилища данных" data-lang-en="Data Storage">Хранилища данных</h3>
-          <p class="lang-text" data-lang-ru="Системы хранения для больших данных"
-             data-lang-en="Storage systems for big data">
-            Системы хранения для больших данных
-          </p>
-        </div>
-        <div class="product-item">
-          <i class="fas fa-code"></i>
-          <h3 class="lang-text" data-lang-ru="Программное обеспечение" data-lang-en="Software">Программное обеспечение</h3>
-          <p class="lang-text" data-lang-ru="Лицензионный софт для бизнеса"
-             data-lang-en="Licensed software for business">
-            Лицензионный софт для бизнеса
-          </p>
-        </div>
-        <div class="product-item">
-          <i class="fas fa-desktop"></i>
-          <h3 class="lang-text" data-lang-ru="Компьютеры" data-lang-en="Computers">Компьютеры</h3>
-          <p class="lang-text" data-lang-ru="Рабочие станции, ноутбуки и комплектующие"
-             data-lang-en="Workstations, laptops, and components">
-            Рабочие станции, ноутбуки и комплектующие
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tech Stack Section -->
-  <section class="section tech-section" id="tech">
-    <div class="section-container">
-      <div class="section-header" style="text-align:center;">
-        <div class="section-label">
-          <i class="fas fa-microchip"></i>
-          <span class="lang-text" data-lang-ru="Технологии" data-lang-en="Technologies">Технологии</span>
-        </div>
-        <h2 class="section-title lang-text" data-lang-ru="Наш стек" data-lang-en="Our Tech Stack">Наш стек</h2>
-        <p class="section-subtitle lang-text" style="margin:0 auto;"
-           data-lang-ru="Технологии и платформы, с которыми мы работаем"
-           data-lang-en="Technologies and platforms we work with">
-          Технологии и платформы, с которыми мы работаем
-        </p>
-      </div>
-
-      <div class="tech-grid">
-        <div class="tech-item">
-          <i class="fas fa-cube tech-1c"></i>
-          <span>1C</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-microsoft tech-ms"></i>
-          <span>Microsoft 365</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-chart-area tech-zabbix"></i>
-          <span>Zabbix</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-cloud tech-yandex"></i>
-          <span class="lang-text" data-lang-ru="Облачные платформы" data-lang-en="Cloud Platforms">Облачные платформы</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-server tech-vmware"></i>
-          <span>VMware ESXi</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-box tech-proxmox"></i>
-          <span>Proxmox</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-node-js tech-node"></i>
-          <span>Node.js / NestJS</span>
-        </div>
-        <div class="tech-item">
-          <i class="fab fa-linux tech-linux"></i>
-          <span>Linux</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Advantages Section -->
-  <section class="section advantages-section" id="advantages">
-    <div class="section-container">
-      <div class="section-header">
-        <div class="section-label">
-          <i class="fas fa-star"></i>
-          <span class="lang-text" data-lang-ru="Почему мы" data-lang-en="Why us">Почему мы</span>
-        </div>
-        <h2 class="section-title lang-text" data-lang-ru="Наши преимущества" data-lang-en="Our Advantages">Наши преимущества</h2>
-        <p class="section-subtitle lang-text"
-           data-lang-ru="Работаем на результат и строим долгосрочные отношения с клиентами"
-           data-lang-en="We work for results and build long-term relationships with clients">
-          Работаем на результат и строим долгосрочные отношения с клиентами
-        </p>
-      </div>
-
-      <div class="advantages-grid">
-        <div class="advantage-card">
-          <div class="advantage-icon">
-            <i class="fas fa-bolt"></i>
+      <div class="cases">
+        <a href="geokurs-case.html" class="case">
+          <div class="case-body">
+            <div class="case-client"><span>Geokurs</span><span class="lang-text tag tag--sun" data-lang-ru="Бизнес-анализ" data-lang-en="Business Analysis">Бизнес-анализ</span></div>
+            <h3 class="lang-text h3" data-lang-ru="Описание процессов и KPI для Geokurs" data-lang-en="Process Mapping &amp; KPI for Geokurs">Описание процессов и KPI для Geokurs</h3>
+            <p class="lang-text" data-lang-ru="Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования" data-lang-en="Business process mapping, KPI matrix development, and automation roadmap for a geodetic equipment supplier">Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования</p>
+            <div class="tags"><span class="tag">BPMN</span><span class="tag">KPI</span><span class="tag">1C</span></div>
+            <span class="case-link"><span class="lang-text" data-lang-ru="Подробнее о кейсе" data-lang-en="Read the case">Подробнее о кейсе</span> <span class="arrow" aria-hidden="true">→</span></span>
           </div>
-          <h4 class="lang-text" data-lang-ru="Быстрое внедрение" data-lang-en="Fast Implementation">Быстрое внедрение</h4>
-          <p class="lang-text" data-lang-ru="Оперативный запуск проектов без долгих согласований"
-             data-lang-en="Quick project launch without lengthy approvals">
-            Оперативный запуск проектов без долгих согласований
-          </p>
-        </div>
-        <div class="advantage-card">
-          <div class="advantage-icon">
-            <i class="fas fa-shield-halved"></i>
-          </div>
-          <h4 class="lang-text" data-lang-ru="Надёжность" data-lang-en="Reliability">Надёжность</h4>
-          <p class="lang-text" data-lang-ru="Гарантия качества на все поставки и услуги"
-             data-lang-en="Quality guarantee on all supplies and services">
-            Гарантия качества на все поставки и услуги
-          </p>
-        </div>
-        <div class="advantage-card">
-          <div class="advantage-icon">
-            <i class="fas fa-handshake"></i>
-          </div>
-          <h4 class="lang-text" data-lang-ru="Индивидуальный подход" data-lang-en="Individual Approach">Индивидуальный подход</h4>
-          <p class="lang-text" data-lang-ru="Решения, адаптированные под задачи вашего бизнеса"
-             data-lang-en="Solutions tailored to your business needs">
-            Решения, адаптированные под задачи вашего бизнеса
-          </p>
-        </div>
-        <div class="advantage-card">
-          <div class="advantage-icon">
-            <i class="fas fa-headset"></i>
-          </div>
-          <h4 class="lang-text" data-lang-ru="Поддержка 24/7" data-lang-en="24/7 Support">Поддержка 24/7</h4>
-          <p class="lang-text" data-lang-ru="Техническая поддержка и сопровождение после внедрения"
-             data-lang-en="Technical support and maintenance after implementation">
-            Техническая поддержка и сопровождение после внедрения
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cases Section -->
-  <section class="section cases-section" id="cases">
-    <div class="section-container">
-      <div class="section-header" style="text-align:center;">
-        <div class="section-label">
-          <i class="fas fa-briefcase"></i>
-          <span class="lang-text" data-lang-ru="Наши кейсы" data-lang-en="Our Cases">Наши кейсы</span>
-        </div>
-        <h2 class="section-title lang-text" data-lang-ru="Реализованные проекты" data-lang-en="Completed Projects">Реализованные проекты</h2>
-        <p class="section-subtitle lang-text" style="margin:0 auto;"
-           data-lang-ru="Примеры наших проектов по бизнес-анализу и автоматизации"
-           data-lang-en="Examples of our business analysis and automation projects">
-          Примеры наших проектов по бизнес-анализу и автоматизации
-        </p>
-      </div>
-
-      <div class="cases-grid">
-        <a href="geokurs-case.html" class="case-card">
-          <div class="case-card-visual">
-            <div class="case-logo">
-              <span class="gradient-text">Geokurs</span>
-            </div>
-            <div class="case-card-stats">
-              <div class="case-card-stat">
-                <div class="num">12</div>
-                <div class="lbl lang-text" data-lang-ru="процессов" data-lang-en="processes">процессов</div>
-              </div>
-              <div class="case-card-stat">
-                <div class="num">29+</div>
-                <div class="lbl">KPI</div>
-              </div>
-              <div class="case-card-stat">
-                <div class="num">70+</div>
-                <div class="lbl lang-text" data-lang-ru="задач" data-lang-en="tasks">задач</div>
-              </div>
-            </div>
-          </div>
-          <div class="case-card-content">
-            <div class="case-card-badge">
-              <i class="fas fa-chart-line"></i>
-              <span class="lang-text" data-lang-ru="Бизнес-анализ" data-lang-en="Business Analysis">Бизнес-анализ</span>
-            </div>
-            <h3 class="lang-text" data-lang-ru="Описание процессов и KPI для Geokurs" data-lang-en="Process Mapping & KPI for Geokurs">Описание процессов и KPI для Geokurs</h3>
-            <p class="lang-text"
-               data-lang-ru="Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования"
-               data-lang-en="Business process mapping, KPI matrix development, and automation roadmap for a geodetic equipment supplier">
-              Описание бизнес-процессов, разработка матрицы KPI и дорожной карты автоматизации для поставщика геодезического оборудования
-            </p>
-            <div class="case-card-tags">
-              <span class="case-card-tag">BPMN</span>
-              <span class="case-card-tag">KPI</span>
-              <span class="case-card-tag">1C</span>
-            </div>
-            <div class="case-card-link">
-              <span class="lang-text" data-lang-ru="Подробнее" data-lang-en="Learn more">Подробнее</span>
-              <i class="fas fa-arrow-right"></i>
-            </div>
+          <div class="case-facts">
+            <div class="stat"><span class="stat-value stat-value--accent">12</span><span class="lang-text stat-label" data-lang-ru="процессов" data-lang-en="processes">процессов</span></div>
+            <div class="stat"><span class="stat-value">29+</span><span class="stat-label">KPI</span></div>
+            <div class="stat"><span class="stat-value">70+</span><span class="lang-text stat-label" data-lang-ru="задач" data-lang-en="tasks">задач</span></div>
           </div>
         </a>
 
-        <div class="case-card">
-          <div class="case-card-visual">
-            <div class="case-logo">
-              <span class="gradient-text lang-text" data-lang-ru="Казтелерадио" data-lang-en="Kazteleradio">Казтелерадио</span>
-            </div>
-            <div class="case-card-stats">
-              <div class="case-card-stat">
-                <div class="num">50+</div>
-                <div class="lbl lang-text" data-lang-ru="процессов" data-lang-en="processes">процессов</div>
-              </div>
-              <div class="case-card-stat">
-                <div class="num lang-text" data-lang-ru="Все" data-lang-en="All">Все</div>
-                <div class="lbl lang-text" data-lang-ru="департаменты" data-lang-en="departments">департаменты</div>
-              </div>
-              <div class="case-card-stat">
-                <div class="num">1</div>
-                <div class="lbl lang-text" data-lang-ru="IT-система" data-lang-en="IT system">IT-система</div>
-              </div>
-            </div>
+        <div class="case">
+          <div class="case-body">
+            <div class="case-client"><span class="lang-text" data-lang-ru="Казтелерадио" data-lang-en="Kazteleradio">Казтелерадио</span><span class="lang-text tag tag--outline" data-lang-ru="Корпоративный проект" data-lang-en="Corporate Project">Корпоративный проект</span></div>
+            <h3 class="lang-text h3" data-lang-ru="Описание бизнес-процессов АО «Казтелерадио»" data-lang-en="Business Process Mapping for Kazteleradio JSC">Описание бизнес-процессов АО «Казтелерадио»</h3>
+            <p class="lang-text" data-lang-ru="Описание бизнес-процессов всех департаментов центрального аппарата. Разработка внутренней системы тестирования сотрудников на основе HR-процессов" data-lang-en="Business process mapping across all central office departments. Development of an internal employee testing system based on HR processes">Описание бизнес-процессов всех департаментов центрального аппарата. Разработка внутренней системы тестирования сотрудников на основе HR-процессов</p>
+            <div class="tags"><span class="tag">draw.io</span><span class="tag">Visio</span><span class="tag">C#</span><span class="tag">TypeScript</span><span class="tag">BPMN</span></div>
           </div>
-          <div class="case-card-content">
-            <div class="case-card-badge">
-              <i class="fas fa-building-columns"></i>
-              <span class="lang-text" data-lang-ru="Корпоративный проект" data-lang-en="Corporate Project">Корпоративный проект</span>
-            </div>
-            <h3 class="lang-text" data-lang-ru="Описание бизнес-процессов АО «Казтелерадио»" data-lang-en="Business Process Mapping for Kazteleradio JSC">Описание бизнес-процессов АО «Казтелерадио»</h3>
-            <p class="lang-text"
-               data-lang-ru="Описание бизнес-процессов всех департаментов центрального аппарата. Разработка внутренней системы тестирования сотрудников на основе HR-процессов"
-               data-lang-en="Business process mapping across all central office departments. Development of an internal employee testing system based on HR processes">
-              Описание бизнес-процессов всех департаментов центрального аппарата. Разработка внутренней системы тестирования сотрудников на основе HR-процессов
-            </p>
-            <div class="case-card-tags">
-              <span class="case-card-tag">draw.io</span>
-              <span class="case-card-tag">Visio</span>
-              <span class="case-card-tag">C#</span>
-              <span class="case-card-tag">TypeScript</span>
-              <span class="case-card-tag">BPMN</span>
-            </div>
+          <div class="case-facts">
+            <div class="stat"><span class="stat-value stat-value--accent">50+</span><span class="lang-text stat-label" data-lang-ru="процессов" data-lang-en="processes">процессов</span></div>
+            <div class="stat"><span class="lang-text stat-value" data-lang-ru="Все" data-lang-en="All">Все</span><span class="lang-text stat-label" data-lang-ru="департаменты" data-lang-en="departments">департаменты</span></div>
+            <div class="stat"><span class="stat-value">1</span><span class="lang-text stat-label" data-lang-ru="IT-система" data-lang-en="IT system">IT-система</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA / Contact Section -->
-  <section class="section cta-section" id="contact">
-    <div class="section-container">
-      <div class="cta-box">
-        <h2 class="lang-text" data-lang-ru="Готовы начать?" data-lang-en="Ready to start?">Готовы начать?</h2>
-        <p class="lang-text"
-           data-lang-ru="Свяжитесь с нами, чтобы обсудить ваш проект и получить бесплатную консультацию"
-           data-lang-en="Contact us to discuss your project and get a free consultation">
-          Свяжитесь с нами, чтобы обсудить ваш проект и получить бесплатную консультацию
-        </p>
-        <div class="cta-contacts">
-          <a href="mailto:vm@softrain.kz" class="cta-contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>vm@softrain.kz</span>
-          </a>
-          <a href="tel:+77074239899" class="cta-contact-item">
-            <i class="fas fa-phone"></i>
-            <span>+7 (707) 423-98-99</span>
-          </a>
-          <a href="https://wa.me/77074239899" target="_blank" class="cta-contact-item">
-            <i class="fab fa-whatsapp"></i>
-            <span>WhatsApp</span>
-          </a>
-          <a href="https://t.me/WRain" target="_blank" class="cta-contact-item">
-            <i class="fab fa-telegram"></i>
-            <span>Telegram</span>
-          </a>
-        </div>
-        <form class="cta-form" id="contactForm" onsubmit="return false;">
-          <div class="cta-form-row">
-            <input type="text" id="formName" placeholder="Имя" data-placeholder-ru="Имя" data-placeholder-en="Name" required>
-            <input type="tel" id="formPhone" placeholder="Телефон" data-placeholder-ru="Телефон" data-placeholder-en="Phone" required>
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <p class="lang-text eyebrow" data-lang-ru="05 — Контакты" data-lang-en="05 — Contacts">05 — Контакты</p>
+          <h2 class="lang-text h2" data-lang-ru="Готовы начать?" data-lang-en="Ready to start?">Готовы начать?</h2>
+          <p class="lang-text" data-lang-ru="Свяжитесь с нами, чтобы обсудить ваш проект и получить бесплатную консультацию" data-lang-en="Contact us to discuss your project and get a free consultation">Свяжитесь с нами, чтобы обсудить ваш проект и получить бесплатную консультацию</p>
+          <div class="cta-contacts">
+            <a href="mailto:vm@softrain.kz">vm@softrain.kz <span aria-hidden="true">→</span></a>
+            <a href="tel:+77074239899">+7 (707) 423-98-99 <span aria-hidden="true">→</span></a>
+            <a href="https://wa.me/77074239899" target="_blank" rel="noopener">WhatsApp <span aria-hidden="true">→</span></a>
+            <a href="https://t.me/WRain" target="_blank" rel="noopener">Telegram <span aria-hidden="true">→</span></a>
           </div>
-          <textarea id="formMessage" placeholder="Опишите задачу" data-placeholder-ru="Опишите задачу" data-placeholder-en="Describe your task"></textarea>
-          <button type="submit" class="cta-form-btn" id="formSubmitBtn">
-            <span class="lang-text" data-lang-ru="Оставить заявку" data-lang-en="Submit request">Оставить заявку</span>
-          </button>
-          <div class="cta-form-status" id="formStatus"></div>
+        </div>
+
+        <form class="cta-form" id="contactForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <label class="lang-text" data-lang-ru="Имя" data-lang-en="Name" for="formName">Имя</label>
+              <input class="input" type="text" id="formName" placeholder="Как к вам обращаться" data-placeholder-ru="Как к вам обращаться" data-placeholder-en="Your name" required>
+            </div>
+            <div class="field">
+              <label class="lang-text" data-lang-ru="Телефон" data-lang-en="Phone" for="formPhone">Телефон</label>
+              <input class="input" type="tel" id="formPhone" placeholder="+7 7XX XXX XX XX" data-placeholder-ru="+7 7XX XXX XX XX" data-placeholder-en="+7 7XX XXX XX XX" required>
+            </div>
+          </div>
+          <div class="field">
+            <label class="lang-text" data-lang-ru="Задача" data-lang-en="Task" for="formMessage">Задача</label>
+            <textarea class="input" id="formMessage" placeholder="Опишите задачу" data-placeholder-ru="Опишите задачу" data-placeholder-en="Describe your task"></textarea>
+          </div>
+          <button type="submit" class="btn btn-inverse" id="formSubmitBtn"><span class="lang-text" data-lang-ru="Оставить заявку" data-lang-en="Submit request">Оставить заявку</span> <span class="arrow" aria-hidden="true">→</span></button>
+          <div class="form-status" id="formStatus" role="status"></div>
         </form>
       </div>
     </div>
   </section>
+  </main>
 
-  <!-- Footer -->
-  <div class="footer">
-    <p class="lang-text" data-lang-ru="&copy; 2025 SoftRain. Все права защищены."
-       data-lang-en="&copy; 2025 SoftRain. All rights reserved.">
-      &copy; 2025 SoftRain. Все права защищены.
-    </p>
-  </div>
-
+  <footer class="footer">
+    <div class="wrap">
+      <span class="lang-text" data-lang-ru="© 2026 SoftRain. Все права защищены." data-lang-en="© 2026 SoftRain. All rights reserved.">© 2026 SoftRain. Все права защищены.</span>
+      <a href="mailto:vm@softrain.kz">vm@softrain.kz</a>
+    </div>
+  </footer>
 
   <script>
-
-    // Language switching
+    // ==== Переключение языка ====
     function initLanguageSwitcher() {
       var langButtons = document.querySelectorAll('.lang-btn');
       var elements = document.querySelectorAll('.lang-text');
 
       function switchLanguage(lang) {
         for (var i = 0; i < langButtons.length; i++) {
-          langButtons[i].classList.remove('active');
+          langButtons[i].classList.toggle('active', langButtons[i].getAttribute('data-lang') === lang);
         }
-        var activeBtn = document.querySelector('.lang-btn[data-lang="' + lang + '"]');
-        if (activeBtn) activeBtn.classList.add('active');
-
         document.documentElement.lang = lang;
 
-        for (var i = 0; i < elements.length; i++) {
-          var text = elements[i].getAttribute('data-lang-' + lang);
-          if (text) {
-            if (elements[i].innerHTML.includes('&copy;') || text.includes('&copy;')) {
-              elements[i].innerHTML = text;
-            } else {
-              elements[i].textContent = text;
-            }
-          }
+        for (var j = 0; j < elements.length; j++) {
+          var text = elements[j].getAttribute('data-lang-' + lang);
+          if (text) elements[j].textContent = text;
         }
 
         document.title = lang === 'ru'
           ? 'SoftRain - IT-решения для бизнеса'
           : 'SoftRain - IT Solutions for Business';
 
-        // Update form placeholders
-        if (typeof updateFormPlaceholders === 'function') updateFormPlaceholders(lang);
-
-        // Save preference
-        try { localStorage.setItem('lang', lang); } catch(e) {}
+        updateFormPlaceholders(lang);
+        try { localStorage.setItem('lang', lang); } catch (e) {}
       }
 
       function getLanguage() {
         try {
           var saved = localStorage.getItem('lang');
           if (saved) return saved;
-        } catch(e) {}
-        var browserLang = navigator.language || navigator.languages[0];
+        } catch (e) {}
+        var browserLang = navigator.language || (navigator.languages && navigator.languages[0]) || 'ru';
         var lang = browserLang.split('-')[0];
         return ['ru', 'en'].indexOf(lang) !== -1 ? lang : 'ru';
       }
 
-      for (var i = 0; i < langButtons.length; i++) {
-        langButtons[i].addEventListener('click', function() {
-          var lang = this.getAttribute('data-lang');
-          switchLanguage(lang);
+      for (var k = 0; k < langButtons.length; k++) {
+        langButtons[k].addEventListener('click', function () {
+          switchLanguage(this.getAttribute('data-lang'));
         });
       }
 
       switchLanguage(getLanguage());
     }
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-      var navbar = document.getElementById('navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
+    function updateFormPlaceholders(lang) {
+      var inputs = document.querySelectorAll('[data-placeholder-ru]');
+      for (var i = 0; i < inputs.length; i++) {
+        var ph = inputs[i].getAttribute('data-placeholder-' + lang);
+        if (ph) inputs[i].placeholder = ph;
       }
+    }
+
+    // ==== Навигация: фон при прокрутке и мобильное меню ====
+    window.addEventListener('scroll', function () {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
     });
 
-    // Mobile menu toggle
-    document.getElementById('menuToggle').addEventListener('click', function() {
-      document.getElementById('navLinks').classList.toggle('active');
+    var menuToggle = document.getElementById('menuToggle');
+    var navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-
-    // Close mobile menu on link click
-    document.querySelectorAll('.nav-links a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        document.getElementById('navLinks').classList.remove('active');
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
 
+    // ==== Форма заявки ====
     // Приёмник заявок — Cloudflare Worker.
     // Токен бота лежит в секретах Worker и в этот файл не попадает.
     var ORDER_ENDPOINT = 'https://softrain-orders.vm-065.workers.dev';
 
-    // Форма обратной связи
     function initContactForm() {
       var form = document.getElementById('contactForm');
       if (!form) return;
 
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
 
         var name = document.getElementById('formName').value.trim();
@@ -1903,16 +499,17 @@
         var message = document.getElementById('formMessage').value.trim();
         var btn = document.getElementById('formSubmitBtn');
         var status = document.getElementById('formStatus');
+        var en = document.documentElement.lang === 'en';
 
         if (!name || !phone) {
-          status.textContent = 'Заполните имя и телефон';
-          status.className = 'cta-form-status error';
+          status.textContent = en ? 'Please enter your name and phone' : 'Заполните имя и телефон';
+          status.className = 'form-status error';
           return;
         }
 
         btn.disabled = true;
         status.textContent = '';
-        status.className = 'cta-form-status';
+        status.className = 'form-status';
 
         fetch(ORDER_ENDPOINT, {
           method: 'POST',
@@ -1922,37 +519,27 @@
             page: location.pathname, website: ''
           })
         })
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-          if (data.ok) {
-            status.textContent = 'Заявка отправлена! Мы свяжемся с вами.';
-            status.className = 'cta-form-status success';
-            form.reset();
-          } else {
-            throw new Error('Telegram API error');
-          }
-        })
-        .catch(function() {
-          status.textContent = 'Ошибка отправки. Попробуйте через WhatsApp или Telegram.';
-          status.className = 'cta-form-status error';
-        })
-        .finally(function() {
-          btn.disabled = false;
-        });
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data.ok) {
+              status.textContent = en ? 'Request sent! We will contact you.' : 'Заявка отправлена! Мы свяжемся с вами.';
+              status.className = 'form-status success';
+              form.reset();
+            } else {
+              throw new Error('Telegram API error');
+            }
+          })
+          .catch(function () {
+            status.textContent = en ? 'Could not send. Please message us on WhatsApp or Telegram.' : 'Ошибка отправки. Попробуйте через WhatsApp или Telegram.';
+            status.className = 'form-status error';
+          })
+          .finally(function () {
+            btn.disabled = false;
+          });
       });
     }
 
-    // Update form placeholders on language switch
-    function updateFormPlaceholders(lang) {
-      var inputs = document.querySelectorAll('[data-placeholder-ru]');
-      for (var i = 0; i < inputs.length; i++) {
-        var ph = inputs[i].getAttribute('data-placeholder-' + lang);
-        if (ph) inputs[i].placeholder = ph;
-      }
-    }
-
-    // Init
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       initLanguageSwitcher();
       initContactForm();
     });
