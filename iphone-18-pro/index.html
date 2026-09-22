@@ -733,6 +733,40 @@
     }
     selectModel(CATALOG[0].id, false);
 
+    // ==== Предвыбор из ссылки ====
+    // softrain.kz/zakaz?model=pro-1tb&color=burgundy — подставляет модель и цвет.
+    // Короткие псевдонимы моделей допускаются: 1tb, max512 и т.п.
+    (function applyLinkParams() {
+      var q;
+      try { q = new URLSearchParams(location.search); } catch (e) { return; }
+
+      var want = (q.get('model') || q.get('m') || '').toLowerCase().replace(/[\s_]/g, '-');
+      if (want) {
+        var aliases = {
+          '256': 'pro-256', 'pro256': 'pro-256', '512': 'pro-512', 'pro512': 'pro-512',
+          '1tb': 'pro-1tb', 'pro1tb': 'pro-1tb', 'max': 'max-256', 'max256': 'max-256',
+          'max512': 'max-512', 'promax': 'max-256'
+        };
+        var id = aliases[want.replace(/-/g, '')] || want;
+        for (var i = 0; i < CATALOG.length; i++) {
+          if (CATALOG[i].id === id) { selectModel(id, false); break; }
+        }
+      }
+
+      var wantColor = (q.get('color') || q.get('c') || '').toLowerCase();
+      if (wantColor) {
+        for (var j = 0; j < COLORS.length; j++) {
+          if (COLORS[j].id === wantColor) {
+            selectedColor = COLORS[j];
+            var sw = document.getElementById('fColors').children;
+            Array.prototype.forEach.call(sw, function (n, k) { n.classList.toggle('active', k === j); });
+            updateSummary();
+            break;
+          }
+        }
+      }
+    })();
+
     // ==== FAQ ====
     Array.prototype.forEach.call(document.querySelectorAll('.faq-q'), function (q) {
       q.addEventListener('click', function () { q.parentElement.classList.toggle('open'); });
